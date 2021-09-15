@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Model
 {
-    class Class1
+    enum Incident_Type
     {
+        test, test2
     }
 }
