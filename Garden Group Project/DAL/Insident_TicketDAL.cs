@@ -9,9 +9,8 @@ using MongoDB.Driver.Linq;
 
 namespace DAL
 {
-    class Insident_TicketDAL : Base
+    public class Insident_TicketDAL : Base
     {
-        private IMongoCollection<BsonDocument> collection;
         public Insident_TicketDAL() : base()
         {
             collection = db.GetCollection<BsonDocument>("grades");
@@ -19,10 +18,7 @@ namespace DAL
         
         public void GetById()
         {
-            string q = "{ Incident_Id :1 }";
 
-            List<BsonDocument> documents = Find(collection, q);
-            Console.WriteLine(documents);
         }
     }
 }

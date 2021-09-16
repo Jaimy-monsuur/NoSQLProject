@@ -1,5 +1,5 @@
 ﻿
-namespace Garden_Group_UI
+namespace GardenGroupUI
 {
     partial class Form1
     {

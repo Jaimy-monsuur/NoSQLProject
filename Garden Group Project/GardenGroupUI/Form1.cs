@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logic_Layer;
 
-namespace Garden_Group_UI
+namespace GardenGroupUI
 {
     public partial class Form1 : Form
     {

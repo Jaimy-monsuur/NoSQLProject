@@ -3,8 +3,12 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Garden_Group_UI</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Logic Layer\Logic_Layer.csproj" />
+    <ProjectReference Include="..\Model\Model.csproj" />
+  </ItemGroup>
 
 </Project>
