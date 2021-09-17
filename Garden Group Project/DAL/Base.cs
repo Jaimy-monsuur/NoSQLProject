@@ -59,7 +59,7 @@ namespace DAL
             collection.UpdateMany(f, u);
         }
 
-        protected void Delete(string colName,, string filter)// filter must be like this: string filter = "\"id\", 1000"
+        protected void Delete(string colName, string filter)// filter must be like this: string filter = "\"id\", 1000"
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
             string[] filterArray = filter.Split(",");
