@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MongoDB.Bson;
 
 namespace Model
 {
     public class Incident_Ticket
     {
-        public int objectId;
+        public ObjectId objectId;
         public int id;
         public DateTime reportDate;
         public string subjectOfIncident;
