@@ -7,7 +7,7 @@ namespace Logic_Layer
 {
     public class Insident_TickedLogic
     {
-        Insident_TicketDAL dal = new Insident_TicketDAL();
+        Incident_TicketDAL dal = new Incident_TicketDAL();
 
     }
 }
