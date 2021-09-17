@@ -12,7 +12,6 @@ namespace DAL
         protected string connectionString;
         protected MongoClient dbClient;
         protected IMongoDatabase db;
-        protected IMongoCollection<BsonDocument> collection;
         protected Base()
         {
             connectionString = ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
@@ -20,6 +19,10 @@ namespace DAL
             db = dbClient.GetDatabase("Garden_Goup");
         }
 
+        public List<BsonDocument> GetCollecction(string colName)
+        {
+            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
+            return collection.Find(new BsonDocument()).ToList();
         }
     }
 }
