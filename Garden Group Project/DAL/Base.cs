@@ -59,20 +59,12 @@ namespace DAL
             collection.UpdateMany(f, u);
         }
 
-        protected void DeleteOne(string colName, string filter)// filter must be like this: string filter = "\"id\", 1000"
+        protected void Delete(string colName, string filter)// filter must be like this: string filter = "\"id\", 1000"
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
             string[] filterArray = filter.Split(",");
             var deleteFilter = Builders<BsonDocument>.Filter.Eq(filterArray[0], filterArray[1]);// mischien nog aan passen???
             collection.DeleteOne(deleteFilter);
-        }
-
-        protected void DeleteMany(string colName, string filter)// filter must be like this: string filter = "\"id\", 1000"
-        {
-            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
-            string[] filterArray = filter.Split(",");
-            var deleteFilter = Builders<BsonDocument>.Filter.Eq(filterArray[0], filterArray[1]);// mischien nog aan passen???
-            collection.DeleteMany(deleteFilter);
         }
     }
 }
