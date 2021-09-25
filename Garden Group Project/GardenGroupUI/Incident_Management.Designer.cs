@@ -30,13 +30,19 @@ namespace GardenGroupUI
         private void InitializeComponent()
         {
             this.PNLmain = new System.Windows.Forms.Panel();
+            this.LBLLicense = new System.Windows.Forms.Label();
+            this.LBLnodesk = new System.Windows.Forms.Label();
             this.PBOX = new System.Windows.Forms.PictureBox();
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incidentManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.LBLnodesk = new System.Windows.Forms.Label();
-            this.LBLLicense = new System.Windows.Forms.Label();
+            this.LblTicket = new System.Windows.Forms.Label();
+            this.TBXfilter = new System.Windows.Forms.TextBox();
+            this.BTNaddTicket = new System.Windows.Forms.Button();
+            this.LVTickets = new System.Windows.Forms.ListView();
+            this.Id = new System.Windows.Forms.ColumnHeader();
+            this.Subject = new System.Windows.Forms.ColumnHeader();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
             this.Menu.SuspendLayout();
@@ -53,6 +59,26 @@ namespace GardenGroupUI
             this.PNLmain.Size = new System.Drawing.Size(1260, 124);
             this.PNLmain.TabIndex = 0;
             this.PNLmain.Paint += new System.Windows.Forms.PaintEventHandler(this.PNLmain_Paint);
+            // 
+            // LBLLicense
+            // 
+            this.LBLLicense.AutoSize = true;
+            this.LBLLicense.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBLLicense.Location = new System.Drawing.Point(965, 59);
+            this.LBLLicense.Name = "LBLLicense";
+            this.LBLLicense.Size = new System.Drawing.Size(130, 28);
+            this.LBLLicense.TabIndex = 2;
+            this.LBLLicense.Text = "Licensed to: ";
+            // 
+            // LBLnodesk
+            // 
+            this.LBLnodesk.AutoSize = true;
+            this.LBLnodesk.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBLnodesk.Location = new System.Drawing.Point(1092, 9);
+            this.LBLnodesk.Name = "LBLnodesk";
+            this.LBLnodesk.Size = new System.Drawing.Size(158, 50);
+            this.LBLnodesk.TabIndex = 1;
+            this.LBLnodesk.Text = "NoDesk";
             // 
             // PBOX
             // 
@@ -100,31 +126,59 @@ namespace GardenGroupUI
             this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.userManagementToolStripMenuItem.Text = "User management";
             // 
-            // LBLnodesk
+            // LblTicket
             // 
-            this.LBLnodesk.AutoSize = true;
-            this.LBLnodesk.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBLnodesk.Location = new System.Drawing.Point(1092, 9);
-            this.LBLnodesk.Name = "LBLnodesk";
-            this.LBLnodesk.Size = new System.Drawing.Size(158, 50);
-            this.LBLnodesk.TabIndex = 1;
-            this.LBLnodesk.Text = "NoDesk";
+            this.LblTicket.AutoSize = true;
+            this.LblTicket.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LblTicket.Location = new System.Drawing.Point(124, 146);
+            this.LblTicket.Name = "LblTicket";
+            this.LblTicket.Size = new System.Drawing.Size(252, 41);
+            this.LblTicket.TabIndex = 2;
+            this.LblTicket.Text = "Overview tickets";
             // 
-            // LBLLicense
+            // TBXfilter
             // 
-            this.LBLLicense.AutoSize = true;
-            this.LBLLicense.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBLLicense.Location = new System.Drawing.Point(965, 59);
-            this.LBLLicense.Name = "LBLLicense";
-            this.LBLLicense.Size = new System.Drawing.Size(130, 28);
-            this.LBLLicense.TabIndex = 2;
-            this.LBLLicense.Text = "Licensed to: ";
+            this.TBXfilter.Location = new System.Drawing.Point(124, 202);
+            this.TBXfilter.Name = "TBXfilter";
+            this.TBXfilter.Size = new System.Drawing.Size(326, 27);
+            this.TBXfilter.TabIndex = 3;
+            // 
+            // BTNaddTicket
+            // 
+            this.BTNaddTicket.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BTNaddTicket.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BTNaddTicket.Location = new System.Drawing.Point(979, 193);
+            this.BTNaddTicket.Name = "BTNaddTicket";
+            this.BTNaddTicket.Size = new System.Drawing.Size(172, 36);
+            this.BTNaddTicket.TabIndex = 4;
+            this.BTNaddTicket.Text = "Create button";
+            this.BTNaddTicket.UseVisualStyleBackColor = false;
+            // 
+            // LVTickets
+            // 
+            this.LVTickets.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Id,
+            this.Subject});
+            this.LVTickets.HideSelection = false;
+            this.LVTickets.Location = new System.Drawing.Point(124, 257);
+            this.LVTickets.Name = "LVTickets";
+            this.LVTickets.Size = new System.Drawing.Size(1027, 367);
+            this.LVTickets.TabIndex = 5;
+            this.LVTickets.UseCompatibleStateImageBehavior = false;
+            // 
+            // Id
+            // 
+            this.Id.Width = 40;
             // 
             // Incident_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.LVTickets);
+            this.Controls.Add(this.BTNaddTicket);
+            this.Controls.Add(this.TBXfilter);
+            this.Controls.Add(this.LblTicket);
             this.Controls.Add(this.PNLmain);
             this.MainMenuStrip = this.Menu;
             this.Name = "Incident_Management";
@@ -136,6 +190,7 @@ namespace GardenGroupUI
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -149,5 +204,11 @@ namespace GardenGroupUI
         private System.Windows.Forms.ToolStripMenuItem userManagementToolStripMenuItem;
         private System.Windows.Forms.Label LBLLicense;
         private System.Windows.Forms.Label LBLnodesk;
+        private System.Windows.Forms.Label LblTicket;
+        private System.Windows.Forms.TextBox TBXfilter;
+        private System.Windows.Forms.Button BTNaddTicket;
+        private System.Windows.Forms.ListView LVTickets;
+        private System.Windows.Forms.ColumnHeader Id;
+        private System.Windows.Forms.ColumnHeader Subject;
     }
 }

@@ -34,7 +34,7 @@ namespace DAL
                 { "Priority", t.Incident_Priority },
                 { "Deadline", t.Deadline },
                 { "Description", t.Description },
-
+                { "Status", t.Status },
             };
             Insert(CollectionName(), document);
         }
@@ -54,8 +54,8 @@ namespace DAL
                     ReportedBy = (string)item["Reported_By"],//later aan passen naar class user
                     Incident_Priority = (string)item["Priority"],
                     Deadline = (DateTime)item["Deadline"],
-                    Description = (string)item["Description"]
-
+                    Description = (string)item["Description"],
+                    Status = (string)item["Status"]
                 };
                 list.Add(ticket);
             }
