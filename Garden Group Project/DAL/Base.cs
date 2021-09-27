@@ -19,18 +19,18 @@ namespace DAL
             db = dbClient.GetDatabase("Garden_Goup");
         }
 
-        protected List<BsonDocument> GetCollecction(string colName)
+        protected List<BsonDocument> GetCollection(string colName)
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
             return collection.Find(new BsonDocument()).ToList();
         }
 
-        protected List<BsonDocument> GetCollecctionFiltered(string colName,string filter)// filter must be like this: string filter = "\"id\", 1000"
+        protected List<BsonDocument> GetCollectionFiltered(string colName,string filter)// filter must be like this: string filter = "\"id\", 1000"
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
             string[] filterArray = filter.Split(",");
             var f = Builders<BsonDocument>.Filter.Eq(filterArray[0], filterArray[1]);// mischien nog aan passen???
-            return collection.Find(new BsonDocument()).ToList();
+            return collection.Find(new BsonDocument()).ToList();//WERKT NOG NIET!!!!!
         }
 
         protected void Insert(string colName, BsonDocument doc)

@@ -1,7 +1,7 @@
 ﻿
 namespace GardenGroupUI
 {
-    partial class Incident_Management
+    partial class Create_Ticket
     {
         /// <summary>
         /// Required designer variable.
@@ -37,12 +37,7 @@ namespace GardenGroupUI
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incidentManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.LblTicket = new System.Windows.Forms.Label();
-            this.TBXfilter = new System.Windows.Forms.TextBox();
-            this.BTNaddTicket = new System.Windows.Forms.Button();
-            this.LVTickets = new System.Windows.Forms.ListView();
-            this.Id = new System.Windows.Forms.ColumnHeader();
-            this.Subject = new System.Windows.Forms.ColumnHeader();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
             this.Menu.SuspendLayout();
@@ -57,7 +52,7 @@ namespace GardenGroupUI
             this.PNLmain.Location = new System.Drawing.Point(0, 0);
             this.PNLmain.Name = "PNLmain";
             this.PNLmain.Size = new System.Drawing.Size(1260, 124);
-            this.PNLmain.TabIndex = 0;
+            this.PNLmain.TabIndex = 1;
             this.PNLmain.Paint += new System.Windows.Forms.PaintEventHandler(this.PNLmain_Paint);
             // 
             // LBLLicense
@@ -103,7 +98,7 @@ namespace GardenGroupUI
             this.Menu.Size = new System.Drawing.Size(1260, 28);
             this.Menu.TabIndex = 1;
             this.Menu.Text = "menuStrip1";
-            this.Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.menuStrip1_Paint);
+            this.Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.Menu_Paint);
             // 
             // dashboardToolStripMenuItem
             // 
@@ -126,92 +121,44 @@ namespace GardenGroupUI
             this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.userManagementToolStripMenuItem.Text = "User management";
             // 
-            // LblTicket
+            // comboBox1
             // 
-            this.LblTicket.AutoSize = true;
-            this.LblTicket.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LblTicket.Location = new System.Drawing.Point(124, 146);
-            this.LblTicket.Name = "LblTicket";
-            this.LblTicket.Size = new System.Drawing.Size(252, 41);
-            this.LblTicket.TabIndex = 2;
-            this.LblTicket.Text = "Overview tickets";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(614, 209);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(243, 28);
+            this.comboBox1.TabIndex = 2;
             // 
-            // TBXfilter
-            // 
-            this.TBXfilter.Location = new System.Drawing.Point(124, 202);
-            this.TBXfilter.Name = "TBXfilter";
-            this.TBXfilter.Size = new System.Drawing.Size(326, 27);
-            this.TBXfilter.TabIndex = 3;
-            this.TBXfilter.TabStop = false;
-            // 
-            // BTNaddTicket
-            // 
-            this.BTNaddTicket.BackColor = System.Drawing.Color.DodgerBlue;
-            this.BTNaddTicket.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BTNaddTicket.Location = new System.Drawing.Point(979, 193);
-            this.BTNaddTicket.Name = "BTNaddTicket";
-            this.BTNaddTicket.Size = new System.Drawing.Size(172, 36);
-            this.BTNaddTicket.TabIndex = 4;
-            this.BTNaddTicket.Text = "Create button";
-            this.BTNaddTicket.UseVisualStyleBackColor = false;
-            this.BTNaddTicket.Click += new System.EventHandler(this.BTNaddTicket_Click);
-            // 
-            // LVTickets
-            // 
-            this.LVTickets.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Id,
-            this.Subject});
-            this.LVTickets.HideSelection = false;
-            this.LVTickets.Location = new System.Drawing.Point(124, 257);
-            this.LVTickets.Name = "LVTickets";
-            this.LVTickets.Size = new System.Drawing.Size(1027, 367);
-            this.LVTickets.TabIndex = 5;
-            this.LVTickets.UseCompatibleStateImageBehavior = false;
-            // 
-            // Id
-            // 
-            this.Id.Width = 40;
-            // 
-            // Incident_Management
+            // Create_Ticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
-            this.Controls.Add(this.LVTickets);
-            this.Controls.Add(this.BTNaddTicket);
-            this.Controls.Add(this.TBXfilter);
-            this.Controls.Add(this.LblTicket);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.PNLmain);
-            this.MainMenuStrip = this.Menu;
-            this.Name = "Incident_Management";
+            this.Name = "Create_Ticket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Incident Management";
-            this.Load += new System.EventHandler(this.Incident_Management_Load);
+            this.Text = "Create_Ticket";
+            this.Load += new System.EventHandler(this.Create_Ticket_Load);
             this.PNLmain.ResumeLayout(false);
             this.PNLmain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).EndInit();
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel PNLmain;
+        private System.Windows.Forms.Label LBLLicense;
+        private System.Windows.Forms.Label LBLnodesk;
         private System.Windows.Forms.PictureBox PBOX;
         private System.Windows.Forms.MenuStrip Menu;
         private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem incidentManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userManagementToolStripMenuItem;
-        private System.Windows.Forms.Label LBLLicense;
-        private System.Windows.Forms.Label LBLnodesk;
-        private System.Windows.Forms.Label LblTicket;
-        private System.Windows.Forms.TextBox TBXfilter;
-        private System.Windows.Forms.Button BTNaddTicket;
-        private System.Windows.Forms.ListView LVTickets;
-        private System.Windows.Forms.ColumnHeader Id;
-        private System.Windows.Forms.ColumnHeader Subject;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

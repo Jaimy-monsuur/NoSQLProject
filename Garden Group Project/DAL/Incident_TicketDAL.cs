@@ -19,7 +19,7 @@ namespace DAL
 
         public List<Incident_Ticket> GetAllTickets()
         {
-            return ToInsident_Ticket(GetCollecction(CollectionName()));//haalt alle tickets op
+            return ToInsident_Ticket(GetCollection(CollectionName()));//haalt alle tickets op
         }
 
         public void InsertTicket(Incident_Ticket t)// insert een ticket

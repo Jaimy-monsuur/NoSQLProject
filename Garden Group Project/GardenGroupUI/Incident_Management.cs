@@ -56,7 +56,7 @@ namespace GardenGroupUI
             LVTickets.Columns.Add("Id:", 50);
             LVTickets.Columns.Add("Subject:", 400);
             LVTickets.Columns.Add("User:", 260);
-            LVTickets.Columns.Add("Reporte date:", 110);
+            LVTickets.Columns.Add("Report date:", 110);
             LVTickets.Columns.Add("Deadline:", 100);
             LVTickets.Columns.Add("Status:", 100);
         }
@@ -96,6 +96,14 @@ namespace GardenGroupUI
         {
             if (TBXfilter.Text.Trim() == "")
                 TBXfilter_SetText();
+        }
+
+        private void BTNaddTicket_Click(object sender, EventArgs e)
+        {
+            Create_Ticket create_Ticket = new Create_Ticket();
+            this.Hide();
+            create_Ticket.ShowDialog();
+            this.Show();
         }
     }
 }
