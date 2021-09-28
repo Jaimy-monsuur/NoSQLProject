@@ -11,4 +11,10 @@
     <ProjectReference Include="..\Model\Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="User_Overview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>
