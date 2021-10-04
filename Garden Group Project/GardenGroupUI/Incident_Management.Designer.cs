@@ -1,7 +1,7 @@
 ﻿
 namespace GardenGroupUI
 {
-    partial class User_Overview
+    partial class Incident_Management
     {
         /// <summary>
         /// Required designer variable.

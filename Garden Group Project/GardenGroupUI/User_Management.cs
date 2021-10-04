@@ -10,11 +10,11 @@ using Model;
 
 namespace GardenGroupUI
 {
-    public partial class User_Overview : Form
+    public partial class User_Management : Form
     {
-        public Incident_TickedLogic logic_Layer = new Incident_TickedLogic();
+        User_Logic userLogic = new User_Logic();
 
-        public User_Overview()
+        public User_Management()
         {
             InitializeComponent();
         }
@@ -24,7 +24,7 @@ namespace GardenGroupUI
             ControlPaint.DrawBorder(e.Graphics, PNLmain.ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
         }
 
-        private void menuStrip1_Paint(object sender, PaintEventArgs e)
+        private void menuStripUser_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, Menu.ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
         }
@@ -34,7 +34,7 @@ namespace GardenGroupUI
             // sets size of menu
             foreach (ToolStripItem item in Menu.Items)
             {
-                item.Size = new Size(415,24);
+                item.Size = new Size(415, 24);
             }
             //for the default text in textbox
             this.TBXfilter.Enter += new EventHandler(TBXfilter_Enter);
@@ -62,18 +62,20 @@ namespace GardenGroupUI
         }
         protected void GetLVData()
         {
-            List<Incident_Ticket> list = logic_Layer.GetAllTickets();
-            foreach (Incident_Ticket item in list)
+            List<User> list = userLogic.GetAllUsers();
+            foreach (User user in list)
             {
-                string[] collumnItems = new string[6];
-                collumnItems[0] = item.id.ToString();
-                collumnItems[1] = item.subjectOfIncident;
-                collumnItems[2] = item.ReportedBy;
-                collumnItems[3] = item.reportDate.ToShortDateString();
-                collumnItems[4] = item.Deadline.ToShortDateString();
-                collumnItems[5] = item.Status;
+                string[] collumnItems = new string[8];
+                collumnItems[0] = user.objectId.ToString();
+                collumnItems[1] = user.userId.ToString();
+                collumnItems[2] = user.firstName;
+                collumnItems[3] = user.lastName;
+                collumnItems[4] = user.userType.ToString(); // enums moeten er nog uit HIER OOK AANPASSEN!!!
+                collumnItems[5] = user.emailAddress;
+                collumnItems[6] = user.phoneNumber;
+                collumnItems[7] = user.location.ToString();
                 ListViewItem li = new ListViewItem(collumnItems);
-                li.Tag = item;// zodat je het object terug kan vinden
+                li.Tag = user; // je kan het object terug kan vinden
                 LVTickets.Items.Add(li);
             }
         }
@@ -98,7 +100,7 @@ namespace GardenGroupUI
                 TBXfilter_SetText();
         }
 
-        private void BTNaddTicket_Click(object sender, EventArgs e)
+        private void BTNAddUser_Click(object sender, EventArgs e)
         {
             Create_Ticket create_Ticket = new Create_Ticket();
             this.Hide();

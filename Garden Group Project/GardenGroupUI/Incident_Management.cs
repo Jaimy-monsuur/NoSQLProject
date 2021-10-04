@@ -10,11 +10,11 @@ using Model;
 
 namespace GardenGroupUI
 {
-    public partial class User_Overview : Form
+    public partial class Incident_Management : Form
     {
         public Incident_TickedLogic logic_Layer = new Incident_TickedLogic();
 
-        public User_Overview()
+        public Incident_Management()
         {
             InitializeComponent();
         }
