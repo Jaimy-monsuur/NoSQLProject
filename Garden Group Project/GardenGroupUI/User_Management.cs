@@ -65,13 +65,13 @@ namespace GardenGroupUI
             List<User> list = userLogic.GetAllUsers();
             foreach (User user in list)
             {
-                string[] collumnItems = new string[8];
+                string[] collumnItems = new string[8]; // hier staat geen wachtwoord in
                 collumnItems[0] = user.objectId.ToString();
                 collumnItems[1] = user.userId.ToString();
                 collumnItems[2] = user.firstName;
                 collumnItems[3] = user.lastName;
                 collumnItems[4] = user.userType.ToString(); // enums moeten er nog uit HIER OOK AANPASSEN!!!
-                collumnItems[5] = user.emailAddress;
+                collumnItems[5] = user.emailAddress; 
                 collumnItems[6] = user.phoneNumber;
                 collumnItems[7] = user.location.ToString();
                 ListViewItem li = new ListViewItem(collumnItems);

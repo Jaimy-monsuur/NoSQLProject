@@ -92,9 +92,9 @@ namespace GardenGroupUI
             this.LblTicket.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LblTicket.Location = new System.Drawing.Point(109, 128);
             this.LblTicket.Name = "LblTicket";
-            this.LblTicket.Size = new System.Drawing.Size(202, 32);
+            this.LblTicket.Size = new System.Drawing.Size(188, 32);
             this.LblTicket.TabIndex = 7;
-            this.LblTicket.Text = "Overview tickets";
+            this.LblTicket.Text = "Overview users";
             // 
             // PNLmain
             // 
