@@ -49,10 +49,10 @@ namespace DAL
                     userId = (int)bson["User_Id"],
                     firstName = (string)bson["First_Name"],
                     lastName = (string)bson["Last_Name"],
-                    userType = (User_Type)bson["User_Type"], // WERKT NIET
+                    //userType = (User_Type)bson["User_Type"], // WERKT NIET
                     emailAddress = (string)bson["Email_Address"],
                     phoneNumber = (string)bson["Phone_Number"],
-                    location = (Location)bson["Location"] // WERKT NIET
+                    //location = (Location)bson["Location"] // WERKT NIET
                 };
                 users.Add(user);
             }
