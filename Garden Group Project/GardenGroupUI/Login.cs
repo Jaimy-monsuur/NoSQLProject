@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logic_Layer;
+using Model;
 
 namespace GardenGroupUI
 {
     public partial class frmLogin : Form
     {
+        public User user;
+        public User_Logic user_logic = new User_Logic();
         public frmLogin()
         {
             InitializeComponent();
@@ -23,20 +26,54 @@ namespace GardenGroupUI
 
         }
 
-        private void lblUsername_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //Haal username en Password op
+            //Haal username op
             string username = txtGebruikersnaam.Text;
-            byte[] encData_byte = new byte[txtWachtwoord.Text.Length];
-            encData_byte = System.Text.Encoding.UTF8.GetBytes(txtWachtwoord.Text);
-            string password = Convert.ToBase64String(encData_byte);
-            //test encryption
-            lblGebruikersnaam.Text = password;
+            //Haal Password op en encrypt deze
+            byte[] encodedPasswordArray = new byte[txtWachtwoord.Text.Length];
+            encodedPasswordArray = System.Text.Encoding.UTF8.GetBytes(txtWachtwoord.Text);
+            string password = Convert.ToBase64String(encodedPasswordArray);
+
+            //Zoek de database naar een gebruiker met deze gebruikersnaam
+            User user = user_logic.GetUser(username);
+
+            //kijk of het wachtwoord klopt
+            if (user.password == password)
+            {
+                //Indien het klopt, de gebruiker het juiste form laten zien
+                switch (user.userType)
+                {
+                    case User_Type.Admin:
+                        this.Hide();
+                        Dashboard dashboardForm = new Dashboard();
+                        dashboardForm.Show();
+                        break;
+                    case User_Type.Employee:
+                        this.Hide();
+                        Dashboard ashboardForm = new Dashboard();
+                        ashboardForm.Show();
+                        break;
+                    case User_Type.EndUser:
+                        this.Hide();
+                        Dashboard shboardForm = new Dashboard();
+                        shboardForm.Show();
+                        break;
+                }
+            }
+            else
+            {
+                //Indien het niet klopt, text laten zien, de user op null zetten en password-veld clearen
+                user = null;
+                lblWrongPW.Show();
+                lnklblForgotPassWord.Show();
+                txtWachtwoord.Text = "";
+            }
+        }
+
+        private void lnklblForgotPassWord_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }
