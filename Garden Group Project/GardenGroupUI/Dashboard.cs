@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace GardenGroupUI
 {
-    public partial class LoginForm : Form
+    public partial class Dashboard : Form
     {
-        public LoginForm()
+        public Dashboard()
         {
             InitializeComponent();
         }
