@@ -16,5 +16,6 @@ namespace Model
         public string Incident_Priority;
         public DateTime Deadline;
         public string Description;
+        public string Status;
     }
 }

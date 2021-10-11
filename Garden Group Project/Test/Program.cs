@@ -10,12 +10,10 @@ namespace Test
         static void Main(string[] args)
         {
             Incident_TicketDAL insident_TicketDAL = new Incident_TicketDAL();
-            foreach (Incident_Ticket item in insident_TicketDAL.GetAllTickets())
+            foreach (Incident_Ticket item in insident_TicketDAL.GetAllTicketsFromFilter())
             {
                 Console.WriteLine(item.objectId);
                 Console.WriteLine(item.id);
-                Console.WriteLine(item.reportDate.ToShortDateString());
-                Console.WriteLine(item.subjectOfIncident);
             }
 
         }
