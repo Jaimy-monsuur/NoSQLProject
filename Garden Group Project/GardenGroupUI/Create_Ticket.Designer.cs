@@ -66,10 +66,10 @@ namespace GardenGroupUI
             // 
             // GB_AddTicket
             // 
-            this.GB_AddTicket.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.GB_AddTicket.AutoSize = true;
             this.GB_AddTicket.Controls.Add(this.panel1);
             this.GB_AddTicket.Controls.Add(this.LBL_description);
+            this.GB_AddTicket.Controls.Add(this.BTN_add);
             this.GB_AddTicket.Controls.Add(this.LBL_deadline);
             this.GB_AddTicket.Controls.Add(this.LBL_priority);
             this.GB_AddTicket.Controls.Add(this.LBL_user);
@@ -83,10 +83,11 @@ namespace GardenGroupUI
             this.GB_AddTicket.Controls.Add(this.CB_ReportedBy);
             this.GB_AddTicket.Controls.Add(this.CB_incidentType);
             this.GB_AddTicket.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GB_AddTicket.Location = new System.Drawing.Point(114, 118);
+            this.GB_AddTicket.Location = new System.Drawing.Point(130, 130);
             this.GB_AddTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GB_AddTicket.Name = "GB_AddTicket";
-            this.GB_AddTicket.Size = new System.Drawing.Size(1000, 446);
+            this.GB_AddTicket.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.GB_AddTicket.Size = new System.Drawing.Size(1000, 500);
             this.GB_AddTicket.TabIndex = 11;
             this.GB_AddTicket.TabStop = false;
             this.GB_AddTicket.Text = "Create Ticket";
@@ -246,9 +247,10 @@ namespace GardenGroupUI
             // BTN_add
             // 
             this.BTN_add.AutoSize = true;
-            this.BTN_add.Location = new System.Drawing.Point(990, 621);
+            this.BTN_add.Location = new System.Drawing.Point(686, 344);
+            this.BTN_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTN_add.Name = "BTN_add";
-            this.BTN_add.Size = new System.Drawing.Size(140, 30);
+            this.BTN_add.Size = new System.Drawing.Size(122, 29);
             this.BTN_add.TabIndex = 12;
             this.BTN_add.Text = "Add";
             this.BTN_add.UseVisualStyleBackColor = true;
@@ -258,9 +260,9 @@ namespace GardenGroupUI
             // 
             this.LBL_Error.AutoSize = true;
             this.LBL_Error.ForeColor = System.Drawing.Color.Red;
-            this.LBL_Error.Location = new System.Drawing.Point(130, 621);
+            this.LBL_Error.Location = new System.Drawing.Point(114, 466);
             this.LBL_Error.Name = "LBL_Error";
-            this.LBL_Error.Size = new System.Drawing.Size(0, 20);
+            this.LBL_Error.Size = new System.Drawing.Size(0, 15);
             this.LBL_Error.TabIndex = 13;
             // 
             // PNLmain
@@ -276,8 +278,9 @@ namespace GardenGroupUI
             this.PNLmain.Controls.Add(this.PBOX);
             this.PNLmain.Controls.Add(this.Menu);
             this.PNLmain.Location = new System.Drawing.Point(0, 0);
+            this.PNLmain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PNLmain.Name = "PNLmain";
-            this.PNLmain.Size = new System.Drawing.Size(1264, 124);
+            this.PNLmain.Size = new System.Drawing.Size(1266, 93);
             this.PNLmain.TabIndex = 14;
             // 
             // label1
@@ -285,9 +288,9 @@ namespace GardenGroupUI
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(947, 59);
+            this.label1.Location = new System.Drawing.Point(989, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(303, 28);
+            this.label1.Size = new System.Drawing.Size(242, 21);
             this.label1.TabIndex = 4;
             this.label1.Text = "Licensed to: The Garden Group";
             // 
@@ -296,9 +299,9 @@ namespace GardenGroupUI
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1092, 9);
+            this.label2.Location = new System.Drawing.Point(1116, 7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 50);
+            this.label2.Size = new System.Drawing.Size(128, 41);
             this.label2.TabIndex = 3;
             this.label2.Text = "NoDesk";
             // 
@@ -307,9 +310,9 @@ namespace GardenGroupUI
             this.LBLLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LBLLicense.AutoSize = true;
             this.LBLLicense.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBLLicense.Location = new System.Drawing.Point(2011, 83);
+            this.LBLLicense.Location = new System.Drawing.Point(1920, 62);
             this.LBLLicense.Name = "LBLLicense";
-            this.LBLLicense.Size = new System.Drawing.Size(303, 28);
+            this.LBLLicense.Size = new System.Drawing.Size(242, 21);
             this.LBLLicense.TabIndex = 2;
             this.LBLLicense.Text = "Licensed to: The Garden Group";
             // 
@@ -318,18 +321,19 @@ namespace GardenGroupUI
             this.LBLnodesk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LBLnodesk.AutoSize = true;
             this.LBLnodesk.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBLnodesk.Location = new System.Drawing.Point(2156, 9);
+            this.LBLnodesk.Location = new System.Drawing.Point(2046, 7);
             this.LBLnodesk.Name = "LBLnodesk";
-            this.LBLnodesk.Size = new System.Drawing.Size(158, 50);
+            this.LBLnodesk.Size = new System.Drawing.Size(128, 41);
             this.LBLnodesk.TabIndex = 1;
             this.LBLnodesk.Text = "NoDesk";
             // 
             // PBOX
             // 
             this.PBOX.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.PBOX.Location = new System.Drawing.Point(12, 12);
+            this.PBOX.Location = new System.Drawing.Point(10, 9);
+            this.PBOX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PBOX.Name = "PBOX";
-            this.PBOX.Size = new System.Drawing.Size(169, 77);
+            this.PBOX.Size = new System.Drawing.Size(148, 58);
             this.PBOX.TabIndex = 0;
             this.PBOX.TabStop = false;
             // 
@@ -343,9 +347,10 @@ namespace GardenGroupUI
             this.dashboardToolStripMenuItem,
             this.incidentManagementToolStripMenuItem,
             this.userManagementToolStripMenuItem});
-            this.Menu.Location = new System.Drawing.Point(0, 96);
+            this.Menu.Location = new System.Drawing.Point(0, 65);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(1264, 28);
+            this.Menu.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.Menu.Size = new System.Drawing.Size(1266, 28);
             this.Menu.TabIndex = 1;
             this.Menu.Text = "menuStrip1";
             // 
@@ -375,11 +380,11 @@ namespace GardenGroupUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.PNLmain);
             this.Controls.Add(this.LBL_Error);
-            this.Controls.Add(this.BTN_add);
             this.Controls.Add(this.GB_AddTicket);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Create_Ticket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create_Ticket";
