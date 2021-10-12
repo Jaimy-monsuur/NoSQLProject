@@ -21,10 +21,15 @@ namespace DAL
         {
             return ToInsident_Ticket(GetCollecction(CollectionName()));//haalt alle tickets op
         }
+        public List<Incident_Ticket> GetAllTicketsWithDeadline()
+        {
+            return ToInsident_TicketFilter(GetCollecction(CollectionName()));//haalt alle tickets op
+        }
         public List<Incident_Ticket> GetAllTicketsFromFilter()
         {
-            return ToInsident_TicketFilter(GetCollecctionFiltered("Incident_Ticket", "Open"));//haalt alle tickets op een filter
+            return ToInsident_TicketFilter(GetCollecctionFiltered("Incident_Ticket", "Status,Open"));//haalt alle tickets op een filter
         }
+        
         private List<Incident_Ticket> ToInsident_TicketFilter(List<BsonDocument> T)// zet List<BsonDocument> lijst om naar  List<Incident_Ticket>
         {
             List<Incident_Ticket> list = new List<Incident_Ticket>();

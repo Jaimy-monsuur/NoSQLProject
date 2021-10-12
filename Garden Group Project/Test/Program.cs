@@ -14,6 +14,7 @@ namespace Test
             {
                 Console.WriteLine(item.objectId);
                 Console.WriteLine(item.id);
+                Console.WriteLine(item.Status);
             }
 
         }
