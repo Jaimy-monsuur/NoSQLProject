@@ -30,6 +30,18 @@ namespace GardenGroupUI
             TBXfilter_SetText();
             SetListvieuw();
             GetLVData();
+            DataGridViewSetings();
+        }
+        public void DataGridViewSetings()
+        {
+            DGV_Selected.ColumnCount = 2;
+            DGV_Selected.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            DGV_Selected.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            DGV_Selected.Columns[0].Name = "Selected Ticket";
+            DGV_Selected.Columns[1].Name = "";
+            DGV_Selected.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DGV_Selected.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
         protected void SetListvieuw()
@@ -97,6 +109,27 @@ namespace GardenGroupUI
             this.Show();
             SetListvieuw();
             GetLVData();
+        }
+
+
+        private void LVTickets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (LVTickets.SelectedItems.Count != 0)
+            {
+                ListViewItem li = (ListViewItem)LVTickets.SelectedItems[0];
+                Incident_Ticket t = (Incident_Ticket)li.Tag;
+
+                DGV_Selected.Rows.Clear();
+                DGV_Selected.Rows.Add("ID: ", t.id);
+                DGV_Selected.Rows.Add("Reported By: ", t.ReportedBy);
+                DGV_Selected.Rows.Add("Subject: ", t.subjectOfIncident);
+                DGV_Selected.Rows.Add("Description: ", t.Description);
+                DGV_Selected.Rows.Add("Type: ", t.Incident_Type);
+                DGV_Selected.Rows.Add("Priority: ", t.Incident_Priority);
+                DGV_Selected.Rows.Add("Status: ", t.Status);
+                DGV_Selected.Rows.Add("Report date: ", t.reportDate.ToShortDateString());
+                DGV_Selected.Rows.Add("Deadline: ", t.Deadline.ToShortDateString());
+            }
         }
     }
 }
