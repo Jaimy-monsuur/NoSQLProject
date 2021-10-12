@@ -43,24 +43,26 @@ namespace GardenGroupUI
 
             // Voeg column header toe
             LVTickets.Columns.Add("Id:", 50);
-            LVTickets.Columns.Add("Subject:", 400);
             LVTickets.Columns.Add("User:", 260);
+            LVTickets.Columns.Add("Subject:", 100);
             LVTickets.Columns.Add("Report date:", 110);
             LVTickets.Columns.Add("Deadline:", 100);
-            LVTickets.Columns.Add("Status:", 100);
+            LVTickets.Columns.Add("Priority:", 70);
+            LVTickets.Columns.Add("Status:", 70);
         }
         protected void GetLVData()
         {
             List<Incident_Ticket> list = logic_Layer.GetAllTickets();
             foreach (Incident_Ticket item in list)
             {
-                string[] collumnItems = new string[6];
+                string[] collumnItems = new string[7];
                 collumnItems[0] = item.id.ToString();
-                collumnItems[1] = item.subjectOfIncident;
-                collumnItems[2] = item.ReportedBy;
+                collumnItems[1] = item.ReportedBy;
+                collumnItems[2] = item.subjectOfIncident;
                 collumnItems[3] = item.reportDate.ToShortDateString();
                 collumnItems[4] = item.Deadline.ToShortDateString();
-                collumnItems[5] = item.Status;
+                collumnItems[5] = item.Incident_Priority.ToString();
+                collumnItems[6] = item.Status.ToString();
                 ListViewItem li = new ListViewItem(collumnItems);
                 li.Tag = item;// zodat je het object terug kan vinden
                 LVTickets.Items.Add(li);

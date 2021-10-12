@@ -34,12 +34,12 @@ namespace DAL
                 { "Incident_Id", t.id },
                 { "Date", t.reportDate },
                 { "Subject", t.subjectOfIncident },
-                { "Type", t.Incident_Type },
+                { "Type", t.Incident_Type.ToString() },
                 { "Reported_By", t.ReportedBy },
                 { "Priority", t.Incident_Priority },
                 { "Deadline", t.Deadline },
                 { "Description", t.Description },
-                { "Status", t.Status },
+                { "Status", t.Status.ToString() },
             };
             Insert(CollectionName(), document);
         }
@@ -57,10 +57,11 @@ namespace DAL
                     subjectOfIncident = (string)item["Subject"],
                     Incident_Type = (string)item["Type"],
                     ReportedBy = (string)item["Reported_By"],//later aan passen naar class user
-                    Incident_Priority = (string)item["Priority"],
+                    //(User_Type)Enum.Parse(typeof(User_Type), (string)bson["User_Type"], true)
+                    Incident_Priority = (Priority)Enum.Parse(typeof(Priority), (string)item["Priority"]),
                     Deadline = (DateTime)item["Deadline"],
                     Description = (string)item["Description"],
-                    Status = (string)item["Status"]
+                    Status = (Status)Enum.Parse(typeof(Status), (string)item["Status"])
                 };
                 list.Add(ticket);
             }

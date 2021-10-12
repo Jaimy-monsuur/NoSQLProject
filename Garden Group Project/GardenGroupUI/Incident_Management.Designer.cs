@@ -140,7 +140,7 @@ namespace GardenGroupUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LblTicket.AutoSize = true;
             this.LblTicket.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LblTicket.Location = new System.Drawing.Point(110, 132);
+            this.LblTicket.Location = new System.Drawing.Point(25, 131);
             this.LblTicket.Name = "LblTicket";
             this.LblTicket.Size = new System.Drawing.Size(202, 32);
             this.LblTicket.TabIndex = 2;
@@ -150,7 +150,7 @@ namespace GardenGroupUI
             // 
             this.TBXfilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBXfilter.Location = new System.Drawing.Point(110, 183);
+            this.TBXfilter.Location = new System.Drawing.Point(25, 182);
             this.TBXfilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TBXfilter.Name = "TBXfilter";
             this.TBXfilter.Size = new System.Drawing.Size(286, 23);
@@ -180,10 +180,10 @@ namespace GardenGroupUI
             this.Id,
             this.Subject});
             this.LVTickets.HideSelection = false;
-            this.LVTickets.Location = new System.Drawing.Point(110, 229);
+            this.LVTickets.Location = new System.Drawing.Point(25, 228);
             this.LVTickets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LVTickets.Name = "LVTickets";
-            this.LVTickets.Size = new System.Drawing.Size(1049, 374);
+            this.LVTickets.Size = new System.Drawing.Size(792, 374);
             this.LVTickets.TabIndex = 5;
             this.LVTickets.UseCompatibleStateImageBehavior = false;
             // 

@@ -13,9 +13,9 @@ namespace Model
         public string subjectOfIncident;
         public string Incident_Type;
         public string ReportedBy;
-        public string Incident_Priority;
+        public Priority Incident_Priority;
         public DateTime Deadline;
         public string Description;
-        public string Status;
+        public Status Status;
     }
 }
