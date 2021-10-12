@@ -28,6 +28,7 @@ namespace GardenGroupUI
             DTP_Deadline.MinDate = DateTime.Now;// deadline can not be in the past when creating a new ticket
             DTP_ReportDate.MinDate = DateTime.Now.AddDays(-7); // The report date can be a bit in the past but not in the future
             DTP_ReportDate.MaxDate = DateTime.Now;
+            ComboBoxSetting();
         }
 
         private void BTN_add_Click(object sender, EventArgs e)
@@ -38,7 +39,7 @@ namespace GardenGroupUI
                 {
                     Incident_Ticket t = new Incident_Ticket();
                     //tijdelijkt
-                    t.id = latest_Ticket.id++;
+                    t.id = latest_Ticket.id + 1;
                     t.reportDate = DateTime.Parse(DTP_ReportDate.Text);
                     t.subjectOfIncident = TXB_Subject.Text;
                     t.Incident_Type = (Incident_Type)Enum.Parse(typeof(Incident_Type), CB_incidentType.Text, true);
@@ -66,6 +67,20 @@ namespace GardenGroupUI
         {
             ControlPaint.DrawBorder(e.Graphics, panel1.ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
         }
+        public void ComboBoxSetting()
+        {
+            foreach (var item in Incident_Type.GetValues(typeof(Incident_Type)))
+            {
+                CB_incidentType.Items.Add(item);
+            }
 
+            foreach (var item in Incident_Priority.GetValues(typeof(Incident_Priority)))
+            {
+                CB_Priority.Items.Add(item);
+            }
+
+            //tijdelijk
+            CB_ReportedBy.Items.Add("Admin");
+        }
     }
 }
