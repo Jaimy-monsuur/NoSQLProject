@@ -32,7 +32,7 @@ namespace DAL
             return collection.Find(new BsonDocument()).Sort(f).ToList();
         }
 
-        protected List<BsonDocument> GetCollectionFiltered(string colName,string filter)// filter must be like this: string filter = "\"id\", 1000"
+        protected List<BsonDocument> GetCollectionFiltered(string colName,string filter)// filter must be like this: string filter = "id, 1000"
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
             string[] filterArray = filter.Split(",");
@@ -48,7 +48,7 @@ namespace DAL
 
         protected void UpdateOne(string colName, string filter, string updateTo)
         {
-            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);// filter and update must be like this: string filter = "\"id\", 1000"
+            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);// filter and update must be like this: string filter = "id, 1000"
             string[] filterArray = filter.Split(",");
             string[] updateArray = filter.Split(",");
             var f = Builders<BsonDocument>.Filter.Eq(filterArray[0], filterArray[1]);// mischien nog aan passen???
@@ -58,7 +58,7 @@ namespace DAL
 
         protected void UpdateMany(string colName, string filter, string updateTo)
         {
-            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);// filter and update must be like this: string filter = "\"id\", 1000"
+            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);// filter and update must be like this: string filter = "id, 1000"
             string[] filterArray = filter.Split(",");
             string[] updateArray = filter.Split(",");
             var f = Builders<BsonDocument>.Filter.Eq(filterArray[0], filterArray[1]);// mischien nog aan passen???
@@ -66,7 +66,7 @@ namespace DAL
             collection.UpdateMany(f, u);
         }
 
-        protected void Delete(string colName, string filter)// filter must be like this: string filter = "\"id\", 1000"
+        protected void Delete(string colName, string filter)// filter must be like this: string filter = = "id, 1000"
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
             string[] filterArray = filter.Split(",");
