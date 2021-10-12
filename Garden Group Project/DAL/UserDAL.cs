@@ -19,21 +19,20 @@ namespace DAL
 
         public List<User> GetAllUsers()
         {
-            return null; // zorg dat alle users opgehaald worden WERKT NIET
+            return BsonToUser(GetCollection(CollectionName())); // haalt alle bson op en zet ze om in users 
         }
 
         public void InsertUser(User user)
         {
             BsonDocument document = new BsonDocument()
             {
-                { "User_Id", user.userId }, // object id wordt in db aangemaakt
+                { "User_Id", user.userId }, // object id wordt ik db aangemaakt
                 { "First_Name", user.firstName },
                 { "Last_Name", user.lastName },
                 { "User_Type", user.userType.ToString() },
                 { "Email_Address", user.emailAddress },
                 { "Phone_Number", user.phoneNumber },
-                { "Location", user.location.ToString() },
-                { "Password", user.password }
+                { "Location", user.location }
             };
             Insert(CollectionName(), document);
         }
@@ -50,11 +49,11 @@ namespace DAL
                     userId = (int)bson["User_Id"],
                     firstName = (string)bson["First_Name"],
                     lastName = (string)bson["Last_Name"],
-                    password = (string)bson["Password"],
-                    //userType = (User_Type)bson["User_Type"], // WERKT NIET
+                    userType = (User_Type)Enum.Parse(typeof(User_Type), (string)bson["User_Type"], true), // testen of werkt
                     emailAddress = (string)bson["Email_Address"],
                     phoneNumber = (string)bson["Phone_Number"],
-                    //location = (Location)bson["Location"] // WERKT NIET
+                    location = (string)bson["Location"], 
+                    password = (string)bson["Password"]
                 };
                 users.Add(user);
             }
