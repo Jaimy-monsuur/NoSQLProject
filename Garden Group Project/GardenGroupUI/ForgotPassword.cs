@@ -48,6 +48,7 @@ namespace GardenGroupUI
                 string newPassword = GeneratePassword();
                 lblNewPassword.Text = newPassword;
                 lblNewPassword.Show();
+                new ToolTip().SetToolTip(lblNewPassword, "Klik op het wachtwoord om het te kopiëren");
                 lblYourNewPassword.Show();
                 //VERANDER HET WACHTWOORD IN DE DATABASE!
             }
@@ -75,6 +76,7 @@ namespace GardenGroupUI
                 EnableSsl = true,
             };
             smtpClient.Send("nodeskservice@gmail.com", recepient, subject, body);
+            //TRY CATCH VOOR EEN VERKEERD INGEBULD EMAIL ADRES
         }
         private void GenerateCode()
         {
@@ -96,6 +98,11 @@ namespace GardenGroupUI
                 chars[i] = validChars[rnd.Next(0, validChars.Length)];
             }
             return new string(chars);
+        }
+
+        private void lblNewPassword_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblNewPassword.Text);
         }
     }
 }

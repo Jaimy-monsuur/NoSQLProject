@@ -40,10 +40,10 @@ namespace GardenGroupUI
             this.btnBackToLogin = new System.Windows.Forms.Button();
             this.btnSendEmail = new System.Windows.Forms.Button();
             this.grbxVerification = new System.Windows.Forms.GroupBox();
+            this.lblWrongCode = new System.Windows.Forms.Label();
             this.btnTryCode = new System.Windows.Forms.Button();
             this.lblYourNewPassword = new System.Windows.Forms.Label();
             this.lblNewPassword = new System.Windows.Forms.Label();
-            this.lblWrongCode = new System.Windows.Forms.Label();
             this.grbxEmail.SuspendLayout();
             this.grbxVerification.SuspendLayout();
             this.SuspendLayout();
@@ -164,6 +164,19 @@ namespace GardenGroupUI
             this.grbxVerification.Text = "Verificatie";
             this.grbxVerification.Visible = false;
             // 
+            // lblWrongCode
+            // 
+            this.lblWrongCode.AutoSize = true;
+            this.lblWrongCode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.lblWrongCode.ForeColor = System.Drawing.Color.Red;
+            this.lblWrongCode.Location = new System.Drawing.Point(15, 77);
+            this.lblWrongCode.Name = "lblWrongCode";
+            this.lblWrongCode.Size = new System.Drawing.Size(243, 30);
+            this.lblWrongCode.TabIndex = 29;
+            this.lblWrongCode.Text = "U heeft 3 keer een verkeerde code ingevoerd, \r\neen nieuwe code is naar u toe gest" +
+    "uurd";
+            this.lblWrongCode.Visible = false;
+            // 
             // btnTryCode
             // 
             this.btnTryCode.Enabled = false;
@@ -195,19 +208,7 @@ namespace GardenGroupUI
             this.lblNewPassword.TabIndex = 28;
             this.lblNewPassword.Text = "DITIS12CHARS";
             this.lblNewPassword.Visible = false;
-            // 
-            // lblWrongCode
-            // 
-            this.lblWrongCode.AutoSize = true;
-            this.lblWrongCode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.lblWrongCode.ForeColor = System.Drawing.Color.Red;
-            this.lblWrongCode.Location = new System.Drawing.Point(15, 77);
-            this.lblWrongCode.Name = "lblWrongCode";
-            this.lblWrongCode.Size = new System.Drawing.Size(243, 30);
-            this.lblWrongCode.TabIndex = 29;
-            this.lblWrongCode.Text = "U heeft 3 keer een verkeerde code ingevoerd, \r\neen nieuwe code is naar u toe gest" +
-    "uurd";
-            this.lblWrongCode.Visible = false;
+            this.lblNewPassword.Click += new System.EventHandler(this.lblNewPassword_Click);
             // 
             // frmForgotPassword
             // 
