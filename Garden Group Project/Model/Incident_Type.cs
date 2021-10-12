@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Model
 {
-    public enum Status
+    public enum Incident_Type
     {
-        Open, Closed
+        Hardware, Service, Software
     }
 }

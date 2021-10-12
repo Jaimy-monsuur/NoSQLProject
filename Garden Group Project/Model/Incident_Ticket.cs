@@ -11,11 +11,11 @@ namespace Model
         public int id;
         public DateTime reportDate;
         public string subjectOfIncident;
-        public string Incident_Type;
+        public Incident_Type Incident_Type;
         public string ReportedBy;
-        public Priority Incident_Priority;
+        public Incident_Priority Incident_Priority;
         public DateTime Deadline;
         public string Description;
-        public Status Status;
+        public Incident_Status Status;
     }
 }

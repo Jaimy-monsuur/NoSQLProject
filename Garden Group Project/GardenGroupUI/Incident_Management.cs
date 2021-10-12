@@ -84,7 +84,7 @@ namespace GardenGroupUI
         //for the defoult text in a text box
         protected void TBXfilter_SetText()
         {
-            this.TBXfilter.Text = "Filter by email";
+            this.TBXfilter.Text = "Filter by subject";
             TBXfilter.ForeColor = Color.Gray;
         }
 

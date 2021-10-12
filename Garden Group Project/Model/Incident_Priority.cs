@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Model
 {
-    public enum Priority
+    public enum Incident_Priority
     {
         Low, Medium, High
     }

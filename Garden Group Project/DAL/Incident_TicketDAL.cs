@@ -36,7 +36,7 @@ namespace DAL
                 { "Subject", t.subjectOfIncident },
                 { "Type", t.Incident_Type.ToString() },
                 { "Reported_By", t.ReportedBy },
-                { "Priority", t.Incident_Priority },
+                { "Priority", t.Incident_Priority.ToString() },
                 { "Deadline", t.Deadline },
                 { "Description", t.Description },
                 { "Status", t.Status.ToString() },
@@ -55,13 +55,13 @@ namespace DAL
                     id = (int)item["Incident_Id"],
                     reportDate = (DateTime)item["Date"],
                     subjectOfIncident = (string)item["Subject"],
-                    Incident_Type = (string)item["Type"],
+                    Incident_Type = (Incident_Type)Enum.Parse(typeof(Incident_Type), (string)item["Type"]),
                     ReportedBy = (string)item["Reported_By"],//later aan passen naar class user
                     //(User_Type)Enum.Parse(typeof(User_Type), (string)bson["User_Type"], true)
-                    Incident_Priority = (Priority)Enum.Parse(typeof(Priority), (string)item["Priority"]),
+                    Incident_Priority = (Incident_Priority)Enum.Parse(typeof(Incident_Priority), (string)item["Priority"]),
                     Deadline = (DateTime)item["Deadline"],
                     Description = (string)item["Description"],
-                    Status = (Status)Enum.Parse(typeof(Status), (string)item["Status"])
+                    Status = (Incident_Status)Enum.Parse(typeof(Incident_Status), (string)item["Status"])
                 };
                 list.Add(ticket);
             }
