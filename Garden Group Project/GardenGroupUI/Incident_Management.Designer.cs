@@ -59,8 +59,9 @@ namespace GardenGroupUI
             this.PNLmain.Controls.Add(this.PBOX);
             this.PNLmain.Controls.Add(this.Menu);
             this.PNLmain.Location = new System.Drawing.Point(0, 0);
+            this.PNLmain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PNLmain.Name = "PNLmain";
-            this.PNLmain.Size = new System.Drawing.Size(1264, 124);
+            this.PNLmain.Size = new System.Drawing.Size(1266, 93);
             this.PNLmain.TabIndex = 0;
             // 
             // LBLLicense
@@ -68,9 +69,9 @@ namespace GardenGroupUI
             this.LBLLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LBLLicense.AutoSize = true;
             this.LBLLicense.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBLLicense.Location = new System.Drawing.Point(947, 59);
+            this.LBLLicense.Location = new System.Drawing.Point(989, 44);
             this.LBLLicense.Name = "LBLLicense";
-            this.LBLLicense.Size = new System.Drawing.Size(303, 28);
+            this.LBLLicense.Size = new System.Drawing.Size(242, 21);
             this.LBLLicense.TabIndex = 2;
             this.LBLLicense.Text = "Licensed to: The Garden Group";
             // 
@@ -79,18 +80,19 @@ namespace GardenGroupUI
             this.LBLnodesk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LBLnodesk.AutoSize = true;
             this.LBLnodesk.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBLnodesk.Location = new System.Drawing.Point(1092, 9);
+            this.LBLnodesk.Location = new System.Drawing.Point(1116, 7);
             this.LBLnodesk.Name = "LBLnodesk";
-            this.LBLnodesk.Size = new System.Drawing.Size(158, 50);
+            this.LBLnodesk.Size = new System.Drawing.Size(128, 41);
             this.LBLnodesk.TabIndex = 1;
             this.LBLnodesk.Text = "NoDesk";
             // 
             // PBOX
             // 
             this.PBOX.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.PBOX.Location = new System.Drawing.Point(12, 12);
+            this.PBOX.Location = new System.Drawing.Point(10, 9);
+            this.PBOX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PBOX.Name = "PBOX";
-            this.PBOX.Size = new System.Drawing.Size(169, 77);
+            this.PBOX.Size = new System.Drawing.Size(148, 58);
             this.PBOX.TabIndex = 0;
             this.PBOX.TabStop = false;
             // 
@@ -104,9 +106,10 @@ namespace GardenGroupUI
             this.dashboardToolStripMenuItem,
             this.incidentManagementToolStripMenuItem,
             this.userManagementToolStripMenuItem});
-            this.Menu.Location = new System.Drawing.Point(0, 96);
+            this.Menu.Location = new System.Drawing.Point(0, 65);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(1264, 28);
+            this.Menu.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.Menu.Size = new System.Drawing.Size(1266, 28);
             this.Menu.TabIndex = 1;
             this.Menu.Text = "menuStrip1";
             // 
@@ -133,29 +136,37 @@ namespace GardenGroupUI
             // 
             // LblTicket
             // 
+            this.LblTicket.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LblTicket.AutoSize = true;
             this.LblTicket.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LblTicket.Location = new System.Drawing.Point(124, 146);
+            this.LblTicket.Location = new System.Drawing.Point(110, 132);
             this.LblTicket.Name = "LblTicket";
-            this.LblTicket.Size = new System.Drawing.Size(252, 41);
+            this.LblTicket.Size = new System.Drawing.Size(202, 32);
             this.LblTicket.TabIndex = 2;
             this.LblTicket.Text = "Overview tickets";
             // 
             // TBXfilter
             // 
-            this.TBXfilter.Location = new System.Drawing.Point(124, 202);
+            this.TBXfilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBXfilter.Location = new System.Drawing.Point(110, 183);
+            this.TBXfilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TBXfilter.Name = "TBXfilter";
-            this.TBXfilter.Size = new System.Drawing.Size(326, 27);
+            this.TBXfilter.Size = new System.Drawing.Size(286, 23);
             this.TBXfilter.TabIndex = 3;
             this.TBXfilter.TabStop = false;
             // 
             // BTNaddTicket
             // 
+            this.BTNaddTicket.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BTNaddTicket.BackColor = System.Drawing.Color.DodgerBlue;
             this.BTNaddTicket.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BTNaddTicket.Location = new System.Drawing.Point(979, 193);
+            this.BTNaddTicket.Location = new System.Drawing.Point(1009, 183);
+            this.BTNaddTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTNaddTicket.Name = "BTNaddTicket";
-            this.BTNaddTicket.Size = new System.Drawing.Size(172, 36);
+            this.BTNaddTicket.Size = new System.Drawing.Size(150, 27);
             this.BTNaddTicket.TabIndex = 4;
             this.BTNaddTicket.Text = "Create button";
             this.BTNaddTicket.UseVisualStyleBackColor = false;
@@ -163,13 +174,16 @@ namespace GardenGroupUI
             // 
             // LVTickets
             // 
+            this.LVTickets.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LVTickets.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Id,
             this.Subject});
             this.LVTickets.HideSelection = false;
-            this.LVTickets.Location = new System.Drawing.Point(124, 257);
+            this.LVTickets.Location = new System.Drawing.Point(110, 229);
+            this.LVTickets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LVTickets.Name = "LVTickets";
-            this.LVTickets.Size = new System.Drawing.Size(1027, 367);
+            this.LVTickets.Size = new System.Drawing.Size(1049, 374);
             this.LVTickets.TabIndex = 5;
             this.LVTickets.UseCompatibleStateImageBehavior = false;
             // 
@@ -179,9 +193,10 @@ namespace GardenGroupUI
             // 
             // Incident_Management
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.LVTickets);
             this.Controls.Add(this.BTNaddTicket);
             this.Controls.Add(this.TBXfilter);
@@ -189,6 +204,7 @@ namespace GardenGroupUI
             this.Controls.Add(this.PNLmain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.Menu;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Incident_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Incident Management";
