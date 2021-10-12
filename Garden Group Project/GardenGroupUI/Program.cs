@@ -17,7 +17,7 @@ namespace GardenGroupUI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Incident_Management());
+            Application.Run(new User_Management());
         }
     }
 }
