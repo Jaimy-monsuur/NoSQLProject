@@ -33,6 +33,7 @@ namespace GardenGroupUI
             this.panel1 = new System.Windows.Forms.Panel();
             this.RTB_Description = new System.Windows.Forms.RichTextBox();
             this.LBL_description = new System.Windows.Forms.Label();
+            this.BTN_add = new System.Windows.Forms.Button();
             this.LBL_deadline = new System.Windows.Forms.Label();
             this.LBL_priority = new System.Windows.Forms.Label();
             this.LBL_user = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@ namespace GardenGroupUI
             this.CB_Priority = new System.Windows.Forms.ComboBox();
             this.CB_ReportedBy = new System.Windows.Forms.ComboBox();
             this.CB_incidentType = new System.Windows.Forms.ComboBox();
-            this.BTN_add = new System.Windows.Forms.Button();
             this.LBL_Error = new System.Windows.Forms.Label();
             this.PNLmain = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -123,6 +123,18 @@ namespace GardenGroupUI
             this.LBL_description.Size = new System.Drawing.Size(71, 15);
             this.LBL_description.TabIndex = 24;
             this.LBL_description.Text = "Desctiption:";
+            // 
+            // BTN_add
+            // 
+            this.BTN_add.AutoSize = true;
+            this.BTN_add.Location = new System.Drawing.Point(686, 344);
+            this.BTN_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BTN_add.Name = "BTN_add";
+            this.BTN_add.Size = new System.Drawing.Size(122, 29);
+            this.BTN_add.TabIndex = 12;
+            this.BTN_add.Text = "Add";
+            this.BTN_add.UseVisualStyleBackColor = true;
+            this.BTN_add.Click += new System.EventHandler(this.BTN_add_Click);
             // 
             // LBL_deadline
             // 
@@ -243,18 +255,6 @@ namespace GardenGroupUI
             this.CB_incidentType.Name = "CB_incidentType";
             this.CB_incidentType.Size = new System.Drawing.Size(219, 23);
             this.CB_incidentType.TabIndex = 11;
-            // 
-            // BTN_add
-            // 
-            this.BTN_add.AutoSize = true;
-            this.BTN_add.Location = new System.Drawing.Point(686, 344);
-            this.BTN_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BTN_add.Name = "BTN_add";
-            this.BTN_add.Size = new System.Drawing.Size(122, 29);
-            this.BTN_add.TabIndex = 12;
-            this.BTN_add.Text = "Add";
-            this.BTN_add.UseVisualStyleBackColor = true;
-            this.BTN_add.Click += new System.EventHandler(this.BTN_add_Click);
             // 
             // LBL_Error
             // 
@@ -377,13 +377,14 @@ namespace GardenGroupUI
             // 
             // Create_Ticket
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.PNLmain);
             this.Controls.Add(this.LBL_Error);
             this.Controls.Add(this.GB_AddTicket);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Create_Ticket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
