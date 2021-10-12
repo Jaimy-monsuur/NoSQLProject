@@ -17,25 +17,13 @@ namespace GardenGroupUI
         public Incident_Management()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
-        private void PNLmain_Paint(object sender, PaintEventArgs e)
-        {
-            ControlPaint.DrawBorder(e.Graphics, PNLmain.ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
-        }
-
-        private void menuStrip1_Paint(object sender, PaintEventArgs e)
-        {
-            ControlPaint.DrawBorder(e.Graphics, Menu.ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
-        }
 
         private void Incident_Management_Load(object sender, EventArgs e)
         {
-            // sets size of menu
-            foreach (ToolStripItem item in Menu.Items)
-            {
-                item.Size = new Size(415,24);
-            }
             //for the default text in textbox
             this.TBXfilter.Enter += new EventHandler(TBXfilter_Enter);
             this.TBXfilter.Leave += new EventHandler(TBXfilter_Leave);

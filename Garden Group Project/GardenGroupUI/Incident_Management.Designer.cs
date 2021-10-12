@@ -50,18 +50,22 @@ namespace GardenGroupUI
             // 
             // PNLmain
             // 
+            this.PNLmain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PNLmain.AutoSize = true;
+            this.PNLmain.BackColor = System.Drawing.Color.DarkCyan;
             this.PNLmain.Controls.Add(this.LBLLicense);
             this.PNLmain.Controls.Add(this.LBLnodesk);
             this.PNLmain.Controls.Add(this.PBOX);
             this.PNLmain.Controls.Add(this.Menu);
             this.PNLmain.Location = new System.Drawing.Point(0, 0);
             this.PNLmain.Name = "PNLmain";
-            this.PNLmain.Size = new System.Drawing.Size(1260, 124);
+            this.PNLmain.Size = new System.Drawing.Size(1264, 124);
             this.PNLmain.TabIndex = 0;
-            this.PNLmain.Paint += new System.Windows.Forms.PaintEventHandler(this.PNLmain_Paint);
             // 
             // LBLLicense
             // 
+            this.LBLLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LBLLicense.AutoSize = true;
             this.LBLLicense.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LBLLicense.Location = new System.Drawing.Point(947, 59);
@@ -72,6 +76,7 @@ namespace GardenGroupUI
             // 
             // LBLnodesk
             // 
+            this.LBLnodesk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LBLnodesk.AutoSize = true;
             this.LBLnodesk.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LBLnodesk.Location = new System.Drawing.Point(1092, 9);
@@ -91,6 +96,7 @@ namespace GardenGroupUI
             // 
             // Menu
             // 
+            this.Menu.BackColor = System.Drawing.Color.DarkCyan;
             this.Menu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Menu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -100,10 +106,9 @@ namespace GardenGroupUI
             this.userManagementToolStripMenuItem});
             this.Menu.Location = new System.Drawing.Point(0, 96);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(1260, 28);
+            this.Menu.Size = new System.Drawing.Size(1264, 28);
             this.Menu.TabIndex = 1;
             this.Menu.Text = "menuStrip1";
-            this.Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.menuStrip1_Paint);
             // 
             // dashboardToolStripMenuItem
             // 
@@ -182,6 +187,7 @@ namespace GardenGroupUI
             this.Controls.Add(this.TBXfilter);
             this.Controls.Add(this.LblTicket);
             this.Controls.Add(this.PNLmain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.Menu;
             this.Name = "Incident_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
