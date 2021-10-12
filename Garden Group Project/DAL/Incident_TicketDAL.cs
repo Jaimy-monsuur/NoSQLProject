@@ -22,6 +22,11 @@ namespace DAL
             return ToInsident_Ticket(GetCollection(CollectionName()));//haalt alle tickets op
         }
 
+        public List<Incident_Ticket> GetMaxId()
+        {
+            return ToInsident_Ticket(GetMax(CollectionName(), "Incident_Id"));//haalt alle tickets op
+        }
+
         public void InsertTicket(Incident_Ticket t)// insert een ticket
         {
             BsonDocument document = new BsonDocument()

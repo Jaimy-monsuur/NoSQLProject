@@ -25,6 +25,13 @@ namespace DAL
             return collection.Find(new BsonDocument()).ToList();
         }
 
+        protected List<BsonDocument> GetMax(string colName, string fieldName)
+        {
+            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
+            var f = Builders<BsonDocument>.Sort.Descending(fieldName);
+            return collection.Find(new BsonDocument()).Sort(f).ToList();
+        }
+
         protected List<BsonDocument> GetCollectionFiltered(string colName,string filter)// filter must be like this: string filter = "\"id\", 1000"
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);

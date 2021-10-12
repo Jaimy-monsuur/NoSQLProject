@@ -39,7 +39,7 @@ namespace GardenGroupUI
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GB_AddTicket = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.RTB_Description = new System.Windows.Forms.RichTextBox();
             this.LBL_description = new System.Windows.Forms.Label();
             this.LBL_deadline = new System.Windows.Forms.Label();
             this.LBL_priority = new System.Windows.Forms.Label();
@@ -47,12 +47,13 @@ namespace GardenGroupUI
             this.LBL_Type = new System.Windows.Forms.Label();
             this.LBL_Subject = new System.Windows.Forms.Label();
             this.LBL_reportdate = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.DTP_ReportDate = new System.Windows.Forms.DateTimePicker();
+            this.DTP_Deadline = new System.Windows.Forms.DateTimePicker();
+            this.TXB_Subject = new System.Windows.Forms.MaskedTextBox();
+            this.CB_Priority = new System.Windows.Forms.ComboBox();
+            this.CB_ReportedBy = new System.Windows.Forms.ComboBox();
+            this.CB_incidentType = new System.Windows.Forms.ComboBox();
+            this.BTN_add = new System.Windows.Forms.Button();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
             this.Menu.SuspendLayout();
@@ -148,14 +149,14 @@ namespace GardenGroupUI
             this.GB_AddTicket.Controls.Add(this.LBL_Type);
             this.GB_AddTicket.Controls.Add(this.LBL_Subject);
             this.GB_AddTicket.Controls.Add(this.LBL_reportdate);
-            this.GB_AddTicket.Controls.Add(this.dateTimePicker2);
-            this.GB_AddTicket.Controls.Add(this.dateTimePicker1);
-            this.GB_AddTicket.Controls.Add(this.maskedTextBox1);
-            this.GB_AddTicket.Controls.Add(this.comboBox4);
-            this.GB_AddTicket.Controls.Add(this.comboBox3);
-            this.GB_AddTicket.Controls.Add(this.comboBox2);
+            this.GB_AddTicket.Controls.Add(this.DTP_ReportDate);
+            this.GB_AddTicket.Controls.Add(this.DTP_Deadline);
+            this.GB_AddTicket.Controls.Add(this.TXB_Subject);
+            this.GB_AddTicket.Controls.Add(this.CB_Priority);
+            this.GB_AddTicket.Controls.Add(this.CB_ReportedBy);
+            this.GB_AddTicket.Controls.Add(this.CB_incidentType);
             this.GB_AddTicket.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GB_AddTicket.Location = new System.Drawing.Point(130, 170);
+            this.GB_AddTicket.Location = new System.Drawing.Point(130, 157);
             this.GB_AddTicket.Name = "GB_AddTicket";
             this.GB_AddTicket.Size = new System.Drawing.Size(1000, 440);
             this.GB_AddTicket.TabIndex = 11;
@@ -164,7 +165,7 @@ namespace GardenGroupUI
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Controls.Add(this.RTB_Description);
             this.panel1.Location = new System.Drawing.Point(512, 292);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(3);
@@ -172,16 +173,16 @@ namespace GardenGroupUI
             this.panel1.TabIndex = 25;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // richTextBox1
+            // RTB_Description
             // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.richTextBox1.Location = new System.Drawing.Point(3, 3);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(405, 119);
-            this.richTextBox1.TabIndex = 15;
-            this.richTextBox1.Text = "";
+            this.RTB_Description.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RTB_Description.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RTB_Description.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RTB_Description.Location = new System.Drawing.Point(3, 3);
+            this.RTB_Description.Name = "RTB_Description";
+            this.RTB_Description.Size = new System.Drawing.Size(405, 119);
+            this.RTB_Description.TabIndex = 15;
+            this.RTB_Description.Text = "";
             // 
             // LBL_description
             // 
@@ -253,65 +254,76 @@ namespace GardenGroupUI
             this.LBL_reportdate.TabIndex = 18;
             this.LBL_reportdate.Text = "Report Date:";
             // 
-            // dateTimePicker2
+            // DTP_ReportDate
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker2.Location = new System.Drawing.Point(512, 31);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(250, 27);
-            this.dateTimePicker2.TabIndex = 17;
+            this.DTP_ReportDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTP_ReportDate.Location = new System.Drawing.Point(512, 31);
+            this.DTP_ReportDate.Name = "DTP_ReportDate";
+            this.DTP_ReportDate.Size = new System.Drawing.Size(250, 27);
+            this.DTP_ReportDate.TabIndex = 17;
             // 
-            // dateTimePicker1
+            // DTP_Deadline
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Location = new System.Drawing.Point(512, 257);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
-            this.dateTimePicker1.TabIndex = 16;
+            this.DTP_Deadline.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTP_Deadline.Location = new System.Drawing.Point(512, 257);
+            this.DTP_Deadline.Name = "DTP_Deadline";
+            this.DTP_Deadline.Size = new System.Drawing.Size(250, 27);
+            this.DTP_Deadline.TabIndex = 16;
             // 
-            // maskedTextBox1
+            // TXB_Subject
             // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maskedTextBox1.Location = new System.Drawing.Point(512, 74);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(250, 27);
-            this.maskedTextBox1.TabIndex = 14;
+            this.TXB_Subject.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TXB_Subject.Location = new System.Drawing.Point(512, 74);
+            this.TXB_Subject.Name = "TXB_Subject";
+            this.TXB_Subject.Size = new System.Drawing.Size(250, 27);
+            this.TXB_Subject.TabIndex = 14;
             // 
-            // comboBox4
+            // CB_Priority
             // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(512, 211);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(250, 28);
-            this.comboBox4.TabIndex = 13;
+            this.CB_Priority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_Priority.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CB_Priority.FormattingEnabled = true;
+            this.CB_Priority.Location = new System.Drawing.Point(512, 211);
+            this.CB_Priority.Name = "CB_Priority";
+            this.CB_Priority.Size = new System.Drawing.Size(250, 28);
+            this.CB_Priority.TabIndex = 13;
             // 
-            // comboBox3
+            // CB_ReportedBy
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(512, 167);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(250, 28);
-            this.comboBox3.TabIndex = 12;
+            this.CB_ReportedBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_ReportedBy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CB_ReportedBy.FormattingEnabled = true;
+            this.CB_ReportedBy.Location = new System.Drawing.Point(512, 167);
+            this.CB_ReportedBy.Name = "CB_ReportedBy";
+            this.CB_ReportedBy.Size = new System.Drawing.Size(250, 28);
+            this.CB_ReportedBy.TabIndex = 12;
             // 
-            // comboBox2
+            // CB_incidentType
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(512, 117);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(250, 28);
-            this.comboBox2.TabIndex = 11;
+            this.CB_incidentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_incidentType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CB_incidentType.FormattingEnabled = true;
+            this.CB_incidentType.Location = new System.Drawing.Point(512, 117);
+            this.CB_incidentType.Name = "CB_incidentType";
+            this.CB_incidentType.Size = new System.Drawing.Size(250, 28);
+            this.CB_incidentType.TabIndex = 11;
+            // 
+            // BTN_add
+            // 
+            this.BTN_add.Location = new System.Drawing.Point(990, 621);
+            this.BTN_add.Name = "BTN_add";
+            this.BTN_add.Size = new System.Drawing.Size(140, 29);
+            this.BTN_add.TabIndex = 12;
+            this.BTN_add.Text = "Add";
+            this.BTN_add.UseVisualStyleBackColor = true;
+            this.BTN_add.Click += new System.EventHandler(this.BTN_add_Click);
             // 
             // Create_Ticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.BTN_add);
             this.Controls.Add(this.GB_AddTicket);
             this.Controls.Add(this.PNLmain);
             this.Name = "Create_Ticket";
@@ -344,17 +356,18 @@ namespace GardenGroupUI
         private System.Windows.Forms.Label LBL_Type;
         private System.Windows.Forms.Label LBL_Subject;
         private System.Windows.Forms.Label LBL_reportdate;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DateTimePicker DTP_ReportDate;
+        private System.Windows.Forms.DateTimePicker DTP_Deadline;
+        private System.Windows.Forms.RichTextBox RTB_Description;
+        private System.Windows.Forms.MaskedTextBox TXB_Subject;
+        private System.Windows.Forms.ComboBox CB_Priority;
+        private System.Windows.Forms.ComboBox CB_ReportedBy;
+        private System.Windows.Forms.ComboBox CB_incidentType;
         private System.Windows.Forms.Label LBL_description;
         private System.Windows.Forms.Label LBL_deadline;
         private System.Windows.Forms.Label LBL_priority;
         private System.Windows.Forms.Label LBL_user;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button BTN_add;
     }
 }

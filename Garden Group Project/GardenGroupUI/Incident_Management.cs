@@ -46,6 +46,7 @@ namespace GardenGroupUI
 
         protected void SetListvieuw()
         {
+            LVTickets.Clear();
             // Maak grid
             LVTickets.Clear();
             LVTickets.View = View.Details;
@@ -104,6 +105,8 @@ namespace GardenGroupUI
             this.Hide();
             create_Ticket.ShowDialog();
             this.Show();
+            SetListvieuw();
+            GetLVData();
         }
     }
 }

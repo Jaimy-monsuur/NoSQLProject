@@ -13,5 +13,15 @@ namespace Logic_Layer
         {
             return dal.GetAllTickets();
         }
+
+        public List<Incident_Ticket> GetMaxId()
+        {
+            return dal.GetMaxId();
+        }
+
+        public void AddTicket(Incident_Ticket ticket)
+        {
+            dal.InsertTicket(ticket);
+        }
     }
 }
