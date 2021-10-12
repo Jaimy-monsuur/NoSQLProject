@@ -16,6 +16,5 @@ namespace Model
         public string emailAddress;
         public string phoneNumber;
         public string location;
-        public string password;
     }
 }

@@ -66,14 +66,15 @@ namespace GardenGroupUI
                 //Indien het niet klopt, text laten zien, de user op null zetten en password-veld clearen
                 user = null;
                 lblWrongPW.Show();
-                lnklblForgotPassWord.Show();
                 txtWachtwoord.Text = "";
             }
         }
 
         private void lnklblForgotPassWord_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            this.Hide();
+            frmForgotPassword forgotPassword = new frmForgotPassword();
+            forgotPassword.Show();
         }
     }
 }

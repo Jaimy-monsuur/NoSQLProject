@@ -45,7 +45,7 @@ namespace GardenGroupUI
             // 
             this.LBLLicense.AutoSize = true;
             this.LBLLicense.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBLLicense.Location = new System.Drawing.Point(845, 474);
+            this.LBLLicense.Location = new System.Drawing.Point(1005, 654);
             this.LBLLicense.Name = "LBLLicense";
             this.LBLLicense.Size = new System.Drawing.Size(242, 21);
             this.LBLLicense.TabIndex = 5;
@@ -55,7 +55,7 @@ namespace GardenGroupUI
             // 
             this.LBLnodesk.AutoSize = true;
             this.LBLnodesk.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBLnodesk.Location = new System.Drawing.Point(964, 436);
+            this.LBLnodesk.Location = new System.Drawing.Point(1124, 616);
             this.LBLnodesk.Name = "LBLnodesk";
             this.LBLnodesk.Size = new System.Drawing.Size(128, 41);
             this.LBLnodesk.TabIndex = 4;
@@ -130,7 +130,6 @@ namespace GardenGroupUI
             this.lnklblForgotPassWord.TabIndex = 14;
             this.lnklblForgotPassWord.TabStop = true;
             this.lnklblForgotPassWord.Text = "Wachtwoord vergeten?";
-            this.lnklblForgotPassWord.Visible = false;
             this.lnklblForgotPassWord.VisitedLinkColor = System.Drawing.Color.Blue;
             this.lnklblForgotPassWord.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblForgotPassWord_LinkClicked);
             // 
@@ -152,7 +151,7 @@ namespace GardenGroupUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(1104, 505);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.lblWrongPW);
             this.Controls.Add(this.lnklblForgotPassWord);
             this.Controls.Add(this.btnLogin);
@@ -176,16 +175,11 @@ namespace GardenGroupUI
         private System.Windows.Forms.Label LBLLicense;
         private System.Windows.Forms.Label LBLnodesk;
         private System.Windows.Forms.Label txtLogin;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox PBOX;
         private System.Windows.Forms.Label lblGebruikersnaam;
-        private System.Windows.Forms.Label lblWachtwoord;
         private System.Windows.Forms.Label lblLoginWachtwoord;
         private System.Windows.Forms.TextBox txtGebruikersnaam;
         private System.Windows.Forms.TextBox txtWachtwoord;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.LinkLabel lnklblForgotPW;
         private System.Windows.Forms.LinkLabel lnklblForgotPassWord;
         private System.Windows.Forms.Label lblWrongPW;
     }
