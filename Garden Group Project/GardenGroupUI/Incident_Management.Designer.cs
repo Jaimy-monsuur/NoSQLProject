@@ -29,6 +29,9 @@ namespace GardenGroupUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PNLmain = new System.Windows.Forms.Panel();
             this.LBLLicense = new System.Windows.Forms.Label();
             this.LBLnodesk = new System.Windows.Forms.Label();
@@ -43,9 +46,13 @@ namespace GardenGroupUI
             this.LVTickets = new System.Windows.Forms.ListView();
             this.Id = new System.Windows.Forms.ColumnHeader();
             this.Subject = new System.Windows.Forms.ColumnHeader();
+            this.DGV_Selected = new System.Windows.Forms.DataGridView();
+            this.LBL_ticket = new System.Windows.Forms.Label();
+            this.BTN_Update = new System.Windows.Forms.Button();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
             this.Menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Selected)).BeginInit();
             this.SuspendLayout();
             // 
             // PNLmain
@@ -141,7 +148,7 @@ namespace GardenGroupUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LblTicket.AutoSize = true;
             this.LblTicket.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LblTicket.Location = new System.Drawing.Point(110, 132);
+            this.LblTicket.Location = new System.Drawing.Point(41, 113);
             this.LblTicket.Name = "LblTicket";
             this.LblTicket.Size = new System.Drawing.Size(202, 32);
             this.LblTicket.TabIndex = 2;
@@ -151,7 +158,7 @@ namespace GardenGroupUI
             // 
             this.TBXfilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBXfilter.Location = new System.Drawing.Point(110, 183);
+            this.TBXfilter.Location = new System.Drawing.Point(41, 164);
             this.TBXfilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TBXfilter.Name = "TBXfilter";
             this.TBXfilter.Size = new System.Drawing.Size(286, 23);
@@ -164,12 +171,12 @@ namespace GardenGroupUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BTNaddTicket.BackColor = System.Drawing.Color.DodgerBlue;
             this.BTNaddTicket.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BTNaddTicket.Location = new System.Drawing.Point(1009, 183);
+            this.BTNaddTicket.Location = new System.Drawing.Point(1070, 160);
             this.BTNaddTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTNaddTicket.Name = "BTNaddTicket";
             this.BTNaddTicket.Size = new System.Drawing.Size(150, 27);
             this.BTNaddTicket.TabIndex = 4;
-            this.BTNaddTicket.Text = "Create button";
+            this.BTNaddTicket.Text = "Create Ticket";
             this.BTNaddTicket.UseVisualStyleBackColor = false;
             this.BTNaddTicket.Click += new System.EventHandler(this.BTNaddTicket_Click);
             // 
@@ -181,16 +188,76 @@ namespace GardenGroupUI
             this.Id,
             this.Subject});
             this.LVTickets.HideSelection = false;
-            this.LVTickets.Location = new System.Drawing.Point(110, 229);
+            this.LVTickets.Location = new System.Drawing.Point(41, 228);
             this.LVTickets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LVTickets.MultiSelect = false;
             this.LVTickets.Name = "LVTickets";
-            this.LVTickets.Size = new System.Drawing.Size(1049, 374);
+            this.LVTickets.Size = new System.Drawing.Size(817, 374);
             this.LVTickets.TabIndex = 5;
             this.LVTickets.UseCompatibleStateImageBehavior = false;
+            this.LVTickets.SelectedIndexChanged += new System.EventHandler(this.LVTickets_SelectedIndexChanged);
             // 
             // Id
             // 
             this.Id.Width = 40;
+            // 
+            // DGV_Selected
+            // 
+            this.DGV_Selected.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DGV_Selected.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DGV_Selected.BackgroundColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Selected.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGV_Selected.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Selected.Location = new System.Drawing.Point(934, 228);
+            this.DGV_Selected.Name = "DGV_Selected";
+            this.DGV_Selected.ReadOnly = true;
+            this.DGV_Selected.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Selected.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DGV_Selected.RowHeadersVisible = false;
+            this.DGV_Selected.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.DGV_Selected.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.DGV_Selected.RowTemplate.Height = 25;
+            this.DGV_Selected.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DGV_Selected.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV_Selected.ShowCellToolTips = false;
+            this.DGV_Selected.Size = new System.Drawing.Size(286, 328);
+            this.DGV_Selected.TabIndex = 6;
+            // 
+            // LBL_ticket
+            // 
+            this.LBL_ticket.AutoSize = true;
+            this.LBL_ticket.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBL_ticket.Location = new System.Drawing.Point(934, 200);
+            this.LBL_ticket.Name = "LBL_ticket";
+            this.LBL_ticket.Size = new System.Drawing.Size(119, 25);
+            this.LBL_ticket.TabIndex = 7;
+            this.LBL_ticket.Text = "Ticket detail";
+            // 
+            // BTN_Update
+            // 
+            this.BTN_Update.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BTN_Update.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BTN_Update.Location = new System.Drawing.Point(1070, 579);
+            this.BTN_Update.Name = "BTN_Update";
+            this.BTN_Update.Size = new System.Drawing.Size(150, 27);
+            this.BTN_Update.TabIndex = 8;
+            this.BTN_Update.Text = "Update Ticket";
+            this.BTN_Update.UseVisualStyleBackColor = false;
             // 
             // Incident_Management
             // 
@@ -198,6 +265,9 @@ namespace GardenGroupUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.BTN_Update);
+            this.Controls.Add(this.LBL_ticket);
+            this.Controls.Add(this.DGV_Selected);
             this.Controls.Add(this.LVTickets);
             this.Controls.Add(this.BTNaddTicket);
             this.Controls.Add(this.TBXfilter);
@@ -215,6 +285,7 @@ namespace GardenGroupUI
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).EndInit();
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Selected)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,5 +307,8 @@ namespace GardenGroupUI
         private System.Windows.Forms.ListView LVTickets;
         private System.Windows.Forms.ColumnHeader Id;
         private System.Windows.Forms.ColumnHeader Subject;
+        private System.Windows.Forms.DataGridView DGV_Selected;
+        private System.Windows.Forms.Label LBL_ticket;
+        private System.Windows.Forms.Button BTN_Update;
     }
 }

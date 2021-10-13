@@ -33,6 +33,7 @@ namespace GardenGroupUI
             this.panel1 = new System.Windows.Forms.Panel();
             this.RTB_Description = new System.Windows.Forms.RichTextBox();
             this.LBL_description = new System.Windows.Forms.Label();
+            this.BTN_add = new System.Windows.Forms.Button();
             this.LBL_deadline = new System.Windows.Forms.Label();
             this.LBL_priority = new System.Windows.Forms.Label();
             this.LBL_user = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@ namespace GardenGroupUI
             this.CB_Priority = new System.Windows.Forms.ComboBox();
             this.CB_ReportedBy = new System.Windows.Forms.ComboBox();
             this.CB_incidentType = new System.Windows.Forms.ComboBox();
-            this.BTN_add = new System.Windows.Forms.Button();
             this.LBL_Error = new System.Windows.Forms.Label();
             this.PNLmain = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -95,12 +95,13 @@ namespace GardenGroupUI
             // panel1
             // 
             this.panel1.Controls.Add(this.RTB_Description);
-            this.panel1.Location = new System.Drawing.Point(448, 219);
+            this.panel1.Location = new System.Drawing.Point(478, 318);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Size = new System.Drawing.Size(360, 94);
             this.panel1.TabIndex = 25;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // RTB_Description
             // 
@@ -118,17 +119,29 @@ namespace GardenGroupUI
             // 
             this.LBL_description.AutoSize = true;
             this.LBL_description.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBL_description.Location = new System.Drawing.Point(108, 219);
+            this.LBL_description.Location = new System.Drawing.Point(138, 318);
             this.LBL_description.Name = "LBL_description";
             this.LBL_description.Size = new System.Drawing.Size(71, 15);
             this.LBL_description.TabIndex = 24;
             this.LBL_description.Text = "Desctiption:";
             // 
+            // BTN_add
+            // 
+            this.BTN_add.AutoSize = true;
+            this.BTN_add.Location = new System.Drawing.Point(716, 443);
+            this.BTN_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BTN_add.Name = "BTN_add";
+            this.BTN_add.Size = new System.Drawing.Size(122, 29);
+            this.BTN_add.TabIndex = 12;
+            this.BTN_add.Text = "Add";
+            this.BTN_add.UseVisualStyleBackColor = true;
+            this.BTN_add.Click += new System.EventHandler(this.BTN_add_Click);
+            // 
             // LBL_deadline
             // 
             this.LBL_deadline.AutoSize = true;
             this.LBL_deadline.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBL_deadline.Location = new System.Drawing.Point(108, 196);
+            this.LBL_deadline.Location = new System.Drawing.Point(138, 267);
             this.LBL_deadline.Name = "LBL_deadline";
             this.LBL_deadline.Size = new System.Drawing.Size(57, 15);
             this.LBL_deadline.TabIndex = 23;
@@ -138,7 +151,7 @@ namespace GardenGroupUI
             // 
             this.LBL_priority.AutoSize = true;
             this.LBL_priority.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBL_priority.Location = new System.Drawing.Point(108, 160);
+            this.LBL_priority.Location = new System.Drawing.Point(138, 220);
             this.LBL_priority.Name = "LBL_priority";
             this.LBL_priority.Size = new System.Drawing.Size(48, 15);
             this.LBL_priority.TabIndex = 22;
@@ -148,7 +161,7 @@ namespace GardenGroupUI
             // 
             this.LBL_user.AutoSize = true;
             this.LBL_user.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBL_user.Location = new System.Drawing.Point(108, 128);
+            this.LBL_user.Location = new System.Drawing.Point(138, 174);
             this.LBL_user.Name = "LBL_user";
             this.LBL_user.Size = new System.Drawing.Size(74, 15);
             this.LBL_user.TabIndex = 21;
@@ -158,7 +171,7 @@ namespace GardenGroupUI
             // 
             this.LBL_Type.AutoSize = true;
             this.LBL_Type.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBL_Type.Location = new System.Drawing.Point(108, 90);
+            this.LBL_Type.Location = new System.Drawing.Point(138, 132);
             this.LBL_Type.Name = "LBL_Type";
             this.LBL_Type.Size = new System.Drawing.Size(80, 15);
             this.LBL_Type.TabIndex = 20;
@@ -168,7 +181,7 @@ namespace GardenGroupUI
             // 
             this.LBL_Subject.AutoSize = true;
             this.LBL_Subject.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBL_Subject.Location = new System.Drawing.Point(108, 58);
+            this.LBL_Subject.Location = new System.Drawing.Point(138, 91);
             this.LBL_Subject.Name = "LBL_Subject";
             this.LBL_Subject.Size = new System.Drawing.Size(53, 15);
             this.LBL_Subject.TabIndex = 19;
@@ -178,7 +191,7 @@ namespace GardenGroupUI
             // 
             this.LBL_reportdate.AutoSize = true;
             this.LBL_reportdate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBL_reportdate.Location = new System.Drawing.Point(108, 28);
+            this.LBL_reportdate.Location = new System.Drawing.Point(138, 51);
             this.LBL_reportdate.Name = "LBL_reportdate";
             this.LBL_reportdate.Size = new System.Drawing.Size(73, 15);
             this.LBL_reportdate.TabIndex = 18;
@@ -187,7 +200,7 @@ namespace GardenGroupUI
             // DTP_ReportDate
             // 
             this.DTP_ReportDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTP_ReportDate.Location = new System.Drawing.Point(448, 23);
+            this.DTP_ReportDate.Location = new System.Drawing.Point(478, 46);
             this.DTP_ReportDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DTP_ReportDate.Name = "DTP_ReportDate";
             this.DTP_ReportDate.Size = new System.Drawing.Size(219, 23);
@@ -196,7 +209,7 @@ namespace GardenGroupUI
             // DTP_Deadline
             // 
             this.DTP_Deadline.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTP_Deadline.Location = new System.Drawing.Point(448, 193);
+            this.DTP_Deadline.Location = new System.Drawing.Point(478, 267);
             this.DTP_Deadline.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DTP_Deadline.Name = "DTP_Deadline";
             this.DTP_Deadline.Size = new System.Drawing.Size(219, 23);
@@ -205,7 +218,7 @@ namespace GardenGroupUI
             // TXB_Subject
             // 
             this.TXB_Subject.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TXB_Subject.Location = new System.Drawing.Point(448, 56);
+            this.TXB_Subject.Location = new System.Drawing.Point(478, 89);
             this.TXB_Subject.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TXB_Subject.Name = "TXB_Subject";
             this.TXB_Subject.Size = new System.Drawing.Size(219, 23);
@@ -216,7 +229,7 @@ namespace GardenGroupUI
             this.CB_Priority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Priority.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CB_Priority.FormattingEnabled = true;
-            this.CB_Priority.Location = new System.Drawing.Point(448, 158);
+            this.CB_Priority.Location = new System.Drawing.Point(478, 218);
             this.CB_Priority.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CB_Priority.Name = "CB_Priority";
             this.CB_Priority.Size = new System.Drawing.Size(219, 23);
@@ -227,7 +240,7 @@ namespace GardenGroupUI
             this.CB_ReportedBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_ReportedBy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CB_ReportedBy.FormattingEnabled = true;
-            this.CB_ReportedBy.Location = new System.Drawing.Point(448, 125);
+            this.CB_ReportedBy.Location = new System.Drawing.Point(478, 171);
             this.CB_ReportedBy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CB_ReportedBy.Name = "CB_ReportedBy";
             this.CB_ReportedBy.Size = new System.Drawing.Size(219, 23);
@@ -238,23 +251,11 @@ namespace GardenGroupUI
             this.CB_incidentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_incidentType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CB_incidentType.FormattingEnabled = true;
-            this.CB_incidentType.Location = new System.Drawing.Point(448, 88);
+            this.CB_incidentType.Location = new System.Drawing.Point(478, 130);
             this.CB_incidentType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CB_incidentType.Name = "CB_incidentType";
             this.CB_incidentType.Size = new System.Drawing.Size(219, 23);
             this.CB_incidentType.TabIndex = 11;
-            // 
-            // BTN_add
-            // 
-            this.BTN_add.AutoSize = true;
-            this.BTN_add.Location = new System.Drawing.Point(686, 344);
-            this.BTN_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BTN_add.Name = "BTN_add";
-            this.BTN_add.Size = new System.Drawing.Size(122, 29);
-            this.BTN_add.TabIndex = 12;
-            this.BTN_add.Text = "Add";
-            this.BTN_add.UseVisualStyleBackColor = true;
-            this.BTN_add.Click += new System.EventHandler(this.BTN_add_Click);
             // 
             // LBL_Error
             // 
@@ -377,13 +378,14 @@ namespace GardenGroupUI
             // 
             // Create_Ticket
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.PNLmain);
             this.Controls.Add(this.LBL_Error);
             this.Controls.Add(this.GB_AddTicket);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Create_Ticket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

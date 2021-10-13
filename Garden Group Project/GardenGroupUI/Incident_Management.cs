@@ -18,7 +18,6 @@ namespace GardenGroupUI
         {
             InitializeComponent();
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
         }
 
 
@@ -30,6 +29,18 @@ namespace GardenGroupUI
             TBXfilter_SetText();
             SetListvieuw();
             GetLVData();
+            DataGridViewSetings();
+        }
+        public void DataGridViewSetings()
+        {
+            DGV_Selected.ColumnCount = 2;
+            DGV_Selected.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            DGV_Selected.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            DGV_Selected.Columns[0].Name = "Selected Ticket";
+            DGV_Selected.Columns[1].Name = "";
+            DGV_Selected.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DGV_Selected.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
         protected void SetListvieuw()
@@ -43,24 +54,26 @@ namespace GardenGroupUI
 
             // Voeg column header toe
             LVTickets.Columns.Add("Id:", 50);
-            LVTickets.Columns.Add("Subject:", 400);
             LVTickets.Columns.Add("User:", 260);
+            LVTickets.Columns.Add("Subject:", 100);
             LVTickets.Columns.Add("Report date:", 110);
             LVTickets.Columns.Add("Deadline:", 100);
-            LVTickets.Columns.Add("Status:", 100);
+            LVTickets.Columns.Add("Priority:", 70);
+            LVTickets.Columns.Add("Status:", 70);
         }
         protected void GetLVData()
         {
             List<Incident_Ticket> list = logic_Layer.GetAllTickets();
             foreach (Incident_Ticket item in list)
             {
-                string[] collumnItems = new string[6];
+                string[] collumnItems = new string[7];
                 collumnItems[0] = item.id.ToString();
-                collumnItems[1] = item.subjectOfIncident;
-                collumnItems[2] = item.ReportedBy;
+                collumnItems[1] = item.ReportedBy;
+                collumnItems[2] = item.subjectOfIncident;
                 collumnItems[3] = item.reportDate.ToShortDateString();
                 collumnItems[4] = item.Deadline.ToShortDateString();
-                collumnItems[5] = item.Status;
+                collumnItems[5] = item.Incident_Priority.ToString();
+                collumnItems[6] = item.Status.ToString();
                 ListViewItem li = new ListViewItem(collumnItems);
                 li.Tag = item;// zodat je het object terug kan vinden
                 LVTickets.Items.Add(li);
@@ -70,7 +83,7 @@ namespace GardenGroupUI
         //for the defoult text in a text box
         protected void TBXfilter_SetText()
         {
-            this.TBXfilter.Text = "Filter by email";
+            this.TBXfilter.Text = "Filter by subject";
             TBXfilter.ForeColor = Color.Gray;
         }
 
@@ -95,6 +108,27 @@ namespace GardenGroupUI
             this.Show();
             SetListvieuw();
             GetLVData();
+        }
+
+
+        private void LVTickets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (LVTickets.SelectedItems.Count != 0)
+            {
+                ListViewItem li = (ListViewItem)LVTickets.SelectedItems[0];
+                Incident_Ticket t = (Incident_Ticket)li.Tag;
+
+                DGV_Selected.Rows.Clear();
+                DGV_Selected.Rows.Add("ID: ", t.id);
+                DGV_Selected.Rows.Add("Reported By: ", t.ReportedBy);
+                DGV_Selected.Rows.Add("Subject: ", t.subjectOfIncident);
+                DGV_Selected.Rows.Add("Description: ", t.Description);
+                DGV_Selected.Rows.Add("Type: ", t.Incident_Type);
+                DGV_Selected.Rows.Add("Priority: ", t.Incident_Priority);
+                DGV_Selected.Rows.Add("Status: ", t.Status);
+                DGV_Selected.Rows.Add("Report date: ", t.reportDate.ToShortDateString());
+                DGV_Selected.Rows.Add("Deadline: ", t.Deadline.ToShortDateString());
+            }
         }
 
         private void userManagementToolStripMenuItem_Click(object sender, EventArgs e)
