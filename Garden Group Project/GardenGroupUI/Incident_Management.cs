@@ -18,7 +18,6 @@ namespace GardenGroupUI
         {
             InitializeComponent();
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
         }
 
 

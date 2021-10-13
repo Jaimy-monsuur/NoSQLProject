@@ -19,7 +19,6 @@ namespace GardenGroupUI
         {
             InitializeComponent();
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
         }
 
         private void Create_Ticket_Load(object sender, EventArgs e)
