@@ -134,5 +134,12 @@ namespace GardenGroupUI
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
         }
+
+        private void userManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            User_Management man = new User_Management();
+            man.ShowDialog();
+            this.Close();
+        }
     }
 }

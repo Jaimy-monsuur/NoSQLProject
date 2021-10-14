@@ -76,6 +76,7 @@ namespace GardenGroupUI
             this.BTNAddUser.TabIndex = 9;
             this.BTNAddUser.Text = "Create user";
             this.BTNAddUser.UseVisualStyleBackColor = false;
+            this.BTNAddUser.Click += new System.EventHandler(this.BTNAddUser_Click_1);
             // 
             // TBXfilter
             // 
@@ -92,9 +93,9 @@ namespace GardenGroupUI
             this.LblTicket.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LblTicket.Location = new System.Drawing.Point(109, 128);
             this.LblTicket.Name = "LblTicket";
-            this.LblTicket.Size = new System.Drawing.Size(202, 32);
+            this.LblTicket.Size = new System.Drawing.Size(188, 32);
             this.LblTicket.TabIndex = 7;
-            this.LblTicket.Text = "Overview tickets";
+            this.LblTicket.Text = "Overview users";
             // 
             // PNLmain
             // 
@@ -187,6 +188,7 @@ namespace GardenGroupUI
             this.Controls.Add(this.PNLmain);
             this.Name = "User_Management";
             this.Text = "User_Management";
+            this.Load += new System.EventHandler(this.User_Management_Load);
             this.PNLmain.ResumeLayout(false);
             this.PNLmain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).EndInit();
