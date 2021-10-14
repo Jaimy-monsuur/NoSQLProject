@@ -20,17 +20,25 @@ namespace GardenGroupUI
 
         private void BTN_loguit_Click(object sender, EventArgs e)
         {
-            try
+
+            //alle forms behalve de log in form sluiten.
+            List<Form> activeForms = new List<Form>();
+            foreach (Form item in Application.OpenForms)
             {
-                //alle forms behalve de log in form sluiten.
-                foreach (Form f in Application.OpenForms)
+                activeForms.Add(item);
+            }
+
+            foreach (Form f in activeForms)
+            {
+                if ( f.Name != "frmLogin")
+                {
                     f.Close();
+                }
+                else 
+                {
+                    f.Show();
+                }
             }
-            catch (Exception)
-            {
-
-            }
-
         }
 
         private void BTN_annuleer_Click(object sender, EventArgs e)

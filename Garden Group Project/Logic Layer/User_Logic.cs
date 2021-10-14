@@ -21,7 +21,7 @@ namespace Logic_Layer
             encodedPasswordArray = System.Text.Encoding.UTF8.GetBytes("admin");
             string password = Convert.ToBase64String(encodedPasswordArray);
             user.password = password;
-            user.userType = (User_Type)1;
+            user.userType = (User_Type)0;
             return user;
         }
 

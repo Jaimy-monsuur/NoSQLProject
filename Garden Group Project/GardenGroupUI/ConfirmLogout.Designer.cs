@@ -60,7 +60,7 @@ namespace GardenGroupUI
             // 
             this.LBL_Loguit.AutoSize = true;
             this.LBL_Loguit.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBL_Loguit.Location = new System.Drawing.Point(116, 38);
+            this.LBL_Loguit.Location = new System.Drawing.Point(139, 40);
             this.LBL_Loguit.Name = "LBL_Loguit";
             this.LBL_Loguit.Size = new System.Drawing.Size(155, 25);
             this.LBL_Loguit.TabIndex = 2;
