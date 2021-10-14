@@ -81,5 +81,16 @@ namespace GardenGroupUI
             //tijdelijk
             CB_ReportedBy.Items.Add("Admin");
         }
+
+        private void BTN_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Btn_logOut_Click(object sender, EventArgs e)
+        {
+            ConfirmLogout confirmLogout = new ConfirmLogout();
+            confirmLogout.ShowDialog();
+        }
     }
 }
