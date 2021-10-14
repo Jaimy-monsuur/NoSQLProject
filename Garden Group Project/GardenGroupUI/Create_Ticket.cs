@@ -32,34 +32,37 @@ namespace GardenGroupUI
 
         private void BTN_add_Click(object sender, EventArgs e)
         {
-            try
+            if (DTP_ReportDate.Text != "" && TXB_Subject.Text != "" && CB_incidentType.Text != "" && CB_ReportedBy.Text != "" && CB_Priority.Text != "" && DTP_Deadline.Text != "" && RTB_Description.Text != "")
             {
-                if (DTP_ReportDate.Text != "" && TXB_Subject.Text != "" && CB_incidentType.Text != "" && CB_ReportedBy.Text != "" && CB_Priority.Text!= "" && DTP_Deadline.Text != "" && RTB_Description.Text != "" )
+                Incident_Ticket t = new Incident_Ticket();
+                //tijdelijkt
+                t.id = latest_Ticket.id + 1;
+                t.reportDate = DateTime.Parse(DTP_ReportDate.Text);
+                t.subjectOfIncident = TXB_Subject.Text;
+                t.Incident_Type = (Incident_Type)Enum.Parse(typeof(Incident_Type), CB_incidentType.Text, true);
+                t.ReportedBy = CB_ReportedBy.Text;
+                t.Incident_Priority = (Incident_Priority)Enum.Parse(typeof(Incident_Priority), CB_Priority.Text, true);
+                t.Deadline = DateTime.Parse(DTP_Deadline.Text);
+                t.Description = RTB_Description.Text;
+                t.Status = Incident_Status.Open;
+                try
                 {
-                    Incident_Ticket t = new Incident_Ticket();
-                    //tijdelijkt
-                    t.id = latest_Ticket.id + 1;
-                    t.reportDate = DateTime.Parse(DTP_ReportDate.Text);
-                    t.subjectOfIncident = TXB_Subject.Text;
-                    t.Incident_Type = (Incident_Type)Enum.Parse(typeof(Incident_Type), CB_incidentType.Text, true);
-                    t.ReportedBy = CB_ReportedBy.Text;
-                    t.Incident_Priority = (Incident_Priority)Enum.Parse(typeof(Incident_Priority), CB_Priority.Text, true);
-                    t.Deadline = DateTime.Parse(DTP_Deadline.Text);
-                    t.Description = RTB_Description.Text;
-                    t.Status = Incident_Status.Open;
-
                     logic.AddTicket(t);
+                    MessageBox.Show("Ticket has been addede", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);// laat de gebruiker weten dat het is gelukt
                     this.Close();
                 }
-                else
+                catch (Exception)
                 {
-                    LBL_Error.Text = "Fill in all fields";
+                    MessageBox.Show("Was not able to add ticket. Try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het is gelukt
+                    LBL_Error.Text = "An unexpecter error has occurred";
                 }
+
             }
-            catch (Exception)
+            else
             {
-                LBL_Error.Text = "An unexpecter error has occurred";
+                LBL_Error.Text = "Fill in all fields";
             }
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

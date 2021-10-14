@@ -97,7 +97,7 @@ namespace GardenGroupUI
             this.BTN_cancel.Name = "BTN_cancel";
             this.BTN_cancel.Size = new System.Drawing.Size(122, 29);
             this.BTN_cancel.TabIndex = 26;
-            this.BTN_cancel.Text = "Add";
+            this.BTN_cancel.Text = "Cancel";
             this.BTN_cancel.UseVisualStyleBackColor = false;
             this.BTN_cancel.Click += new System.EventHandler(this.BTN_cancel_Click);
             // 
@@ -137,13 +137,14 @@ namespace GardenGroupUI
             // BTN_add
             // 
             this.BTN_add.AutoSize = true;
+            this.BTN_add.BackColor = System.Drawing.Color.LightSeaGreen;
             this.BTN_add.Location = new System.Drawing.Point(610, 442);
             this.BTN_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTN_add.Name = "BTN_add";
             this.BTN_add.Size = new System.Drawing.Size(122, 29);
             this.BTN_add.TabIndex = 12;
             this.BTN_add.Text = "Add";
-            this.BTN_add.UseVisualStyleBackColor = true;
+            this.BTN_add.UseVisualStyleBackColor = false;
             this.BTN_add.Click += new System.EventHandler(this.BTN_add_Click);
             // 
             // LBL_deadline
@@ -269,8 +270,9 @@ namespace GardenGroupUI
             // LBL_Error
             // 
             this.LBL_Error.AutoSize = true;
+            this.LBL_Error.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LBL_Error.ForeColor = System.Drawing.Color.Red;
-            this.LBL_Error.Location = new System.Drawing.Point(114, 466);
+            this.LBL_Error.Location = new System.Drawing.Point(54, 634);
             this.LBL_Error.Name = "LBL_Error";
             this.LBL_Error.Size = new System.Drawing.Size(0, 15);
             this.LBL_Error.TabIndex = 13;
