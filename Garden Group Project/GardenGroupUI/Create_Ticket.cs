@@ -13,7 +13,8 @@ namespace GardenGroupUI
     public partial class Create_Ticket : Form
     {
         Incident_Ticket latest_Ticket;
-        Incident_TickedLogic logic = new Incident_TickedLogic();
+        Incident_TickedLogic incident_TickedLogic = new Incident_TickedLogic();
+        User_Logic user_Logic = new User_Logic();
 
         public Create_Ticket()
         {
@@ -23,7 +24,7 @@ namespace GardenGroupUI
 
         private void Create_Ticket_Load(object sender, EventArgs e)
         {
-            latest_Ticket = logic.GetMaxId()[0];
+            latest_Ticket = incident_TickedLogic.GetMaxId()[0];
             DTP_Deadline.MinDate = DateTime.Now;// deadline can not be in the past when creating a new ticket
             DTP_ReportDate.MinDate = DateTime.Now.AddDays(-7); // The report date can be a bit in the past but not in the future
             DTP_ReportDate.MaxDate = DateTime.Now;
@@ -47,7 +48,7 @@ namespace GardenGroupUI
                 t.Status = Incident_Status.Open;
                 try
                 {
-                    logic.AddTicket(t);
+                    incident_TickedLogic.AddTicket(t);
                     MessageBox.Show("Ticket has been added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);// laat de gebruiker weten dat het is gelukt
                     this.Close();
                 }
@@ -81,8 +82,11 @@ namespace GardenGroupUI
                 CB_Priority.Items.Add(item);
             }
 
-            //tijdelijk
-            CB_ReportedBy.Items.Add("Admin");
+            List<User> users = user_Logic.GetAllUsers();
+            foreach (User user in users)
+            {
+                CB_ReportedBy.Items.Add(user.emailAddress);
+            }
         }
 
         private void BTN_cancel_Click(object sender, EventArgs e)

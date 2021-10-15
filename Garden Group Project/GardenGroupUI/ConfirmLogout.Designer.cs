@@ -75,7 +75,7 @@ namespace GardenGroupUI
             this.Controls.Add(this.LBL_Loguit);
             this.Controls.Add(this.BTN_annuleer);
             this.Controls.Add(this.BTN_loguit);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ConfirmLogout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ConfirmLogout";

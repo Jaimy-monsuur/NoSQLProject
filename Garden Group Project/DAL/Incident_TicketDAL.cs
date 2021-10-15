@@ -26,6 +26,10 @@ namespace DAL
         {
             return ToInsident_Ticket(GetMax(CollectionName(), "Incident_Id"));//haalt alle tickets op
         }
+        public void DelTicket(Incident_Ticket t)// delete ticket
+        {
+            Delete(CollectionName(), "_id" , t.objectId);
+        }
 
         public void InsertTicket(Incident_Ticket t)// insert een ticket
         {

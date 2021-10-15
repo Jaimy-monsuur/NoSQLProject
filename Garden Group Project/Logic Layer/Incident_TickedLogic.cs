@@ -23,5 +23,10 @@ namespace Logic_Layer
         {
             dal.InsertTicket(ticket);
         }
+        
+        public void DeleteTicket(Incident_Ticket ticket)
+        {
+            dal.DelTicket(ticket);
+        }
     }
 }
