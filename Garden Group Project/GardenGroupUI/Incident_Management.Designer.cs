@@ -33,8 +33,9 @@ namespace GardenGroupUI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PNLmain = new System.Windows.Forms.Panel();
-            this.LBLLicense = new System.Windows.Forms.Label();
+            this.Btn_logOut = new System.Windows.Forms.Button();
             this.LBLnodesk = new System.Windows.Forms.Label();
+            this.LBLLicense = new System.Windows.Forms.Label();
             this.PBOX = new System.Windows.Forms.PictureBox();
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,37 +62,53 @@ namespace GardenGroupUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PNLmain.AutoSize = true;
             this.PNLmain.BackColor = System.Drawing.Color.DarkCyan;
-            this.PNLmain.Controls.Add(this.LBLLicense);
+            this.PNLmain.Controls.Add(this.Btn_logOut);
             this.PNLmain.Controls.Add(this.LBLnodesk);
+            this.PNLmain.Controls.Add(this.LBLLicense);
             this.PNLmain.Controls.Add(this.PBOX);
             this.PNLmain.Controls.Add(this.Menu);
             this.PNLmain.Location = new System.Drawing.Point(0, 0);
             this.PNLmain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PNLmain.Name = "PNLmain";
-            this.PNLmain.Size = new System.Drawing.Size(1266, 93);
+            this.PNLmain.Size = new System.Drawing.Size(1266, 111);
             this.PNLmain.TabIndex = 0;
             // 
-            // LBLLicense
+            // Btn_logOut
             // 
-            this.LBLLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.LBLLicense.AutoSize = true;
-            this.LBLLicense.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBLLicense.Location = new System.Drawing.Point(989, 44);
-            this.LBLLicense.Name = "LBLLicense";
-            this.LBLLicense.Size = new System.Drawing.Size(242, 21);
-            this.LBLLicense.TabIndex = 2;
-            this.LBLLicense.Text = "Licensed to: The Garden Group";
+            this.Btn_logOut.AutoSize = true;
+            this.Btn_logOut.BackColor = System.Drawing.Color.Teal;
+            this.Btn_logOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_logOut.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_logOut.Location = new System.Drawing.Point(1130, 71);
+            this.Btn_logOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_logOut.Name = "Btn_logOut";
+            this.Btn_logOut.Size = new System.Drawing.Size(122, 29);
+            this.Btn_logOut.TabIndex = 28;
+            this.Btn_logOut.Text = "Log Out";
+            this.Btn_logOut.UseVisualStyleBackColor = false;
+            this.Btn_logOut.Click += new System.EventHandler(this.Btn_logOut_Click);
             // 
             // LBLnodesk
             // 
             this.LBLnodesk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LBLnodesk.AutoSize = true;
             this.LBLnodesk.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBLnodesk.Location = new System.Drawing.Point(1116, 7);
+            this.LBLnodesk.Location = new System.Drawing.Point(1124, 7);
             this.LBLnodesk.Name = "LBLnodesk";
             this.LBLnodesk.Size = new System.Drawing.Size(128, 41);
             this.LBLnodesk.TabIndex = 1;
             this.LBLnodesk.Text = "NoDesk";
+            // 
+            // LBLLicense
+            // 
+            this.LBLLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LBLLicense.AutoSize = true;
+            this.LBLLicense.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBLLicense.Location = new System.Drawing.Point(1010, 48);
+            this.LBLLicense.Name = "LBLLicense";
+            this.LBLLicense.Size = new System.Drawing.Size(242, 21);
+            this.LBLLicense.TabIndex = 2;
+            this.LBLLicense.Text = "Licensed to: The Garden Group";
             // 
             // PBOX
             // 
@@ -99,7 +116,7 @@ namespace GardenGroupUI
             this.PBOX.Location = new System.Drawing.Point(10, 9);
             this.PBOX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PBOX.Name = "PBOX";
-            this.PBOX.Size = new System.Drawing.Size(148, 58);
+            this.PBOX.Size = new System.Drawing.Size(162, 72);
             this.PBOX.TabIndex = 0;
             this.PBOX.TabStop = false;
             // 
@@ -107,13 +124,13 @@ namespace GardenGroupUI
             // 
             this.Menu.BackColor = System.Drawing.Color.DarkCyan;
             this.Menu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Menu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Menu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dashboardToolStripMenuItem,
             this.incidentManagementToolStripMenuItem,
             this.userManagementToolStripMenuItem});
-            this.Menu.Location = new System.Drawing.Point(0, 65);
+            this.Menu.Location = new System.Drawing.Point(0, 83);
             this.Menu.Name = "Menu";
             this.Menu.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.Menu.Size = new System.Drawing.Size(1266, 28);
@@ -169,9 +186,9 @@ namespace GardenGroupUI
             // 
             this.BTNaddTicket.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTNaddTicket.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BTNaddTicket.BackColor = System.Drawing.Color.LightSeaGreen;
             this.BTNaddTicket.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BTNaddTicket.Location = new System.Drawing.Point(1070, 160);
+            this.BTNaddTicket.Location = new System.Drawing.Point(903, 579);
             this.BTNaddTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTNaddTicket.Name = "BTNaddTicket";
             this.BTNaddTicket.Size = new System.Drawing.Size(150, 27);
@@ -250,9 +267,9 @@ namespace GardenGroupUI
             // 
             // BTN_Update
             // 
-            this.BTN_Update.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BTN_Update.BackColor = System.Drawing.Color.LightSeaGreen;
             this.BTN_Update.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BTN_Update.Location = new System.Drawing.Point(1070, 579);
+            this.BTN_Update.Location = new System.Drawing.Point(1081, 579);
             this.BTN_Update.Name = "BTN_Update";
             this.BTN_Update.Size = new System.Drawing.Size(150, 27);
             this.BTN_Update.TabIndex = 8;
@@ -310,5 +327,6 @@ namespace GardenGroupUI
         private System.Windows.Forms.DataGridView DGV_Selected;
         private System.Windows.Forms.Label LBL_ticket;
         private System.Windows.Forms.Button BTN_Update;
+        private System.Windows.Forms.Button Btn_logOut;
     }
 }

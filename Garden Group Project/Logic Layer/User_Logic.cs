@@ -14,15 +14,16 @@ namespace Logic_Layer
         {
             return userDAL.GetAllUsers();
         }
-
-        public List<User> GetMaxId()
+        public User GetUser(string userName)
         {
-            return userDAL.GetMaxId();
+            User user = new User();
+            byte[] encodedPasswordArray = new byte["admin".Length];
+            encodedPasswordArray = System.Text.Encoding.UTF8.GetBytes("admin");
+            string password = Convert.ToBase64String(encodedPasswordArray);
+            user.password = password;
+            user.userType = (User_Type)0;
+            return user;
         }
 
-        public void AddUser(User user)
-        {
-            userDAL.InsertUser(user);
-        }
     }
 }

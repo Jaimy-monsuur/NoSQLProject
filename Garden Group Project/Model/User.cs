@@ -11,10 +11,10 @@ namespace Model
         public int userId;
         public string firstName;
         public string lastName;
+        public string password;
         public User_Type userType;
         public string emailAddress;
         public string phoneNumber;
         public string location;
-        public string password;
     }
 }

@@ -103,10 +103,8 @@ namespace GardenGroupUI
         private void BTNaddTicket_Click(object sender, EventArgs e)
         {
             Create_Ticket create_Ticket = new Create_Ticket();
-            this.Hide();
             create_Ticket.ShowDialog();
-            this.Show();
-            SetListvieuw();
+            SetListvieuw();// haalt nieuwe gegevens op
             GetLVData();
         }
 
@@ -129,6 +127,12 @@ namespace GardenGroupUI
                 DGV_Selected.Rows.Add("Report date: ", t.reportDate.ToShortDateString());
                 DGV_Selected.Rows.Add("Deadline: ", t.Deadline.ToShortDateString());
             }
+        }
+
+        private void Btn_logOut_Click(object sender, EventArgs e)
+        {
+            ConfirmLogout confirmLogout = new ConfirmLogout();
+            confirmLogout.ShowDialog();
         }
 
         private void userManagementToolStripMenuItem_Click(object sender, EventArgs e)
