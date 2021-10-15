@@ -12,6 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Transfer_Ticket.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Create_User.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -149,7 +149,17 @@ namespace GardenGroupUI
 
         private void BTN_TransferTicket_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                ListViewItem li = (ListViewItem)LVTickets.SelectedItems[0];
+                Incident_Ticket t = (Incident_Ticket)li.Tag;
+                Transfer_Ticket transfer = new Transfer_Ticket(t);
+                transfer.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No ticket selected, select a ticket", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het is mislukt
+            }
         }
     }
 }
