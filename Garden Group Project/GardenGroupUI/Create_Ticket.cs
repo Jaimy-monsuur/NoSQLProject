@@ -48,7 +48,7 @@ namespace GardenGroupUI
                 try
                 {
                     logic.AddTicket(t);
-                    MessageBox.Show("Ticket has been addede", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);// laat de gebruiker weten dat het is gelukt
+                    MessageBox.Show("Ticket has been added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);// laat de gebruiker weten dat het is gelukt
                     this.Close();
                 }
                 catch (Exception)

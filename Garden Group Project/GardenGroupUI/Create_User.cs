@@ -34,7 +34,7 @@ namespace GardenGroupUI
                 if (TXB_FirstName.Text != "" && TXB_LastName.Text != "" && CB_UserType.Text != "" && TXB_EmailAdress.Text != "" && TXB_PhoneNumber.Text!= "" && TXB_Location.Text != "" && TXB_Password.Text != "" )
                 {
                     User u = new User();
-                    //tijdelijkt
+                    // ZORG DAT ER GEEN ANDERE LETTERS EN CIJFERS WAAR NIET MOET KAN
                     u.userId = latestUser.userId + 1;
                     u.firstName = TXB_FirstName.Text;
                     u.lastName = TXB_LastName.Text;
@@ -66,6 +66,15 @@ namespace GardenGroupUI
             }
         }
 
-        
+        private void Btn_logOut_Click(object sender, EventArgs e)
+        {
+            ConfirmLogout confirmLogout = new ConfirmLogout();
+            confirmLogout.ShowDialog();
+        }
+
+        private void BTN_Cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

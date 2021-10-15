@@ -141,5 +141,15 @@ namespace GardenGroupUI
             man.ShowDialog();
             this.Close();
         }
+
+        private void BTN_Update_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTN_TransferTicket_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

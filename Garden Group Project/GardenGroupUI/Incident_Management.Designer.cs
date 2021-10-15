@@ -29,9 +29,9 @@ namespace GardenGroupUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PNLmain = new System.Windows.Forms.Panel();
             this.Btn_logOut = new System.Windows.Forms.Button();
             this.LBLnodesk = new System.Windows.Forms.Label();
@@ -50,6 +50,8 @@ namespace GardenGroupUI
             this.DGV_Selected = new System.Windows.Forms.DataGridView();
             this.LBL_ticket = new System.Windows.Forms.Label();
             this.BTN_Update = new System.Windows.Forms.Button();
+            this.BTN_TransferTicket = new System.Windows.Forms.Button();
+            this.BTN_CloseTicket = new System.Windows.Forms.Button();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
             this.Menu.SuspendLayout();
@@ -188,7 +190,7 @@ namespace GardenGroupUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BTNaddTicket.BackColor = System.Drawing.Color.LightSeaGreen;
             this.BTNaddTicket.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BTNaddTicket.Location = new System.Drawing.Point(903, 579);
+            this.BTNaddTicket.Location = new System.Drawing.Point(1070, 164);
             this.BTNaddTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTNaddTicket.Name = "BTNaddTicket";
             this.BTNaddTicket.Size = new System.Drawing.Size(150, 27);
@@ -223,31 +225,31 @@ namespace GardenGroupUI
             this.DGV_Selected.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGV_Selected.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGV_Selected.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Selected.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Selected.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGV_Selected.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Selected.Location = new System.Drawing.Point(934, 228);
             this.DGV_Selected.Name = "DGV_Selected";
             this.DGV_Selected.ReadOnly = true;
             this.DGV_Selected.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Selected.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Selected.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DGV_Selected.RowHeadersVisible = false;
             this.DGV_Selected.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.DGV_Selected.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.DGV_Selected.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DGV_Selected.RowTemplate.Height = 25;
             this.DGV_Selected.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DGV_Selected.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -269,12 +271,36 @@ namespace GardenGroupUI
             // 
             this.BTN_Update.BackColor = System.Drawing.Color.LightSeaGreen;
             this.BTN_Update.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BTN_Update.Location = new System.Drawing.Point(1081, 579);
+            this.BTN_Update.Location = new System.Drawing.Point(1070, 575);
             this.BTN_Update.Name = "BTN_Update";
             this.BTN_Update.Size = new System.Drawing.Size(150, 27);
             this.BTN_Update.TabIndex = 8;
             this.BTN_Update.Text = "Update Ticket";
             this.BTN_Update.UseVisualStyleBackColor = false;
+            this.BTN_Update.Click += new System.EventHandler(this.BTN_Update_Click);
+            // 
+            // BTN_TransferTicket
+            // 
+            this.BTN_TransferTicket.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.BTN_TransferTicket.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BTN_TransferTicket.Location = new System.Drawing.Point(886, 575);
+            this.BTN_TransferTicket.Name = "BTN_TransferTicket";
+            this.BTN_TransferTicket.Size = new System.Drawing.Size(150, 27);
+            this.BTN_TransferTicket.TabIndex = 9;
+            this.BTN_TransferTicket.Text = "Transfer Ticket";
+            this.BTN_TransferTicket.UseVisualStyleBackColor = false;
+            this.BTN_TransferTicket.Click += new System.EventHandler(this.BTN_TransferTicket_Click);
+            // 
+            // BTN_CloseTicket
+            // 
+            this.BTN_CloseTicket.BackColor = System.Drawing.Color.LightCoral;
+            this.BTN_CloseTicket.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BTN_CloseTicket.Location = new System.Drawing.Point(886, 164);
+            this.BTN_CloseTicket.Name = "BTN_CloseTicket";
+            this.BTN_CloseTicket.Size = new System.Drawing.Size(150, 27);
+            this.BTN_CloseTicket.TabIndex = 10;
+            this.BTN_CloseTicket.Text = "Close Ticket";
+            this.BTN_CloseTicket.UseVisualStyleBackColor = false;
             // 
             // Incident_Management
             // 
@@ -282,6 +308,8 @@ namespace GardenGroupUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.BTN_CloseTicket);
+            this.Controls.Add(this.BTN_TransferTicket);
             this.Controls.Add(this.BTN_Update);
             this.Controls.Add(this.LBL_ticket);
             this.Controls.Add(this.DGV_Selected);
@@ -328,5 +356,7 @@ namespace GardenGroupUI
         private System.Windows.Forms.Label LBL_ticket;
         private System.Windows.Forms.Button BTN_Update;
         private System.Windows.Forms.Button Btn_logOut;
+        private System.Windows.Forms.Button BTN_TransferTicket;
+        private System.Windows.Forms.Button BTN_CloseTicket;
     }
 }
