@@ -10,60 +10,44 @@ using Logic_Layer;
 
 namespace GardenGroupUI
 {
-    public partial class Transfer_Ticket : Form
+    public partial class Update_Ticket : Form
     {
         Incident_Ticket selectedTicket;
         User_Logic logic = new User_Logic();
 
-        public Transfer_Ticket(Incident_Ticket ticket)
+        public Update_Ticket(Incident_Ticket ticket)
         {
             InitializeComponent();
             this.MaximizeBox = false;
             selectedTicket = ticket;
-            SetListview();
-            LBL_Selected.Text = selectedTicket.ReportedBy;
         }
 
-        private void SetListview()
+        public void DataGridViewSetings()
         {
-            LV_SelectedTicket.Clear();
-            // Maak grid
-            LV_SelectedTicket.Clear();
-            LV_SelectedTicket.View = View.Details;
-            LV_SelectedTicket.GridLines = true;
-            LV_SelectedTicket.FullRowSelect = true;
+            DGV_Selected.ColumnCount = 2;
+            DGV_Selected.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            DGV_Selected.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            // Voeg column header toe
-            LV_SelectedTicket.Columns.Add("Id:", 50);
-            LV_SelectedTicket.Columns.Add("Subject:", 100);
-            LV_SelectedTicket.Columns.Add("Report date:", 110);
-            LV_SelectedTicket.Columns.Add("Deadline:", 100);
-            LV_SelectedTicket.Columns.Add("Priority:", 70);
-            LV_SelectedTicket.Columns.Add("Status:", 70);
+            DGV_Selected.Columns[0].Name = "Selected Ticket";
+            DGV_Selected.Columns[1].Name = "";
+            DGV_Selected.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DGV_Selected.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-            string[] collumnItems = new string[6];
-            collumnItems[0] = selectedTicket.id.ToString();
-            collumnItems[1] = selectedTicket.subjectOfIncident;
-            collumnItems[2] = selectedTicket.reportDate.ToShortDateString();
-            collumnItems[3] = selectedTicket.Deadline.ToShortDateString();
-            collumnItems[4] = selectedTicket.Incident_Priority.ToString();
-            collumnItems[5] = selectedTicket.Status.ToString();
-            ListViewItem li = new ListViewItem(collumnItems);
-            LV_SelectedTicket.Items.Add(li);
+            DGV_Selected.Rows.Clear();
+            DGV_Selected.Rows.Add("ID: ", selectedTicket.id);
+            DGV_Selected.Rows.Add("Reported By: ", selectedTicket.ReportedBy);
+            DGV_Selected.Rows.Add("Subject: ", selectedTicket.subjectOfIncident);
+            DGV_Selected.Rows.Add("Description: ", selectedTicket.Description);
+            DGV_Selected.Rows.Add("Type: ", selectedTicket.Incident_Type);
+            DGV_Selected.Rows.Add("Priority: ", selectedTicket.Incident_Priority);
+            DGV_Selected.Rows.Add("Status: ", selectedTicket.Status);
+            DGV_Selected.Rows.Add("Report date: ", selectedTicket.reportDate.ToShortDateString());
+            DGV_Selected.Rows.Add("Deadline: ", selectedTicket.Deadline.ToShortDateString());
         }
 
         private void Create_Ticket_Load(object sender, EventArgs e)
         {
-            ComboBoxSetting();
-        }
-
-        public void ComboBoxSetting()
-        {
-            List<User> users = logic.GetAllUsers();
-            foreach (User user in users)
-            {
-                CB_TransferTo.Items.Add(user.emailAddress);
-            }
+            DataGridViewSetings();
         }
 
         private void BTN_cancel_Click(object sender, EventArgs e)

@@ -56,16 +56,6 @@ namespace DAL
             collection.UpdateOne(f, u);
         }
 
-        protected void UpdateMany(string colName, string filter, string updateTo)
-        {
-            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);// filter and update must be like this: string filter = "id, 1000"
-            string[] filterArray = filter.Split(",");
-            string[] updateArray = filter.Split(",");
-            var f = Builders<BsonDocument>.Filter.Eq(filterArray[0], filterArray[1]);// mischien nog aan passen???
-            var u = Builders<BsonDocument>.Update.Set(updateArray[0], updateArray[1]);// mischien nog aan passen???
-            collection.UpdateMany(f, u);
-        }
-
         protected void Delete(string colName, string fieldname, ObjectId id)// filter must be like this: string filter = = "id, 1000"
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);

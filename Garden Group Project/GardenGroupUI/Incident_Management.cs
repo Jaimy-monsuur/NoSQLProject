@@ -144,7 +144,19 @@ namespace GardenGroupUI
 
         private void BTN_Update_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                ListViewItem li = (ListViewItem)LVTickets.SelectedItems[0];
+                Incident_Ticket t = (Incident_Ticket)li.Tag;
+                Update_Ticket update_Ticket = new Update_Ticket(t);
+                update_Ticket.ShowDialog();
+                SetListvieuw();// haalt nieuwe gegevens op
+                GetLVData();
+            }
+            catch (Exception)
+            {
+                NoTicketSelected();
+            }
         }
 
         private void BTN_TransferTicket_Click(object sender, EventArgs e)
@@ -160,8 +172,12 @@ namespace GardenGroupUI
             }
             catch (Exception)
             {
-                MessageBox.Show("No ticket selected, select a ticket", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het is mislukt
+                NoTicketSelected();
             }
+        }
+        public void NoTicketSelected()
+        {
+            MessageBox.Show("No ticket selected, select a ticket", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het is mislukt
         }
 
         private void BTN_RemoveTicket_Click(object sender, EventArgs e)
@@ -187,7 +203,7 @@ namespace GardenGroupUI
             }
             else
             {
-                MessageBox.Show("No ticket selected, select a ticket", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het is mislukt
+                NoTicketSelected();
             }
         }
     }
