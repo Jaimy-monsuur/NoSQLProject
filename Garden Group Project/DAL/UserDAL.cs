@@ -26,13 +26,14 @@ namespace DAL
         {
             BsonDocument document = new BsonDocument()
             {
-                { "User_Id", user.userId }, // object id wordt ik db aangemaakt
+                { "User_Id", user.userId }, // object id wordt in db aangemaakt
                 { "First_Name", user.firstName },
                 { "Last_Name", user.lastName },
                 { "User_Type", user.userType.ToString() },
                 { "Email_Address", user.emailAddress },
                 { "Phone_Number", user.phoneNumber },
-                { "Location", user.location }
+                { "Location", user.location },
+                { "Password", user.password } // moet nog encrypted worden
             };
             Insert(CollectionName(), document);
         }
@@ -59,6 +60,11 @@ namespace DAL
             }
 
             return users;
+        }
+
+        public List<User> GetMaxId()
+        {
+            return BsonToUser(GetMax(CollectionName(), "User_Id")); // haalt alle users op om te kijken wat de hoogste user id is
         }
     }
 }
