@@ -30,7 +30,7 @@ namespace GardenGroupUI
         private void BTN_add_Click(object sender, EventArgs e)
         {
             try
-            {
+            {// add popup of het gelukt is of niet
                 if (TXB_FirstName.Text != "" && TXB_LastName.Text != "" && CB_UserType.Text != "" && TXB_EmailAdress.Text != "" && TXB_PhoneNumber.Text!= "" && TXB_Location.Text != "" && TXB_Password.Text != "" )
                 {
                     User u = new User();
