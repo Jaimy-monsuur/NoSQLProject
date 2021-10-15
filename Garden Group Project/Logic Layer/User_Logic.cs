@@ -14,5 +14,15 @@ namespace Logic_Layer
         {
             return userDAL.GetAllUsers();
         }
+
+        public List<User> GetMaxId()
+        {
+            return userDAL.GetMaxId();
+        }
+
+        public void AddUser(User user)
+        {
+            userDAL.InsertUser(user);
+        }
     }
 }

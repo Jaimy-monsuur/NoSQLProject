@@ -104,9 +104,9 @@ namespace GardenGroupUI
 
         private void BTNAddUser_Click_1(object sender, EventArgs e)
         {
-            Create_Ticket create_Ticket = new Create_Ticket();
+            Create_User createUser = new Create_User();
             this.Hide();
-            create_Ticket.ShowDialog();
+            createUser.ShowDialog();
             this.Show();
         }
     }
