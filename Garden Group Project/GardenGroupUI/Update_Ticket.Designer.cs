@@ -29,8 +29,9 @@ namespace GardenGroupUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GB_UpdateTicket = new System.Windows.Forms.GroupBox();
             this.DGV_Selected = new System.Windows.Forms.DataGridView();
             this.BTN_cancel = new System.Windows.Forms.Button();
@@ -49,18 +50,33 @@ namespace GardenGroupUI
             this.LBL_priority = new System.Windows.Forms.Label();
             this.CB_Priority = new System.Windows.Forms.ComboBox();
             this.BTN_Escalate = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.LBL_description = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.RTB_Description = new System.Windows.Forms.RichTextBox();
+            this.LBL_Type = new System.Windows.Forms.Label();
+            this.LBL_Subject = new System.Windows.Forms.Label();
+            this.TXB_Subject = new System.Windows.Forms.MaskedTextBox();
+            this.CB_incidentType = new System.Windows.Forms.ComboBox();
             this.GB_UpdateTicket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Selected)).BeginInit();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
             this.GB_Close.SuspendLayout();
             this.GB_Escalate.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // GB_UpdateTicket
             // 
             this.GB_UpdateTicket.AutoSize = true;
             this.GB_UpdateTicket.CausesValidation = false;
+            this.GB_UpdateTicket.Controls.Add(this.LBL_Type);
+            this.GB_UpdateTicket.Controls.Add(this.LBL_Subject);
+            this.GB_UpdateTicket.Controls.Add(this.TXB_Subject);
+            this.GB_UpdateTicket.Controls.Add(this.CB_incidentType);
+            this.GB_UpdateTicket.Controls.Add(this.panel1);
+            this.GB_UpdateTicket.Controls.Add(this.LBL_description);
             this.GB_UpdateTicket.Controls.Add(this.DGV_Selected);
             this.GB_UpdateTicket.Controls.Add(this.BTN_cancel);
             this.GB_UpdateTicket.Controls.Add(this.BTN_Update);
@@ -70,7 +86,7 @@ namespace GardenGroupUI
             this.GB_UpdateTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GB_UpdateTicket.Name = "GB_UpdateTicket";
             this.GB_UpdateTicket.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.GB_UpdateTicket.Size = new System.Drawing.Size(780, 410);
+            this.GB_UpdateTicket.Size = new System.Drawing.Size(780, 419);
             this.GB_UpdateTicket.TabIndex = 11;
             this.GB_UpdateTicket.TabStop = false;
             this.GB_UpdateTicket.Text = "Update Ticket";
@@ -85,18 +101,18 @@ namespace GardenGroupUI
             this.DGV_Selected.Name = "DGV_Selected";
             this.DGV_Selected.ReadOnly = true;
             this.DGV_Selected.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Selected.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Selected.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.DGV_Selected.RowHeadersVisible = false;
             this.DGV_Selected.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.DGV_Selected.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.DGV_Selected.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.DGV_Selected.RowTemplate.Height = 25;
             this.DGV_Selected.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DGV_Selected.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -108,7 +124,7 @@ namespace GardenGroupUI
             // 
             this.BTN_cancel.AutoSize = true;
             this.BTN_cancel.BackColor = System.Drawing.Color.LightCoral;
-            this.BTN_cancel.Location = new System.Drawing.Point(414, 358);
+            this.BTN_cancel.Location = new System.Drawing.Point(414, 367);
             this.BTN_cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTN_cancel.Name = "BTN_cancel";
             this.BTN_cancel.Size = new System.Drawing.Size(122, 29);
@@ -121,13 +137,14 @@ namespace GardenGroupUI
             // 
             this.BTN_Update.AutoSize = true;
             this.BTN_Update.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.BTN_Update.Location = new System.Drawing.Point(652, 358);
+            this.BTN_Update.Location = new System.Drawing.Point(652, 367);
             this.BTN_Update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTN_Update.Name = "BTN_Update";
             this.BTN_Update.Size = new System.Drawing.Size(122, 29);
             this.BTN_Update.TabIndex = 12;
             this.BTN_Update.Text = "Update";
             this.BTN_Update.UseVisualStyleBackColor = false;
+            this.BTN_Update.Click += new System.EventHandler(this.BTN_Update_Click);
             // 
             // LBL_SelectedTicket
             // 
@@ -294,6 +311,84 @@ namespace GardenGroupUI
             this.BTN_Escalate.UseVisualStyleBackColor = false;
             this.BTN_Escalate.Click += new System.EventHandler(this.BTN_Escalate_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.RTB_Description);
+            this.panel1.Location = new System.Drawing.Point(106, 159);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Size = new System.Drawing.Size(360, 190);
+            this.panel1.TabIndex = 29;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // LBL_description
+            // 
+            this.LBL_description.AutoSize = true;
+            this.LBL_description.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBL_description.Location = new System.Drawing.Point(18, 159);
+            this.LBL_description.Name = "LBL_description";
+            this.LBL_description.Size = new System.Drawing.Size(71, 15);
+            this.LBL_description.TabIndex = 28;
+            this.LBL_description.Text = "Desctiption:";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // RTB_Description
+            // 
+            this.RTB_Description.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RTB_Description.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RTB_Description.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RTB_Description.Location = new System.Drawing.Point(3, 2);
+            this.RTB_Description.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RTB_Description.Name = "RTB_Description";
+            this.RTB_Description.Size = new System.Drawing.Size(354, 186);
+            this.RTB_Description.TabIndex = 16;
+            this.RTB_Description.Text = "";
+            // 
+            // LBL_Type
+            // 
+            this.LBL_Type.AutoSize = true;
+            this.LBL_Type.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBL_Type.Location = new System.Drawing.Point(21, 106);
+            this.LBL_Type.Name = "LBL_Type";
+            this.LBL_Type.Size = new System.Drawing.Size(80, 15);
+            this.LBL_Type.TabIndex = 33;
+            this.LBL_Type.Text = "Incident type:";
+            // 
+            // LBL_Subject
+            // 
+            this.LBL_Subject.AutoSize = true;
+            this.LBL_Subject.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBL_Subject.Location = new System.Drawing.Point(21, 65);
+            this.LBL_Subject.Name = "LBL_Subject";
+            this.LBL_Subject.Size = new System.Drawing.Size(53, 15);
+            this.LBL_Subject.TabIndex = 32;
+            this.LBL_Subject.Text = "Subject: ";
+            // 
+            // TXB_Subject
+            // 
+            this.TXB_Subject.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TXB_Subject.Location = new System.Drawing.Point(247, 65);
+            this.TXB_Subject.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TXB_Subject.Name = "TXB_Subject";
+            this.TXB_Subject.Size = new System.Drawing.Size(219, 23);
+            this.TXB_Subject.TabIndex = 31;
+            // 
+            // CB_incidentType
+            // 
+            this.CB_incidentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_incidentType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CB_incidentType.FormattingEnabled = true;
+            this.CB_incidentType.Location = new System.Drawing.Point(247, 106);
+            this.CB_incidentType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CB_incidentType.Name = "CB_incidentType";
+            this.CB_incidentType.Size = new System.Drawing.Size(219, 23);
+            this.CB_incidentType.TabIndex = 30;
+            // 
             // Update_Ticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -321,6 +416,7 @@ namespace GardenGroupUI
             this.GB_Close.PerformLayout();
             this.GB_Escalate.ResumeLayout(false);
             this.GB_Escalate.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,5 +441,13 @@ namespace GardenGroupUI
         private System.Windows.Forms.ComboBox CB_Priority;
         private System.Windows.Forms.Label LBL_priority;
         private System.Windows.Forms.Label LB_close;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label LBL_description;
+        private System.Windows.Forms.RichTextBox RTB_Description;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label LBL_Type;
+        private System.Windows.Forms.Label LBL_Subject;
+        private System.Windows.Forms.MaskedTextBox TXB_Subject;
+        private System.Windows.Forms.ComboBox CB_incidentType;
     }
 }

@@ -32,6 +32,8 @@ namespace GardenGroupUI
                 LB_close.Text = "Ticket status will be changed to: Open";
                 BTN_Close.Text = "Open Ticket";
             }
+            TXB_Subject.Text = selectedTicket.subjectOfIncident;
+            RTB_Description.Text = selectedTicket.Description;
         }
 
         public void DataGridViewSetings()
@@ -67,13 +69,20 @@ namespace GardenGroupUI
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
         }
-        public void ComboBoxSetting()
+        public void ComboBoxSetting()//fills combobox with options
         {
             foreach (Incident_Priority item in Incident_Priority.GetValues(typeof(Incident_Priority)))
             {
                 if (item != selectedTicket.Incident_Priority)
                 {
                     CB_Priority.Items.Add(item);
+                }
+            }
+            foreach (Incident_Type item in Incident_Type.GetValues(typeof(Incident_Type)))
+            {
+                if (item != selectedTicket.Incident_Type)
+                {
+                    CB_incidentType.Items.Add(item);
                 }
             }
         }
@@ -94,7 +103,7 @@ namespace GardenGroupUI
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Was not able to update ticket. Try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het niet is gelukt
+                    ErrorPopUp();
                 }
             }
             else
@@ -136,9 +145,43 @@ namespace GardenGroupUI
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Was not able to update ticket. Try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het niet is gelukt
+                    ErrorPopUp();
                 }
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, panel1.ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
+        }
+
+        private void BTN_Update_Click(object sender, EventArgs e)
+        {
+            if (CB_Priority.Text != "")
+            {
+                try
+                {
+                    selectedTicket.Incident_Priority = (Incident_Priority)Enum.Parse(typeof(Incident_Priority), CB_Priority.Text, true);
+                    string updateField = "Priority";
+                    string updateValue = $"{selectedTicket.Incident_Priority}";
+                    incident_TickedLogic.Update(selectedTicket, updateField, updateValue);
+                    MessageBox.Show("Ticket has been updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);// laat de gebruiker weten dat het is gelukt
+                    this.Close();
+
+                }
+                catch (Exception)
+                {
+                    ErrorPopUp();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Fill in all fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);// laat de gebruiker weten dat het is mislukt
+            }
+        }
+        public void ErrorPopUp()
+        {
+            MessageBox.Show("Was not able to update ticket. Try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het niet is gelukt
         }
     }
 }
