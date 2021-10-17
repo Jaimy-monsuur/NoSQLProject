@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 
+
 namespace DAL
 {
     public abstract class Base
@@ -46,13 +47,12 @@ namespace DAL
             collection.InsertOne(doc);
         }
 
-        protected void UpdateOne(string colName, string filter, string updateTo)
+        protected void UpdateOne(string colName, string filterField, ObjectId filtervalue, string updateField, string updateValue)
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);// filter and update must be like this: string filter = "id, 1000"
-            string[] filterArray = filter.Split(",");
-            string[] updateArray = filter.Split(",");
-            var f = Builders<BsonDocument>.Filter.Eq(filterArray[0], filterArray[1]);// mischien nog aan passen???
-            var u = Builders<BsonDocument>.Update.Set(updateArray[0], updateArray[1]);// mischien nog aan passen???
+
+            var f = Builders<BsonDocument>.Filter.Eq(filterField, filtervalue);// mischien nog aan passen???
+            var u = Builders<BsonDocument>.Update.Set(updateField, updateValue);// mischien nog aan passen???
             collection.UpdateOne(f, u);
         }
 

@@ -30,6 +30,11 @@ namespace DAL
         {
             Delete(CollectionName(), "_id" , t.objectId);
         }
+        public void UpdateTicket(Incident_Ticket t, string updateField, string updateValue)// delete ticket
+        {
+
+            UpdateOne(CollectionName(), "_id", t.objectId, updateField, updateValue);
+        }
 
         public void InsertTicket(Incident_Ticket t)// insert een ticket
         {

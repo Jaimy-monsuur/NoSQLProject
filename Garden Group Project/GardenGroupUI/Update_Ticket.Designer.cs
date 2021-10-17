@@ -29,8 +29,8 @@ namespace GardenGroupUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GB_UpdateTicket = new System.Windows.Forms.GroupBox();
             this.DGV_Selected = new System.Windows.Forms.DataGridView();
             this.BTN_cancel = new System.Windows.Forms.Button();
@@ -43,8 +43,11 @@ namespace GardenGroupUI
             this.LBLLicense = new System.Windows.Forms.Label();
             this.PBOX = new System.Windows.Forms.PictureBox();
             this.GB_Close = new System.Windows.Forms.GroupBox();
-            this.GB_Escalate = new System.Windows.Forms.GroupBox();
+            this.LB_close = new System.Windows.Forms.Label();
             this.BTN_Close = new System.Windows.Forms.Button();
+            this.GB_Escalate = new System.Windows.Forms.GroupBox();
+            this.LBL_priority = new System.Windows.Forms.Label();
+            this.CB_Priority = new System.Windows.Forms.ComboBox();
             this.BTN_Escalate = new System.Windows.Forms.Button();
             this.GB_UpdateTicket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Selected)).BeginInit();
@@ -63,7 +66,7 @@ namespace GardenGroupUI
             this.GB_UpdateTicket.Controls.Add(this.BTN_Update);
             this.GB_UpdateTicket.Controls.Add(this.LBL_SelectedTicket);
             this.GB_UpdateTicket.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GB_UpdateTicket.Location = new System.Drawing.Point(54, 111);
+            this.GB_UpdateTicket.Location = new System.Drawing.Point(54, 120);
             this.GB_UpdateTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GB_UpdateTicket.Name = "GB_UpdateTicket";
             this.GB_UpdateTicket.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -82,18 +85,18 @@ namespace GardenGroupUI
             this.DGV_Selected.Name = "DGV_Selected";
             this.DGV_Selected.ReadOnly = true;
             this.DGV_Selected.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Selected.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Selected.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DGV_Selected.RowHeadersVisible = false;
             this.DGV_Selected.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.DGV_Selected.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.DGV_Selected.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGV_Selected.RowTemplate.Height = 25;
             this.DGV_Selected.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DGV_Selected.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -141,7 +144,7 @@ namespace GardenGroupUI
             this.LBL_Error.AutoSize = true;
             this.LBL_Error.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LBL_Error.ForeColor = System.Drawing.Color.Red;
-            this.LBL_Error.Location = new System.Drawing.Point(54, 634);
+            this.LBL_Error.Location = new System.Drawing.Point(54, 658);
             this.LBL_Error.Name = "LBL_Error";
             this.LBL_Error.Size = new System.Drawing.Size(0, 15);
             this.LBL_Error.TabIndex = 13;
@@ -211,51 +214,87 @@ namespace GardenGroupUI
             // 
             // GB_Close
             // 
+            this.GB_Close.Controls.Add(this.LB_close);
             this.GB_Close.Controls.Add(this.BTN_Close);
             this.GB_Close.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GB_Close.Location = new System.Drawing.Point(459, 521);
+            this.GB_Close.Location = new System.Drawing.Point(459, 545);
             this.GB_Close.Name = "GB_Close";
-            this.GB_Close.Size = new System.Drawing.Size(375, 148);
+            this.GB_Close.Size = new System.Drawing.Size(375, 115);
             this.GB_Close.TabIndex = 15;
             this.GB_Close.TabStop = false;
             this.GB_Close.Text = "Close Ticket";
             // 
-            // GB_Escalate
+            // LB_close
             // 
-            this.GB_Escalate.Controls.Add(this.BTN_Escalate);
-            this.GB_Escalate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GB_Escalate.Location = new System.Drawing.Point(54, 521);
-            this.GB_Escalate.Name = "GB_Escalate";
-            this.GB_Escalate.Size = new System.Drawing.Size(378, 148);
-            this.GB_Escalate.TabIndex = 16;
-            this.GB_Escalate.TabStop = false;
-            this.GB_Escalate.Text = "Escalate Priority";
+            this.LB_close.AutoSize = true;
+            this.LB_close.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LB_close.Location = new System.Drawing.Point(18, 41);
+            this.LB_close.Name = "LB_close";
+            this.LB_close.Size = new System.Drawing.Size(214, 15);
+            this.LB_close.TabIndex = 24;
+            this.LB_close.Text = "Ticket status will be changed to: Closed";
             // 
             // BTN_Close
             // 
             this.BTN_Close.AutoSize = true;
             this.BTN_Close.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.BTN_Close.Location = new System.Drawing.Point(247, 114);
+            this.BTN_Close.Location = new System.Drawing.Point(247, 81);
             this.BTN_Close.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTN_Close.Name = "BTN_Close";
             this.BTN_Close.Size = new System.Drawing.Size(122, 29);
             this.BTN_Close.TabIndex = 13;
             this.BTN_Close.Text = "Close";
             this.BTN_Close.UseVisualStyleBackColor = false;
+            this.BTN_Close.Click += new System.EventHandler(this.BTN_Close_Click);
+            // 
+            // GB_Escalate
+            // 
+            this.GB_Escalate.Controls.Add(this.LBL_priority);
+            this.GB_Escalate.Controls.Add(this.CB_Priority);
+            this.GB_Escalate.Controls.Add(this.BTN_Escalate);
+            this.GB_Escalate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.GB_Escalate.Location = new System.Drawing.Point(54, 545);
+            this.GB_Escalate.Name = "GB_Escalate";
+            this.GB_Escalate.Size = new System.Drawing.Size(378, 115);
+            this.GB_Escalate.TabIndex = 16;
+            this.GB_Escalate.TabStop = false;
+            this.GB_Escalate.Text = "Escalate Priority";
+            // 
+            // LBL_priority
+            // 
+            this.LBL_priority.AutoSize = true;
+            this.LBL_priority.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBL_priority.Location = new System.Drawing.Point(21, 41);
+            this.LBL_priority.Name = "LBL_priority";
+            this.LBL_priority.Size = new System.Drawing.Size(48, 15);
+            this.LBL_priority.TabIndex = 23;
+            this.LBL_priority.Text = "Priority:";
+            // 
+            // CB_Priority
+            // 
+            this.CB_Priority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_Priority.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CB_Priority.FormattingEnabled = true;
+            this.CB_Priority.Location = new System.Drawing.Point(131, 41);
+            this.CB_Priority.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CB_Priority.Name = "CB_Priority";
+            this.CB_Priority.Size = new System.Drawing.Size(219, 23);
+            this.CB_Priority.TabIndex = 14;
             // 
             // BTN_Escalate
             // 
             this.BTN_Escalate.AutoSize = true;
             this.BTN_Escalate.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.BTN_Escalate.Location = new System.Drawing.Point(250, 114);
+            this.BTN_Escalate.Location = new System.Drawing.Point(250, 81);
             this.BTN_Escalate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTN_Escalate.Name = "BTN_Escalate";
             this.BTN_Escalate.Size = new System.Drawing.Size(122, 29);
             this.BTN_Escalate.TabIndex = 13;
             this.BTN_Escalate.Text = "Escalate";
             this.BTN_Escalate.UseVisualStyleBackColor = false;
+            this.BTN_Escalate.Click += new System.EventHandler(this.BTN_Escalate_Click);
             // 
-            // UpdateTicket
+            // Update_Ticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -268,7 +307,7 @@ namespace GardenGroupUI
             this.Controls.Add(this.GB_UpdateTicket);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "UpdateTicket";
+            this.Name = "Update_Ticket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update_Ticket";
             this.Load += new System.EventHandler(this.Create_Ticket_Load);
@@ -303,5 +342,8 @@ namespace GardenGroupUI
         private System.Windows.Forms.Button BTN_Close;
         private System.Windows.Forms.GroupBox GB_Escalate;
         private System.Windows.Forms.Button BTN_Escalate;
+        private System.Windows.Forms.ComboBox CB_Priority;
+        private System.Windows.Forms.Label LBL_priority;
+        private System.Windows.Forms.Label LB_close;
     }
 }

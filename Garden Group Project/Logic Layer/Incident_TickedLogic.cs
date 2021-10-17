@@ -28,5 +28,9 @@ namespace Logic_Layer
         {
             dal.DelTicket(ticket);
         }
+        public void Update(Incident_Ticket t, string updateField, string updateValue)
+        {
+            dal.UpdateTicket(t, updateField, updateValue);
+        }
     }
 }

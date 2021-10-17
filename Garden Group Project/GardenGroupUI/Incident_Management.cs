@@ -177,7 +177,7 @@ namespace GardenGroupUI
         }
         public void NoTicketSelected()
         {
-            MessageBox.Show("No ticket selected, select a ticket", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het is mislukt
+            MessageBox.Show("No ticket selected, select a ticket", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);// laat de gebruiker weten dat het is mislukt
         }
 
         private void BTN_RemoveTicket_Click(object sender, EventArgs e)
@@ -197,7 +197,7 @@ namespace GardenGroupUI
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Was not able to delete ticket. Try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het is gelukt
+                        MessageBox.Show("Was not able to delete ticket. Try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het niet is gelukt
                     }
                 }
             }
