@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 
+
 namespace DAL
 {
     public abstract class Base
@@ -19,18 +20,25 @@ namespace DAL
             db = dbClient.GetDatabase("Garden_Goup");
         }
 
-        protected List<BsonDocument> GetCollecction(string colName)
+        protected List<BsonDocument> GetCollection(string colName)
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
             return collection.Find(new BsonDocument()).ToList();
         }
 
-        protected List<BsonDocument> GetCollecctionFiltered(string colName,string filter)// filter must be like this: string filter = "\"id\", 1000"
+        protected List<BsonDocument> GetMax(string colName, string fieldName)
+        {
+            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
+            var f = Builders<BsonDocument>.Sort.Descending(fieldName);
+            return collection.Find(new BsonDocument()).Sort(f).ToList();
+        }
+
+        protected List<BsonDocument> GetCollectionFiltered(string colName,string filter)// filter must be like this: string filter = "id, 1000"
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
             string[] filterArray = filter.Split(",");
             var f = Builders<BsonDocument>.Filter.Eq(filterArray[0], filterArray[1]);// mischien nog aan passen???
-            return collection.Find(new BsonDocument()).ToList();
+            return collection.Find(new BsonDocument()).ToList();//WERKT NOG NIET!!!!!
         }
 
         protected void Insert(string colName, BsonDocument doc)
@@ -39,31 +47,19 @@ namespace DAL
             collection.InsertOne(doc);
         }
 
-        protected void UpdateOne(string colName, string filter, string updateTo)
+        protected void UpdateOne(string colName, string filterField, ObjectId filtervalue, string updateField, string updateValue)
         {
-            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);// filter and update must be like this: string filter = "\"id\", 1000"
-            string[] filterArray = filter.Split(",");
-            string[] updateArray = filter.Split(",");
-            var f = Builders<BsonDocument>.Filter.Eq(filterArray[0], filterArray[1]);// mischien nog aan passen???
-            var u = Builders<BsonDocument>.Update.Set(updateArray[0], updateArray[1]);// mischien nog aan passen???
+            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);// filter and update must be like this: string filter = "id, 1000"
+
+            var f = Builders<BsonDocument>.Filter.Eq(filterField, filtervalue);// mischien nog aan passen???
+            var u = Builders<BsonDocument>.Update.Set(updateField, updateValue);// mischien nog aan passen???
             collection.UpdateOne(f, u);
         }
 
-        protected void UpdateMany(string colName, string filter, string updateTo)
-        {
-            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);// filter and update must be like this: string filter = "\"id\", 1000"
-            string[] filterArray = filter.Split(",");
-            string[] updateArray = filter.Split(",");
-            var f = Builders<BsonDocument>.Filter.Eq(filterArray[0], filterArray[1]);// mischien nog aan passen???
-            var u = Builders<BsonDocument>.Update.Set(updateArray[0], updateArray[1]);// mischien nog aan passen???
-            collection.UpdateMany(f, u);
-        }
-
-        protected void Delete(string colName, string filter)// filter must be like this: string filter = "\"id\", 1000"
+        protected void Delete(string colName, string fieldname, ObjectId id)// filter must be like this: string filter = = "id, 1000"
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
-            string[] filterArray = filter.Split(",");
-            var deleteFilter = Builders<BsonDocument>.Filter.Eq(filterArray[0], filterArray[1]);// mischien nog aan passen???
+            var deleteFilter = Builders<BsonDocument>.Filter.Eq(fieldname, id);// mischien nog aan passen???
             collection.DeleteOne(deleteFilter);
         }
     }
