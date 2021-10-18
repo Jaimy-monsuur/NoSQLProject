@@ -97,7 +97,7 @@ namespace GardenGroupUI
                     string updateField = "Priority";
                     string updateValue = $"{selectedTicket.Incident_Priority}";
                     incident_TickedLogic.Update(selectedTicket, updateField, updateValue);
-                    MessageBox.Show("Ticket has been updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);// laat de gebruiker weten dat het is gelukt
+                    SuccesPopUp();
                     this.Close();
 
                 }
@@ -139,7 +139,7 @@ namespace GardenGroupUI
                     string updateField = "Status";
                     string updateValue = $"{selectedTicket.Status}";
                     incident_TickedLogic.Update(selectedTicket, updateField, updateValue);
-                    MessageBox.Show("Ticket has been updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);// laat de gebruiker weten dat het is gelukt
+                    SuccesPopUp();
                     this.Close();
 
                 }
@@ -157,17 +157,13 @@ namespace GardenGroupUI
 
         private void BTN_Update_Click(object sender, EventArgs e)
         {
-            if (CB_Priority.Text != "")
+            if (TXB_Subject.Text != "" && RTB_Description.Text != "" && CB_incidentType.Text != "")
             {
                 try
                 {
-                    selectedTicket.Incident_Priority = (Incident_Priority)Enum.Parse(typeof(Incident_Priority), CB_Priority.Text, true);
-                    string updateField = "Priority";
-                    string updateValue = $"{selectedTicket.Incident_Priority}";
-                    incident_TickedLogic.Update(selectedTicket, updateField, updateValue);
-                    MessageBox.Show("Ticket has been updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);// laat de gebruiker weten dat het is gelukt
+                    //WIP
+                    SuccesPopUp();
                     this.Close();
-
                 }
                 catch (Exception)
                 {
@@ -183,5 +179,12 @@ namespace GardenGroupUI
         {
             MessageBox.Show("Was not able to update ticket. Try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het niet is gelukt
         }
+
+        public void SuccesPopUp()
+        {
+            MessageBox.Show("Ticket has been updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);// laat de gebruiker weten dat het is gelukt
+        }
+
+
     }
 }
