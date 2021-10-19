@@ -27,30 +27,13 @@ namespace GardenGroupUI
 
         private void SetListview()
         {
-            LV_SelectedTicket.Clear();
-            // Maak grid
-            LV_SelectedTicket.Clear();
-            LV_SelectedTicket.View = View.Details;
-            LV_SelectedTicket.GridLines = true;
-            LV_SelectedTicket.FullRowSelect = true;
-
-            // Voeg column header toe
-            LV_SelectedTicket.Columns.Add("Id:", 50);
-            LV_SelectedTicket.Columns.Add("Subject:", 100);
-            LV_SelectedTicket.Columns.Add("Report date:", 110);
-            LV_SelectedTicket.Columns.Add("Deadline:", 100);
-            LV_SelectedTicket.Columns.Add("Priority:", 70);
-            LV_SelectedTicket.Columns.Add("Status:", 70);
-
-            string[] collumnItems = new string[6];
-            collumnItems[0] = selectedTicket.id.ToString();
-            collumnItems[1] = selectedTicket.subjectOfIncident;
-            collumnItems[2] = selectedTicket.reportDate.ToShortDateString();
-            collumnItems[3] = selectedTicket.Deadline.ToShortDateString();
-            collumnItems[4] = selectedTicket.Incident_Priority.ToString();
-            collumnItems[5] = selectedTicket.Status.ToString();
-            ListViewItem li = new ListViewItem(collumnItems);
-            LV_SelectedTicket.Items.Add(li);
+            DGV_SelectedTicket.Rows.Clear();
+            DGV_SelectedTicket.Rows.Add("ID: ", selectedTicket.id);
+            DGV_SelectedTicket.Rows.Add("Subject: ", selectedTicket.subjectOfIncident);
+            DGV_SelectedTicket.Rows.Add("Priority: ", selectedTicket.Incident_Priority);
+            DGV_SelectedTicket.Rows.Add("Status: ", selectedTicket.Status);
+            DGV_SelectedTicket.Rows.Add("Report date: ", selectedTicket.reportDate.ToShortDateString());
+            DGV_SelectedTicket.Rows.Add("Deadline: ", selectedTicket.Deadline.ToShortDateString());
         }
 
         private void Create_Ticket_Load(object sender, EventArgs e)
@@ -87,8 +70,8 @@ namespace GardenGroupUI
             {
                 selectedTicket.ReportedBy = CB_TransferTo.Text;
                 MessageBox.Show("Ticket succesfully transfered", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                string updateField = "Priority";
-                string updateValue = $"{selectedTicket.Incident_Priority}";
+                string updateField = "Reported_By";
+                string updateValue = $"{selectedTicket.ReportedBy}";
                 incidentLogic.Update(selectedTicket, updateField, updateValue);
                 this.Close();
             }

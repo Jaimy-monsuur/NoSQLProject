@@ -144,37 +144,44 @@ namespace GardenGroupUI
 
         private void BTN_Update_Click(object sender, EventArgs e)
         {
-            try
+            if (LVTickets.SelectedItems.Count != 0)
             {
-                ListViewItem li = (ListViewItem)LVTickets.SelectedItems[0];
-                Incident_Ticket t = (Incident_Ticket)li.Tag;
-                Update_Ticket update_Ticket = new Update_Ticket(t);
-                update_Ticket.ShowDialog();
-                SetListvieuw();// haalt nieuwe gegevens op
-                GetLVData();
-            }
-            catch (Exception)
-            {
-                NoTicketSelected();
+                try
+                {
+                    ListViewItem li = (ListViewItem)LVTickets.SelectedItems[0];
+                    Incident_Ticket t = (Incident_Ticket)li.Tag;
+                    Update_Ticket update_Ticket = new Update_Ticket(t);
+                    update_Ticket.ShowDialog();
+                    SetListvieuw(); // haalt nieuwe gegevens op
+                    GetLVData();
+                }
+                catch (Exception)
+                {
+                    NoTicketSelected();
+                }
             }
         }
 
         private void BTN_TransferTicket_Click(object sender, EventArgs e)
         {
-            try
+            if (LVTickets.SelectedItems.Count != 0)
             {
-                ListViewItem li = (ListViewItem)LVTickets.SelectedItems[0];
-                Incident_Ticket t = (Incident_Ticket)li.Tag;
-                Transfer_Ticket transfer = new Transfer_Ticket(t);
-                transfer.ShowDialog();
-                SetListvieuw();// haalt nieuwe gegevens op
-                GetLVData();
-            }
-            catch (Exception)
-            {
-                NoTicketSelected();
+                try
+                {
+                    ListViewItem li = (ListViewItem)LVTickets.SelectedItems[0];
+                    Incident_Ticket t = (Incident_Ticket)li.Tag;
+                    Transfer_Ticket transfer = new Transfer_Ticket(t);
+                    transfer.ShowDialog();
+                    SetListvieuw(); // haalt nieuwe gegevens op
+                    GetLVData();
+                }
+                catch (Exception)
+                {
+                    NoTicketSelected();
+                }
             }
         }
+
         public void NoTicketSelected()
         {
             MessageBox.Show("No ticket selected, select a ticket", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);// laat de gebruiker weten dat het is mislukt
