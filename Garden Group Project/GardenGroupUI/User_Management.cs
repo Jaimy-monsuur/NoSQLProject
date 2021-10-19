@@ -88,17 +88,16 @@ namespace GardenGroupUI
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show(); // show of show dialog?????
+            this.Close();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-
+            Incident_Management incident_Management = new Incident_Management();
+            incident_Management.Show(); // show of show dialog?????
+            this.Close();
         }
     }
 }

@@ -277,7 +277,6 @@ namespace GardenGroupUI
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 24);
             this.toolStripMenuItem3.Text = "User management";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // User_Management
             // 
