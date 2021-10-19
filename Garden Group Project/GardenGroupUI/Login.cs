@@ -50,12 +50,12 @@ namespace GardenGroupUI
                         Incident_Management incident_Management = new Incident_Management();
                         incident_Management.Show();// tijdelijk
                         break;
-                    case User_Type.Employee:
+                    case User_Type.ServiceDeskEmployee:
                         this.Hide();
                         Dashboard ashboardForm = new Dashboard();
                         ashboardForm.Show();
                         break;
-                    case User_Type.EndUser:
+                    case User_Type.Employee:
                         this.Hide();
                         Dashboard shboardForm = new Dashboard();
                         shboardForm.Show();

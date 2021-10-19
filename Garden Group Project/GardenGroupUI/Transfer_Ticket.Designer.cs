@@ -30,6 +30,7 @@ namespace GardenGroupUI
         private void InitializeComponent()
         {
             this.GB_AddTicket = new System.Windows.Forms.GroupBox();
+            this.LBL_Selected = new System.Windows.Forms.Label();
             this.CB_TransferTo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.LV_SelectedTicket = new System.Windows.Forms.ListView();
@@ -43,7 +44,6 @@ namespace GardenGroupUI
             this.LBLnodesk = new System.Windows.Forms.Label();
             this.LBLLicense = new System.Windows.Forms.Label();
             this.PBOX = new System.Windows.Forms.PictureBox();
-            this.LBL_Selected = new System.Windows.Forms.Label();
             this.GB_AddTicket.SuspendLayout();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
@@ -69,6 +69,15 @@ namespace GardenGroupUI
             this.GB_AddTicket.TabIndex = 11;
             this.GB_AddTicket.TabStop = false;
             this.GB_AddTicket.Text = "Transfer Ticket";
+            // 
+            // LBL_Selected
+            // 
+            this.LBL_Selected.AutoSize = true;
+            this.LBL_Selected.Location = new System.Drawing.Point(372, 300);
+            this.LBL_Selected.Name = "LBL_Selected";
+            this.LBL_Selected.Size = new System.Drawing.Size(21, 19);
+            this.LBL_Selected.TabIndex = 30;
+            this.LBL_Selected.Text = "...";
             // 
             // CB_TransferTo
             // 
@@ -124,6 +133,7 @@ namespace GardenGroupUI
             this.BTN_Transfer.TabIndex = 12;
             this.BTN_Transfer.Text = "Transfer";
             this.BTN_Transfer.UseVisualStyleBackColor = false;
+            this.BTN_Transfer.Click += new System.EventHandler(this.BTN_Transfer_Click);
             // 
             // LBL_Subject
             // 
@@ -217,15 +227,6 @@ namespace GardenGroupUI
             this.PBOX.Size = new System.Drawing.Size(200, 79);
             this.PBOX.TabIndex = 0;
             this.PBOX.TabStop = false;
-            // 
-            // LBL_Selected
-            // 
-            this.LBL_Selected.AutoSize = true;
-            this.LBL_Selected.Location = new System.Drawing.Point(372, 300);
-            this.LBL_Selected.Name = "LBL_Selected";
-            this.LBL_Selected.Size = new System.Drawing.Size(21, 19);
-            this.LBL_Selected.TabIndex = 30;
-            this.LBL_Selected.Text = "...";
             // 
             // Transfer_Ticket
             // 

@@ -24,6 +24,9 @@ namespace DAL
 
         public void InsertUser(User user)
         {
+
+            byte[] encodedPasswordArray = new byte[user.password.Length]; // encrypt het password
+            encodedPasswordArray = Encoding.UTF8.GetBytes(user.password);
             BsonDocument document = new BsonDocument()
             {
                 { "User_Id", user.userId }, // object id wordt in db aangemaakt
@@ -33,7 +36,7 @@ namespace DAL
                 { "Email_Address", user.emailAddress },
                 { "Phone_Number", user.phoneNumber },
                 { "Location", user.location },
-                { "Password", user.password } // moet nog encrypted worden
+                { "Password", encodedPasswordArray.ToString() } // moet nog getest worden op werking
             };
             Insert(CollectionName(), document);
         }
@@ -50,7 +53,7 @@ namespace DAL
                     userId = (int)bson["User_Id"],
                     firstName = (string)bson["First_Name"],
                     lastName = (string)bson["Last_Name"],
-                    userType = (User_Type)Enum.Parse(typeof(User_Type), (string)bson["User_Type"], true), // testen of werkt
+                    userType = (User_Type)Enum.Parse(typeof(User_Type), (string)bson["User_Type"], true),
                     emailAddress = (string)bson["Email_Address"],
                     phoneNumber = (string)bson["Phone_Number"],
                     location = (string)bson["Location"],
