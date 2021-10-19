@@ -14,6 +14,7 @@ namespace Logic_Layer
         {
             return userDAL.GetAllUsers();
         }
+        
         public User GetUser(string userName)
         {
             User user = new User();
@@ -21,8 +22,18 @@ namespace Logic_Layer
             encodedPasswordArray = System.Text.Encoding.UTF8.GetBytes("admin");
             string password = Convert.ToBase64String(encodedPasswordArray);
             user.password = password;
-            user.userType = (User_Type)1;
+            user.userType = (User_Type)0;
             return user;
+        }
+
+        public void AddUser(User user)
+        {
+            userDAL.InsertUser(user);
+        }
+
+        public List<User> GetMaxId()
+        {
+            return userDAL.GetMaxId();
         }
 
     }

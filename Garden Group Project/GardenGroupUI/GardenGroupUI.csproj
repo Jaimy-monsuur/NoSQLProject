@@ -7,8 +7,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ScottPlot" Version="4.1.25" />
+    <PackageReference Include="ScottPlot.WinForms" Version="4.1.25" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Logic Layer\Logic_Layer.csproj" />
     <ProjectReference Include="..\Model\Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Update_Ticket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Transfer_Ticket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Create_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

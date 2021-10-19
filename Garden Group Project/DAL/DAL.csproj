@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="2.13.1" />
+    <PackageReference Include="ScottPlot" Version="4.1.25" />
+    <PackageReference Include="ScottPlot.WinForms" Version="4.1.25" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
   </ItemGroup>
 

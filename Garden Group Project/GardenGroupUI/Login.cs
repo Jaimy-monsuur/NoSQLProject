@@ -46,8 +46,8 @@ namespace GardenGroupUI
                 {
                     case User_Type.Admin:
                         this.Hide();
-                        Dashboard dashboardForm = new Dashboard();
-                        dashboardForm.Show();
+                        Incident_Management incident_Management = new Incident_Management();
+                        incident_Management.Show();// tijdelijk
                         break;
                     case User_Type.Employee:
                         this.Hide();
