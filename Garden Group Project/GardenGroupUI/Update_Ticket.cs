@@ -80,10 +80,7 @@ namespace GardenGroupUI
             }
             foreach (Incident_Type item in Incident_Type.GetValues(typeof(Incident_Type)))
             {
-                if (item != selectedTicket.Incident_Type)
-                {
                     CB_incidentType.Items.Add(item);
-                }
             }
         }
 
@@ -161,7 +158,22 @@ namespace GardenGroupUI
             {
                 try
                 {
-                    //WIP
+                    //update subject
+                    selectedTicket.subjectOfIncident = TXB_Subject.Text;
+                    string updateField = "Subject";
+                    string updateValue = $"{selectedTicket.subjectOfIncident}";
+                    incident_TickedLogic.Update(selectedTicket, updateField, updateValue);
+                    //update description
+                    selectedTicket.Description = RTB_Description.Text;
+                     updateField = "Description";
+                     updateValue = $"{selectedTicket.Description}";
+                    incident_TickedLogic.Update(selectedTicket, updateField, updateValue);
+                    //update type
+                    selectedTicket.Incident_Type = (Incident_Type)Enum.Parse(typeof(Incident_Type), CB_incidentType.Text);
+                     updateField = "Type";
+                     updateValue = $"{selectedTicket.Incident_Type}";
+                    incident_TickedLogic.Update(selectedTicket, updateField, updateValue);
+
                     SuccesPopUp();
                     this.Close();
                 }

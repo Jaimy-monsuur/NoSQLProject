@@ -10,7 +10,7 @@ namespace Test
         static void Main(string[] args)
         {
             Incident_TicketDAL insident_TicketDAL = new Incident_TicketDAL();
-            foreach (Incident_Ticket item in insident_TicketDAL.GetAllTicketsFromFilter())
+            foreach (Incident_Ticket item in insident_TicketDAL.GetAllTicketsWithStatusOpen())
             {
                 Console.WriteLine(item.objectId);
                 Console.WriteLine(item.id);
