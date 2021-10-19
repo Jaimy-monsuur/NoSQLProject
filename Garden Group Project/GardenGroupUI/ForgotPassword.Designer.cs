@@ -52,16 +52,16 @@ namespace GardenGroupUI
             // 
             this.txtEmail.BackColor = System.Drawing.SystemColors.Window;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEmail.Location = new System.Drawing.Point(74, 35);
+            this.txtEmail.Location = new System.Drawing.Point(12, 47);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(335, 29);
+            this.txtEmail.Size = new System.Drawing.Size(484, 29);
             this.txtEmail.TabIndex = 19;
             // 
             // lblCode
             // 
             this.lblCode.AutoSize = true;
             this.lblCode.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCode.Location = new System.Drawing.Point(6, 35);
+            this.lblCode.Location = new System.Drawing.Point(6, 19);
             this.lblCode.Name = "lblCode";
             this.lblCode.Size = new System.Drawing.Size(179, 25);
             this.lblCode.TabIndex = 18;
@@ -71,11 +71,11 @@ namespace GardenGroupUI
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEmail.Location = new System.Drawing.Point(6, 35);
+            this.lblEmail.Location = new System.Drawing.Point(6, 19);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(62, 25);
+            this.lblEmail.Size = new System.Drawing.Size(58, 25);
             this.lblEmail.TabIndex = 17;
-            this.lblEmail.Text = "Email:";
+            this.lblEmail.Text = "Email";
             // 
             // lblWachtwoordVergeten
             // 
@@ -112,7 +112,7 @@ namespace GardenGroupUI
             this.txtCode.BackColor = System.Drawing.SystemColors.Window;
             this.txtCode.Enabled = false;
             this.txtCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtCode.Location = new System.Drawing.Point(191, 35);
+            this.txtCode.Location = new System.Drawing.Point(278, 19);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(218, 29);
             this.txtCode.TabIndex = 24;
@@ -123,16 +123,16 @@ namespace GardenGroupUI
             this.grbxEmail.Controls.Add(this.btnSendEmail);
             this.grbxEmail.Controls.Add(this.lblEmail);
             this.grbxEmail.Controls.Add(this.txtEmail);
-            this.grbxEmail.Location = new System.Drawing.Point(417, 220);
+            this.grbxEmail.Location = new System.Drawing.Point(384, 212);
             this.grbxEmail.Name = "grbxEmail";
-            this.grbxEmail.Size = new System.Drawing.Size(426, 120);
+            this.grbxEmail.Size = new System.Drawing.Size(513, 120);
             this.grbxEmail.TabIndex = 25;
             this.grbxEmail.TabStop = false;
             this.grbxEmail.Text = "Email";
             // 
             // btnBackToLogin
             // 
-            this.btnBackToLogin.Location = new System.Drawing.Point(74, 70);
+            this.btnBackToLogin.Location = new System.Drawing.Point(161, 82);
             this.btnBackToLogin.Name = "btnBackToLogin";
             this.btnBackToLogin.Size = new System.Drawing.Size(165, 29);
             this.btnBackToLogin.TabIndex = 27;
@@ -142,7 +142,7 @@ namespace GardenGroupUI
             // 
             // btnSendEmail
             // 
-            this.btnSendEmail.Location = new System.Drawing.Point(245, 70);
+            this.btnSendEmail.Location = new System.Drawing.Point(332, 82);
             this.btnSendEmail.Name = "btnSendEmail";
             this.btnSendEmail.Size = new System.Drawing.Size(164, 29);
             this.btnSendEmail.TabIndex = 20;
@@ -156,9 +156,9 @@ namespace GardenGroupUI
             this.grbxVerification.Controls.Add(this.btnTryCode);
             this.grbxVerification.Controls.Add(this.lblCode);
             this.grbxVerification.Controls.Add(this.txtCode);
-            this.grbxVerification.Location = new System.Drawing.Point(417, 346);
+            this.grbxVerification.Location = new System.Drawing.Point(384, 338);
             this.grbxVerification.Name = "grbxVerification";
-            this.grbxVerification.Size = new System.Drawing.Size(426, 133);
+            this.grbxVerification.Size = new System.Drawing.Size(513, 112);
             this.grbxVerification.TabIndex = 26;
             this.grbxVerification.TabStop = false;
             this.grbxVerification.Text = "Verificatie";
@@ -169,18 +169,18 @@ namespace GardenGroupUI
             this.lblWrongCode.AutoSize = true;
             this.lblWrongCode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.lblWrongCode.ForeColor = System.Drawing.Color.Red;
-            this.lblWrongCode.Location = new System.Drawing.Point(15, 77);
+            this.lblWrongCode.Location = new System.Drawing.Point(32, 86);
             this.lblWrongCode.Name = "lblWrongCode";
-            this.lblWrongCode.Size = new System.Drawing.Size(243, 30);
+            this.lblWrongCode.Size = new System.Drawing.Size(448, 15);
             this.lblWrongCode.TabIndex = 29;
-            this.lblWrongCode.Text = "U heeft 3 keer een verkeerde code ingevoerd, \r\neen nieuwe code is naar u toe gest" +
-    "uurd";
+            this.lblWrongCode.Text = "U heeft 3 keer een verkeerde code ingevoerd, een nieuwe code is naar u toe gestuu" +
+    "rd";
             this.lblWrongCode.Visible = false;
             // 
             // btnTryCode
             // 
             this.btnTryCode.Enabled = false;
-            this.btnTryCode.Location = new System.Drawing.Point(300, 70);
+            this.btnTryCode.Location = new System.Drawing.Point(387, 54);
             this.btnTryCode.Name = "btnTryCode";
             this.btnTryCode.Size = new System.Drawing.Size(109, 29);
             this.btnTryCode.TabIndex = 0;
@@ -191,7 +191,7 @@ namespace GardenGroupUI
             // 
             this.lblYourNewPassword.AutoSize = true;
             this.lblYourNewPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblYourNewPassword.Location = new System.Drawing.Point(423, 530);
+            this.lblYourNewPassword.Location = new System.Drawing.Point(18, 636);
             this.lblYourNewPassword.Name = "lblYourNewPassword";
             this.lblYourNewPassword.Size = new System.Drawing.Size(239, 25);
             this.lblYourNewPassword.TabIndex = 27;
@@ -202,7 +202,7 @@ namespace GardenGroupUI
             // 
             this.lblNewPassword.AutoSize = true;
             this.lblNewPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNewPassword.Location = new System.Drawing.Point(693, 530);
+            this.lblNewPassword.Location = new System.Drawing.Point(288, 636);
             this.lblNewPassword.Name = "lblNewPassword";
             this.lblNewPassword.Size = new System.Drawing.Size(133, 25);
             this.lblNewPassword.TabIndex = 28;

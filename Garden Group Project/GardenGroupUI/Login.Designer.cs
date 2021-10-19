@@ -75,7 +75,7 @@ namespace GardenGroupUI
             // 
             this.lblemail.AutoSize = true;
             this.lblemail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblemail.Location = new System.Drawing.Point(456, 308);
+            this.lblemail.Location = new System.Drawing.Point(382, 280);
             this.lblemail.Name = "lblemail";
             this.lblemail.Size = new System.Drawing.Size(58, 25);
             this.lblemail.TabIndex = 8;
@@ -85,7 +85,7 @@ namespace GardenGroupUI
             // 
             this.lblLoginWachtwoord.AutoSize = true;
             this.lblLoginWachtwoord.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLoginWachtwoord.Location = new System.Drawing.Point(456, 362);
+            this.lblLoginWachtwoord.Location = new System.Drawing.Point(382, 340);
             this.lblLoginWachtwoord.Name = "lblLoginWachtwoord";
             this.lblLoginWachtwoord.Size = new System.Drawing.Size(119, 25);
             this.lblLoginWachtwoord.TabIndex = 9;
@@ -95,25 +95,25 @@ namespace GardenGroupUI
             // 
             this.txtEmail.BackColor = System.Drawing.SystemColors.Window;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEmail.Location = new System.Drawing.Point(632, 308);
+            this.txtEmail.Location = new System.Drawing.Point(382, 308);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(174, 29);
+            this.txtEmail.Size = new System.Drawing.Size(500, 29);
             this.txtEmail.TabIndex = 11;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtGebruikersnaam_TextChanged);
             // 
             // txtWachtwoord
             // 
             this.txtWachtwoord.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtWachtwoord.Location = new System.Drawing.Point(632, 363);
+            this.txtWachtwoord.Location = new System.Drawing.Point(382, 368);
             this.txtWachtwoord.Name = "txtWachtwoord";
             this.txtWachtwoord.PasswordChar = '*';
-            this.txtWachtwoord.Size = new System.Drawing.Size(174, 29);
+            this.txtWachtwoord.Size = new System.Drawing.Size(500, 29);
             this.txtWachtwoord.TabIndex = 12;
             // 
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.Location = new System.Drawing.Point(632, 443);
+            this.btnLogin.Location = new System.Drawing.Point(545, 463);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(174, 34);
             this.btnLogin.TabIndex = 13;
@@ -125,7 +125,7 @@ namespace GardenGroupUI
             // 
             this.lnklblForgotPassWord.AutoSize = true;
             this.lnklblForgotPassWord.LinkColor = System.Drawing.Color.Blue;
-            this.lnklblForgotPassWord.Location = new System.Drawing.Point(632, 491);
+            this.lnklblForgotPassWord.Location = new System.Drawing.Point(568, 511);
             this.lnklblForgotPassWord.Name = "lnklblForgotPassWord";
             this.lnklblForgotPassWord.Size = new System.Drawing.Size(129, 15);
             this.lnklblForgotPassWord.TabIndex = 14;
@@ -139,7 +139,7 @@ namespace GardenGroupUI
             this.lblWrongPW.AutoSize = true;
             this.lblWrongPW.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.lblWrongPW.ForeColor = System.Drawing.Color.Red;
-            this.lblWrongPW.Location = new System.Drawing.Point(632, 395);
+            this.lblWrongPW.Location = new System.Drawing.Point(541, 415);
             this.lblWrongPW.Name = "lblWrongPW";
             this.lblWrongPW.Size = new System.Drawing.Size(183, 45);
             this.lblWrongPW.TabIndex = 15;
