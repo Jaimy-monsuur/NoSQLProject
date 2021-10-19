@@ -9,6 +9,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Web;
+using Model;
+using Logic_Layer;
 
 namespace GardenGroupUI
 {
@@ -16,9 +18,12 @@ namespace GardenGroupUI
     {
         string code;
         private int wrongTries = 0;
-        public frmForgotPassword()
+        public User_Logic user_logic = new User_Logic();
+
+        public frmForgotPassword(string email)
         {
             InitializeComponent();
+            txtEmail.Text = email;
         }
 
         private void frmForgotPassword_Load(object sender, EventArgs e)
@@ -28,17 +33,25 @@ namespace GardenGroupUI
         private void btnBackToLogin_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmLogin login = new frmLogin();
-            login.Show();
+            frmLogin frmLogin = new frmLogin(txtEmail.Text);
+            frmLogin.Show();
         }
 
         private void btnSendEmail_Click(object sender, EventArgs e)
         {
-            GenerateCode();
-            SendEmail(txtEmail.Text, "Uw code om uw verzoek tot een nieuw wachtwoord te voltooien", $"Beste NoDesk gebruiker,\n\nHierbij de code voor het wijzigen van uw wachtwoord: {code}\n\nHet NoDesk team");
-            grbxVerification.Show();
-            btnTryCode.Enabled = true;
-            txtCode.Enabled = true;
+            if (txtEmail.Text.Length != 0 && verifyEmail(txtEmail.Text) == true)
+            {
+                GenerateCode();
+                SendEmail(txtEmail.Text, "Uw code om uw verzoek tot een nieuw wachtwoord te voltooien", $"Beste NoDesk gebruiker,\n\nHierbij de code voor het wijzigen van uw wachtwoord: {code}\n\nHet NoDesk team");
+                grbxVerification.Show();
+                btnTryCode.Enabled = true;
+                txtCode.Enabled = true;
+                lblNonExistingEmail.Hide();
+            }
+            else
+            {
+                lblNonExistingEmail.Show();                    
+            }
         }
         private void btnTryCode_Click(object sender, EventArgs e)
         {            
@@ -46,11 +59,10 @@ namespace GardenGroupUI
             {
                 code = null;
                 string newPassword = GeneratePassword();
+                user_logic.UpdatePassword(txtEmail.Text, newPassword);
                 lblNewPassword.Text = newPassword;
-                lblNewPassword.Show();
-                new ToolTip().SetToolTip(lblNewPassword, "Klik op het wachtwoord om het te kopiëren");
-                lblYourNewPassword.Show();
-                //VERANDER HET WACHTWOORD IN DE DATABASE!
+                grbxNewPW.Show();
+                new ToolTip().SetToolTip(lblNewPassword, "Klik op het wachtwoord om het te kopiëren");               
             }
             else
             {
@@ -67,6 +79,16 @@ namespace GardenGroupUI
                 }
             }
         }
+        private bool verifyEmail(string email)
+        {
+            List<User> userList = user_logic.GetUser(email);
+            if (userList.Count == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void SendEmail(string recepient, string subject, string body)
         {
             var smtpClient = new SmtpClient("smtp.gmail.com")
@@ -76,7 +98,6 @@ namespace GardenGroupUI
                 EnableSsl = true,
             };
             smtpClient.Send("nodeskservice@gmail.com", recepient, subject, body);
-            //TRY CATCH VOOR EEN VERKEERD INGEBULD EMAIL ADRES
         }
         private void GenerateCode()
         {
@@ -103,6 +124,9 @@ namespace GardenGroupUI
         private void lblNewPassword_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(lblNewPassword.Text);
+            this.Hide();
+            frmLogin frmLogin = new frmLogin(txtEmail.Text);
+            frmLogin.Show();
         }
     }
 }

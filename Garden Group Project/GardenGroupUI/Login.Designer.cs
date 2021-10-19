@@ -85,7 +85,7 @@ namespace GardenGroupUI
             // 
             this.lblLoginWachtwoord.AutoSize = true;
             this.lblLoginWachtwoord.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLoginWachtwoord.Location = new System.Drawing.Point(382, 340);
+            this.lblLoginWachtwoord.Location = new System.Drawing.Point(382, 359);
             this.lblLoginWachtwoord.Name = "lblLoginWachtwoord";
             this.lblLoginWachtwoord.Size = new System.Drawing.Size(119, 25);
             this.lblLoginWachtwoord.TabIndex = 9;
@@ -104,7 +104,7 @@ namespace GardenGroupUI
             // txtWachtwoord
             // 
             this.txtWachtwoord.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtWachtwoord.Location = new System.Drawing.Point(382, 368);
+            this.txtWachtwoord.Location = new System.Drawing.Point(382, 387);
             this.txtWachtwoord.Name = "txtWachtwoord";
             this.txtWachtwoord.PasswordChar = '*';
             this.txtWachtwoord.Size = new System.Drawing.Size(500, 29);
@@ -139,12 +139,11 @@ namespace GardenGroupUI
             this.lblWrongPW.AutoSize = true;
             this.lblWrongPW.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.lblWrongPW.ForeColor = System.Drawing.Color.Red;
-            this.lblWrongPW.Location = new System.Drawing.Point(541, 415);
+            this.lblWrongPW.Location = new System.Drawing.Point(407, 432);
             this.lblWrongPW.Name = "lblWrongPW";
-            this.lblWrongPW.Size = new System.Drawing.Size(183, 45);
+            this.lblWrongPW.Size = new System.Drawing.Size(450, 15);
             this.lblWrongPW.TabIndex = 15;
-            this.lblWrongPW.Text = "De door u opgegeven combinatie \r\nvan gebruikersnaam en/of \r\nwachtwoord is ongeldi" +
-    "g";
+            this.lblWrongPW.Text = "De door u opgegeven combinatie van gebruikersnaam en/of wachtwoord is ongeldig";
             this.lblWrongPW.Visible = false;
             // 
             // frmLogin
@@ -178,12 +177,10 @@ namespace GardenGroupUI
         private System.Windows.Forms.Label txtLogin;
         private System.Windows.Forms.Label lblemail;
         private System.Windows.Forms.Label lblLoginWachtwoord;
-        private System.Windows.Forms.TextBox txtGebruikersnaam;
         private System.Windows.Forms.TextBox txtWachtwoord;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.LinkLabel lnklblForgotPassWord;
         private System.Windows.Forms.Label lblWrongPW;
-        private System.Windows.Forms.TextBox txtemail;
         private System.Windows.Forms.TextBox txtEmail;
     }
 }

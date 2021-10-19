@@ -20,6 +20,11 @@ namespace GardenGroupUI
         {
             InitializeComponent();
         }
+        public frmLogin(string email)
+        {
+            InitializeComponent();
+            txtEmail.Text = email;
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -46,44 +51,47 @@ namespace GardenGroupUI
             {
                 lblWrongPW.Show();
                 txtWachtwoord.Text = "";
+            }            
+        }            
+        private void checkPassword(User tempuser, string password)
+        {
+            //kijk of het wachtwoord klopt
+            if (tempUser.password == password)
+            {                
+                //Indien het klopt, de gebruiker het juiste form laten zien
+                logUserIn();
             }
-
-            void checkPassword(User tempuser, string password)
+            else
             {
-                //kijk of het wachtwoord klopt
-                if (tempUser.password == password)
-                {
-                    Program.loggedInUser = tempUser;
-                    tempUser = null;
-                    //Indien het klopt, de gebruiker het juiste form laten zien
-                    switch (Program.loggedInUser.userType)
-                    {
-                        case User_Type.ServiceDeskEmployee:
-                            this.Hide();
-                            Dashboard ashboardForm = new Dashboard();
-                            ashboardForm.Show();
-                            break;
-                        case User_Type.Employee:
-                            this.Hide();
-                            Dashboard shboardForm = new Dashboard();
-                            shboardForm.Show();
-                            break;
-                    }
-                }
-                else
-                {
-                    //Indien het niet klopt, text laten zien, de user op null zetten en password-veld clearen
-                    tempUser = null;
-                    lblWrongPW.Show();
-                    txtWachtwoord.Text = "";
-                }
+                //Indien het niet klopt, text laten zien, de user op null zetten en password-veld clearen
+                tempUser = null;
+                lblWrongPW.Show();
+                txtWachtwoord.Text = "";
             }
-        }        
+        }
+        private void logUserIn()
+        {
+            Program.loggedInUser = tempUser;
+            tempUser = null;
+            switch (Program.loggedInUser.userType)
+            {                
+                case User_Type.ServiceDeskEmployee:
+                    this.Hide();
+                    Dashboard ashboardForm = new Dashboard();
+                    ashboardForm.Show();
+                    break;
+                case User_Type.Employee:
+                    this.Hide();
+                    Dashboard shboardForm = new Dashboard();
+                    shboardForm.Show();
+                    break;
+            }
+        }
 
         private void lnklblForgotPassWord_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
-            frmForgotPassword forgotPassword = new frmForgotPassword();
+            frmForgotPassword forgotPassword = new frmForgotPassword(txtEmail.Text);
             forgotPassword.Show();
         }
 

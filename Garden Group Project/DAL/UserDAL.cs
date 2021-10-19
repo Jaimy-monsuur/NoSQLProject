@@ -36,7 +36,7 @@ namespace DAL
                 { "Email_Address", user.emailAddress },
                 { "Phone_Number", user.phoneNumber },
                 { "Location", user.location },
-                { "Password", encodedPasswordArray.ToString() } // moet nog getest worden op werking
+                { "Password", Convert.ToBase64String(encodedPasswordArray) } // moet nog getest worden op werking
             };
             Insert(CollectionName(), document);
         }
@@ -72,7 +72,14 @@ namespace DAL
 
         public List<User> GetUser(string email)
         {
-            return BsonToUser(GetCollectionFiltered(CollectionName(), "Email_Address", email));//haalt users op een filter
+            return BsonToUser(GetCollectionFiltered(CollectionName(), "Email_Address", email)); //haalt users op een filter
+        }
+
+        public void UpdatePassword(string email, string newPassword)
+        {
+            byte[] encodedPasswordArray = new byte[newPassword.Length]; // encrypt het password
+            encodedPasswordArray = Encoding.UTF8.GetBytes(newPassword);
+            UpdateOne(CollectionName(), "Email_Address", email, "Password", Convert.ToBase64String(encodedPasswordArray)); //Update het wachtwoord
         }
     }
 }

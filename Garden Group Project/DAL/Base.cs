@@ -54,6 +54,14 @@ namespace DAL
             var u = Builders<BsonDocument>.Update.Set(updateField, updateValue);// mischien nog aan passen???
             collection.UpdateOne(f, u);
         }
+        protected void UpdateOne(string colName, string filterField, string filtervalue, string updateField, string updateValue)
+        {
+            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);// filter and update must be like this: string filter = "id, 1000"
+
+            var f = Builders<BsonDocument>.Filter.Eq(filterField, filtervalue);// mischien nog aan passen???
+            var u = Builders<BsonDocument>.Update.Set(updateField, updateValue);// mischien nog aan passen???
+            collection.UpdateOne(f, u);
+        }
 
         protected void Delete(string colName, string fieldname, ObjectId id)// filter must be like this: string filter = = "id, 1000"
         {
