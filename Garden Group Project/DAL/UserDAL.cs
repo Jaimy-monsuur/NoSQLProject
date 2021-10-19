@@ -53,7 +53,7 @@ namespace DAL
                     userType = (User_Type)Enum.Parse(typeof(User_Type), (string)bson["User_Type"], true), // testen of werkt
                     emailAddress = (string)bson["Email_Address"],
                     phoneNumber = (string)bson["Phone_Number"],
-                    location = (string)bson["Location"], 
+                    location = (string)bson["Location"],
                     password = (string)bson["Password"]
                 };
                 users.Add(user);
@@ -65,6 +65,11 @@ namespace DAL
         public List<User> GetMaxId()
         {
             return BsonToUser(GetMax(CollectionName(), "User_Id")); // haalt alle users op om te kijken wat de hoogste user id is
+        }
+
+        public List<User> GetUser(string email)
+        {
+            return BsonToUser(GetCollectionFiltered(CollectionName(), "Email_Address", email));//haalt users op een filter
         }
     }
 }

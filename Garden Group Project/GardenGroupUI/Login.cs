@@ -29,14 +29,15 @@ namespace GardenGroupUI
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //Haal username op
-            string username = txtGebruikersnaam.Text;
+            string email = txtEmail.Text;
             //Haal Password op en encrypt deze
             byte[] encodedPasswordArray = new byte[txtWachtwoord.Text.Length];
             encodedPasswordArray = System.Text.Encoding.UTF8.GetBytes(txtWachtwoord.Text);
             string password = Convert.ToBase64String(encodedPasswordArray);
 
             //Zoek de database naar een gebruiker met deze gebruikersnaam
-            User user = user_logic.GetUser(username);
+            List <User> userList = user_logic.GetUser(email);
+            User user = userList[0];
 
             //kijk of het wachtwoord klopt
             if (user.password == password)
@@ -75,6 +76,11 @@ namespace GardenGroupUI
             this.Hide();
             frmForgotPassword forgotPassword = new frmForgotPassword();
             forgotPassword.Show();
+        }
+
+        private void txtGebruikersnaam_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

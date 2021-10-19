@@ -15,15 +15,9 @@ namespace Logic_Layer
             return userDAL.GetAllUsers();
         }
         
-        public User GetUser(string userName)
+        public List<User> GetUser(string email)
         {
-            User user = new User();
-            byte[] encodedPasswordArray = new byte["admin".Length];
-            encodedPasswordArray = System.Text.Encoding.UTF8.GetBytes("admin");
-            string password = Convert.ToBase64String(encodedPasswordArray);
-            user.password = password;
-            user.userType = (User_Type)0;
-            return user;
+            return userDAL.GetUser(email);
         }
 
         public void AddUser(User user)
