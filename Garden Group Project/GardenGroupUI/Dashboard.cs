@@ -58,5 +58,12 @@ namespace GardenGroupUI
             }
             Lbl_PastdeadlineOutput.Text = incidentcountpastdeadline.ToString();
         }
+
+        private void Btn_Incidents_Click(object sender, EventArgs e)
+        {
+            Incident_Management incident_Management = new Incident_Management();
+            incident_Management.Show();
+            this.Close();
+        }
     }
 }

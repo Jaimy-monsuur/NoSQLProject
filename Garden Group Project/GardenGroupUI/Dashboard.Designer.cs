@@ -125,6 +125,7 @@ namespace GardenGroupUI
             this.Btn_Incidents.TabIndex = 3;
             this.Btn_Incidents.Text = "ShowList";
             this.Btn_Incidents.UseVisualStyleBackColor = false;
+            this.Btn_Incidents.Click += new System.EventHandler(this.Btn_Incidents_Click);
             // 
             // Dashboard
             // 

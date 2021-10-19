@@ -18,11 +18,13 @@ namespace GardenGroupUI
         {
             InitializeComponent();
             this.MaximizeBox = false;
+            checkBox1.Appearance = Appearance.Button;
         }
 
 
         private void Incident_Management_Load(object sender, EventArgs e)
         {
+            UserSettings();
             //for the default text in textbox
             this.TBXfilter.Enter += new EventHandler(TBXfilter_Enter);
             this.TBXfilter.Leave += new EventHandler(TBXfilter_Leave);
@@ -30,6 +32,16 @@ namespace GardenGroupUI
             SetListvieuw();
             GetLVData();
             DataGridViewSetings();
+        }
+
+        public void UserSettings()
+        {
+            if (Program.loggedInUser.userType == User_Type.Employee)
+            {
+                BTN_RemoveTicket.Hide();
+                BTN_TransferTicket.Hide();
+                userManagementToolStripMenuItem.Enabled = false;
+            }
         }
         public void DataGridViewSetings()
         {
@@ -45,7 +57,6 @@ namespace GardenGroupUI
 
         protected void SetListvieuw()
         {
-            LVTickets.Clear();
             // Maak grid
             LVTickets.Clear();
             LVTickets.View = View.Details;
@@ -63,7 +74,16 @@ namespace GardenGroupUI
         }
         protected void GetLVData()
         {
-            List<Incident_Ticket> list = logic_Layer.GetAllTickets();
+            List<Incident_Ticket> list;
+            if (checkBox1.Checked)
+            {
+                list = logic_Layer.GetAllTicketsFiltered("Status", "Closed");
+            }
+            else
+            {
+                 list = logic_Layer.GetAllTicketsFiltered("Status", "Open");
+            }
+
             foreach (Incident_Ticket item in list)
             {
                 string[] collumnItems = new string[7];
@@ -146,19 +166,39 @@ namespace GardenGroupUI
         {
             if (LVTickets.SelectedItems.Count != 0)
             {
-                try
+                if (Program.loggedInUser.userType == User_Type.Employee)
                 {
                     ListViewItem li = (ListViewItem)LVTickets.SelectedItems[0];
                     Incident_Ticket t = (Incident_Ticket)li.Tag;
-                    Update_Ticket update_Ticket = new Update_Ticket(t);
-                    update_Ticket.ShowDialog();
-                    SetListvieuw(); // haalt nieuwe gegevens op
-                    GetLVData();
+                    if (t.ReportedBy == Program.loggedInUser.emailAddress)
+                    {
+                        TryUpdate();
+                    }
+                    else
+                    {
+                        MessageBox.Show("U can not update this ticket because it is not yours", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);// laat de gebruiker weten dat het is mislukt
+                    }
                 }
-                catch (Exception)
+                else
                 {
-                    NoTicketSelected();
+                    TryUpdate();
                 }
+            }
+        }
+        public void TryUpdate()
+        {
+            try
+            {
+                ListViewItem li = (ListViewItem)LVTickets.SelectedItems[0];
+                Incident_Ticket t = (Incident_Ticket)li.Tag;
+                Update_Ticket update_Ticket = new Update_Ticket(t);
+                update_Ticket.ShowDialog();
+                SetListvieuw(); // haalt nieuwe gegevens op
+                GetLVData();
+            }
+            catch (Exception)
+            {
+                NoTicketSelected();
             }
         }
 
@@ -219,6 +259,24 @@ namespace GardenGroupUI
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
             this.Close();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                checkBox1.Text = "Show Status open";
+                SetListvieuw();// haalt nieuwe gegevens op
+                GetLVData();
+                LBL_status.Text = "Closed tickets";
+            }
+            else
+            {
+                checkBox1.Text = "Show Status closed";
+                SetListvieuw();// haalt nieuwe gegevens op
+                GetLVData();
+                LBL_status.Text = "Open tickets";
+            }
         }
     }
 }
