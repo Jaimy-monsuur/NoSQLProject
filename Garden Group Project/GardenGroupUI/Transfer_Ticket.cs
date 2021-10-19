@@ -13,7 +13,8 @@ namespace GardenGroupUI
     public partial class Transfer_Ticket : Form
     {
         Incident_Ticket selectedTicket;
-        User_Logic logic = new User_Logic();
+        User_Logic userLogic = new User_Logic();
+        Incident_TickedLogic incidentLogic = new Incident_TickedLogic();
 
         public Transfer_Ticket(Incident_Ticket ticket)
         {
@@ -59,10 +60,13 @@ namespace GardenGroupUI
 
         public void ComboBoxSetting()
         {
-            List<User> users = logic.GetAllUsers();
+            List<User> users = userLogic.GetAllUsers();
             foreach (User user in users)
             {
-                CB_TransferTo.Items.Add(user.emailAddress);
+                if (user.emailAddress != selectedTicket.ReportedBy)
+                {
+                    CB_TransferTo.Items.Add(user.emailAddress);
+                }            
             }
         }
 
@@ -75,6 +79,23 @@ namespace GardenGroupUI
         {
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
+        }
+
+        private void BTN_Transfer_Click(object sender, EventArgs e)
+        {
+            if (CB_TransferTo.Text != "")
+            {
+                selectedTicket.ReportedBy = CB_TransferTo.Text;
+                MessageBox.Show("Ticket succesfully transfered", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string updateField = "Priority";
+                string updateValue = $"{selectedTicket.Incident_Priority}";
+                incidentLogic.Update(selectedTicket, updateField, updateValue);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No user selected, select a user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }          
         }
     }
 }

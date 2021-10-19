@@ -57,7 +57,7 @@ namespace GardenGroupUI
                 collumnItems[1] = user.userId.ToString();
                 collumnItems[2] = user.firstName;
                 collumnItems[3] = user.lastName;
-                collumnItems[4] = user.userType.ToString(); // zou moeten werken
+                collumnItems[4] = user.userType.ToString();
                 collumnItems[5] = user.emailAddress;
                 collumnItems[6] = user.phoneNumber;
                 collumnItems[7] = user.location;
@@ -67,26 +67,6 @@ namespace GardenGroupUI
             }
         }
 
-        //for the default text in a text box
-        protected void TBXfilter_SetText()
-        {
-            this.TBXfilter.Text = "Filter by email";
-            TBXfilter.ForeColor = Color.Gray;
-        }
-
-        private void TBXfilter_Enter(object sender, EventArgs e) // haalt de default text weg als je gaat typen
-        {
-            if (TBXfilter.ForeColor == Color.Black)
-                return;
-            TBXfilter.Text = "";
-            TBXfilter.ForeColor = Color.Black;
-        }
-        private void TBXfilter_Leave(object sender, EventArgs e) // plaatst de default text terug als je het leeg laat
-        {
-            if (TBXfilter.Text.Trim() == "")
-                TBXfilter_SetText();
-        }
-
         private void User_Management_Load(object sender, EventArgs e)
         {
             // sets size of menu
@@ -94,10 +74,6 @@ namespace GardenGroupUI
             {
                 item.Size = new Size(415, 24);
             }
-            //for the default text in textbox
-            this.TBXfilter.Enter += new EventHandler(TBXfilter_Enter);
-            this.TBXfilter.Leave += new EventHandler(TBXfilter_Leave);
-            TBXfilter_SetText();
             SetListview();
             GetLVData();
         }

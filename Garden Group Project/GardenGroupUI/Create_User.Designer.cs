@@ -30,6 +30,9 @@ namespace GardenGroupUI
         private void InitializeComponent()
         {
             this.GB_AddUser = new System.Windows.Forms.GroupBox();
+            this.LBL_ErrorPhoneNumber = new System.Windows.Forms.Label();
+            this.LBL_Error = new System.Windows.Forms.Label();
+            this.BTN_Cancel = new System.Windows.Forms.Button();
             this.TXB_LastName = new System.Windows.Forms.MaskedTextBox();
             this.TXB_Password = new System.Windows.Forms.MaskedTextBox();
             this.TXB_Location = new System.Windows.Forms.MaskedTextBox();
@@ -45,15 +48,13 @@ namespace GardenGroupUI
             this.LBL_LastName = new System.Windows.Forms.Label();
             this.LBL_FirstName = new System.Windows.Forms.Label();
             this.CB_UserType = new System.Windows.Forms.ComboBox();
-            this.LBL_Error = new System.Windows.Forms.Label();
-            this.BTN_Cancel = new System.Windows.Forms.Button();
             this.PNLmain = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.Btn_logOut = new System.Windows.Forms.Button();
             this.LBLnodesk = new System.Windows.Forms.Label();
             this.LBLLicense = new System.Windows.Forms.Label();
             this.PBOX = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.GB_AddUser.SuspendLayout();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
@@ -62,6 +63,8 @@ namespace GardenGroupUI
             // GB_AddUser
             // 
             this.GB_AddUser.AutoSize = true;
+            this.GB_AddUser.Controls.Add(this.LBL_ErrorPhoneNumber);
+            this.GB_AddUser.Controls.Add(this.LBL_Error);
             this.GB_AddUser.Controls.Add(this.BTN_Cancel);
             this.GB_AddUser.Controls.Add(this.TXB_LastName);
             this.GB_AddUser.Controls.Add(this.TXB_Password);
@@ -87,6 +90,38 @@ namespace GardenGroupUI
             this.GB_AddUser.TabIndex = 11;
             this.GB_AddUser.TabStop = false;
             this.GB_AddUser.Text = "Create User";
+            // 
+            // LBL_ErrorPhoneNumber
+            // 
+            this.LBL_ErrorPhoneNumber.AutoSize = true;
+            this.LBL_ErrorPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBL_ErrorPhoneNumber.ForeColor = System.Drawing.Color.Red;
+            this.LBL_ErrorPhoneNumber.Location = new System.Drawing.Point(32, 442);
+            this.LBL_ErrorPhoneNumber.Name = "LBL_ErrorPhoneNumber";
+            this.LBL_ErrorPhoneNumber.Size = new System.Drawing.Size(0, 19);
+            this.LBL_ErrorPhoneNumber.TabIndex = 32;
+            // 
+            // LBL_Error
+            // 
+            this.LBL_Error.AutoSize = true;
+            this.LBL_Error.ForeColor = System.Drawing.Color.Red;
+            this.LBL_Error.Location = new System.Drawing.Point(32, 401);
+            this.LBL_Error.Name = "LBL_Error";
+            this.LBL_Error.Size = new System.Drawing.Size(0, 19);
+            this.LBL_Error.TabIndex = 13;
+            // 
+            // BTN_Cancel
+            // 
+            this.BTN_Cancel.AutoSize = true;
+            this.BTN_Cancel.BackColor = System.Drawing.Color.LightCoral;
+            this.BTN_Cancel.Location = new System.Drawing.Point(372, 442);
+            this.BTN_Cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BTN_Cancel.Name = "BTN_Cancel";
+            this.BTN_Cancel.Size = new System.Drawing.Size(122, 29);
+            this.BTN_Cancel.TabIndex = 31;
+            this.BTN_Cancel.Text = "Cancel";
+            this.BTN_Cancel.UseVisualStyleBackColor = false;
+            this.BTN_Cancel.Click += new System.EventHandler(this.BTN_Cancel_Click);
             // 
             // TXB_LastName
             // 
@@ -123,6 +158,7 @@ namespace GardenGroupUI
             this.TXB_PhoneNumber.Name = "TXB_PhoneNumber";
             this.TXB_PhoneNumber.Size = new System.Drawing.Size(219, 23);
             this.TXB_PhoneNumber.TabIndex = 27;
+            this.TXB_PhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXB_PhoneNumber_KeyPress);
             // 
             // TXB_EmailAdress
             // 
@@ -236,28 +272,6 @@ namespace GardenGroupUI
             this.CB_UserType.Size = new System.Drawing.Size(219, 23);
             this.CB_UserType.TabIndex = 11;
             // 
-            // LBL_Error
-            // 
-            this.LBL_Error.AutoSize = true;
-            this.LBL_Error.ForeColor = System.Drawing.Color.Red;
-            this.LBL_Error.Location = new System.Drawing.Point(114, 466);
-            this.LBL_Error.Name = "LBL_Error";
-            this.LBL_Error.Size = new System.Drawing.Size(0, 15);
-            this.LBL_Error.TabIndex = 13;
-            // 
-            // BTN_Cancel
-            // 
-            this.BTN_Cancel.AutoSize = true;
-            this.BTN_Cancel.BackColor = System.Drawing.Color.LightCoral;
-            this.BTN_Cancel.Location = new System.Drawing.Point(372, 442);
-            this.BTN_Cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BTN_Cancel.Name = "BTN_Cancel";
-            this.BTN_Cancel.Size = new System.Drawing.Size(122, 29);
-            this.BTN_Cancel.TabIndex = 31;
-            this.BTN_Cancel.Text = "Cancel";
-            this.BTN_Cancel.UseVisualStyleBackColor = false;
-            this.BTN_Cancel.Click += new System.EventHandler(this.BTN_Cancel_Click);
-            // 
             // PNLmain
             // 
             this.PNLmain.AutoSize = true;
@@ -274,6 +288,28 @@ namespace GardenGroupUI
             this.PNLmain.Name = "PNLmain";
             this.PNLmain.Size = new System.Drawing.Size(894, 107);
             this.PNLmain.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(649, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(242, 21);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Licensed to: The Garden Group";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(763, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 41);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "NoDesk";
             // 
             // Btn_logOut
             // 
@@ -323,28 +359,6 @@ namespace GardenGroupUI
             this.PBOX.TabIndex = 0;
             this.PBOX.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(763, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 41);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "NoDesk";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(649, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(242, 21);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Licensed to: The Garden Group";
-            // 
             // Create_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -352,7 +366,6 @@ namespace GardenGroupUI
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(894, 681);
             this.Controls.Add(this.PNLmain);
-            this.Controls.Add(this.LBL_Error);
             this.Controls.Add(this.GB_AddUser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -396,5 +409,6 @@ namespace GardenGroupUI
         private System.Windows.Forms.PictureBox PBOX;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LBL_ErrorPhoneNumber;
     }
 }

@@ -6,6 +6,6 @@ namespace Model
 {
     public enum User_Type
     {
-        Admin, Employee, EndUser
+        Admin, ServiceDeskEmployee, Employee
     }
 }
