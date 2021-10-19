@@ -37,7 +37,7 @@ namespace DAL
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
             var f = Builders<BsonDocument>.Filter.Eq(field, value);// mischien nog aan passen???
-            return collection.Find(new BsonDocument()).ToList();//WERKT NOG NIET!!!!!
+            return collection.Find(f).ToList();//WERKT NOG NIET!!!!!
         }
 
         protected void Insert(string colName, BsonDocument doc)
@@ -47,6 +47,14 @@ namespace DAL
         }
 
         protected void UpdateOne(string colName, string filterField, ObjectId filtervalue, string updateField, string updateValue)
+        {
+            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);// filter and update must be like this: string filter = "id, 1000"
+
+            var f = Builders<BsonDocument>.Filter.Eq(filterField, filtervalue);// mischien nog aan passen???
+            var u = Builders<BsonDocument>.Update.Set(updateField, updateValue);// mischien nog aan passen???
+            collection.UpdateOne(f, u);
+        }
+        protected void UpdateOne(string colName, string filterField, string filtervalue, string updateField, string updateValue)
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);// filter and update must be like this: string filter = "id, 1000"
 

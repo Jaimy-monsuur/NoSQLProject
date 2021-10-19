@@ -14,67 +14,90 @@ namespace GardenGroupUI
 {
     public partial class frmLogin : Form
     {
-        public User user;
+        public User tempUser;
         public User_Logic user_logic = new User_Logic();
         public frmLogin()
         {
             InitializeComponent();
         }
+        public frmLogin(string email)
+        {
+            InitializeComponent();
+            txtEmail.Text = email;
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Program.loggedInUser = null;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //Haal username op
-            string username = txtGebruikersnaam.Text;
+            //Haal email op
+            string email = txtEmail.Text;
             //Haal Password op en encrypt deze
             byte[] encodedPasswordArray = new byte[txtWachtwoord.Text.Length];
             encodedPasswordArray = System.Text.Encoding.UTF8.GetBytes(txtWachtwoord.Text);
             string password = Convert.ToBase64String(encodedPasswordArray);
 
-            //Zoek de database naar een gebruiker met deze gebruikersnaam
-            User user = user_logic.GetUser(username);
-
-            //kijk of het wachtwoord klopt
-            if (user.password == password)
+            //Zoek de database naar een gebruiker met deze email
+            List <User> userList = user_logic.GetUser(email);
+            if (userList.Count == 1)
             {
+                tempUser = userList[0];
+                checkPassword(tempUser, password);
+            }
+            else
+            {
+                lblWrongPW.Show();
+                txtWachtwoord.Text = "";
+            }            
+        }            
+        private void checkPassword(User tempuser, string password)
+        {
+            //kijk of het wachtwoord klopt
+            if (tempUser.password == password)
+            {                
                 //Indien het klopt, de gebruiker het juiste form laten zien
-                switch (user.userType)
-                {
-                    case User_Type.Admin:
-                        this.Hide();
-                        Incident_Management incident_Management = new Incident_Management();
-                        incident_Management.Show();// tijdelijk
-                        break;
-                    case User_Type.ServiceDeskEmployee:
-                        this.Hide();
-                        Dashboard ashboardForm = new Dashboard();
-                        ashboardForm.Show();
-                        break;
-                    case User_Type.Employee:
-                        this.Hide();
-                        Dashboard shboardForm = new Dashboard();
-                        shboardForm.Show();
-                        break;
-                }
+                logUserIn();
             }
             else
             {
                 //Indien het niet klopt, text laten zien, de user op null zetten en password-veld clearen
-                user = null;
+                tempUser = null;
                 lblWrongPW.Show();
                 txtWachtwoord.Text = "";
+            }
+        }
+        private void logUserIn()
+        {
+            Program.loggedInUser = tempUser;
+            tempUser = null;
+            switch (Program.loggedInUser.userType)
+            {                
+                case User_Type.ServiceDeskEmployee:
+                    this.Hide();
+                    Dashboard ashboardForm = new Dashboard();
+                    ashboardForm.Show();
+                    break;
+                case User_Type.Employee:
+                    this.Hide();
+                    Dashboard shboardForm = new Dashboard();
+                    shboardForm.Show();
+                    break;
             }
         }
 
         private void lnklblForgotPassWord_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
-            frmForgotPassword forgotPassword = new frmForgotPassword();
+            frmForgotPassword forgotPassword = new frmForgotPassword(txtEmail.Text);
             forgotPassword.Show();
+        }
+
+        private void txtGebruikersnaam_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
