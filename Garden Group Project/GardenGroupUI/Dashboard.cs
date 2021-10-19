@@ -32,7 +32,7 @@ namespace GardenGroupUI
         {
             int incidentcount = 0;
             Incident_TicketDAL insident_TicketDAL = new Incident_TicketDAL();
-            foreach (Incident_Ticket item in insident_TicketDAL.GetAllTicketsFromFilter())
+            foreach (Incident_Ticket item in insident_TicketDAL.GetAllTicketsWithStatusOpen())
             {
                 incidentcount++;
             }

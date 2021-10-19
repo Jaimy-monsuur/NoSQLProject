@@ -207,9 +207,11 @@ namespace GardenGroupUI
             }
         }
 
-        private void Btn_Sort_Click(object sender, EventArgs e)
+        private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+            this.Close();
         }
     }
 }
