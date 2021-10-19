@@ -16,27 +16,20 @@ namespace GardenGroupUI
         public Dashboard()
         {
             InitializeComponent();
-            ProgressBar();
+            OpenTickets();
             Pastdeadline();
+            Progressbar();
         }
-        public void ProgressBar()
+        public void Progressbar()
         {
-            var plt = new ScottPlot.Plot(600, 400);
-
-            double[] values = { 779, 586 };
-            string centerText = $"{values[0] / values.Sum() * 100:00.0}%";
-            Color color1 = Color.FromArgb(255, 0, 150, 200);
-            Color color2 = Color.FromArgb(100, 0, 150, 200);
-
-            var pie = plt.AddPie(values);
-            pie.DonutSize = .6;
-            pie.DonutLabel = centerText;
-            pie.CenterFont.Color = color1;
-            pie.OutlineSize = 2;
-            pie.SliceFillColors = new Color[] { color1, color2 };
-
-            plt.SaveFig("pie_donutText.png");
-
+            double[] xs = { 1, 2, 3, 4, 5 };
+            double[] ys = { 1, 4, 9, 16, 25 };
+            var plt = new ScottPlot.Plot(400, 300);
+            plt.AddScatter(xs, ys);
+            plt.SaveFig("quickstart.png");
+        }
+        public void OpenTickets()
+        {
             int incidentcount = 0;
             Incident_TicketDAL insident_TicketDAL = new Incident_TicketDAL();
             foreach (Incident_Ticket item in insident_TicketDAL.GetAllTicketsFromFilter())
@@ -57,6 +50,17 @@ namespace GardenGroupUI
                 }
             }
             Lbl_PastdeadlineOutput.Text = incidentcountpastdeadline.ToString();
+        }
+
+        private void Btn_logOut_Click(object sender, EventArgs e)
+        {
+            ConfirmLogout confirmLogout = new ConfirmLogout();
+            confirmLogout.ShowDialog();
+        }
+
+        private void Btn_Incidents_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -206,5 +206,10 @@ namespace GardenGroupUI
                 NoTicketSelected();
             }
         }
+
+        private void Btn_Sort_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
