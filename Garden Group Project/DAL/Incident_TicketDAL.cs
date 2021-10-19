@@ -26,7 +26,40 @@ namespace DAL
         {
             return ToInsident_Ticket(GetMax(CollectionName(), "Incident_Id"));//haalt alle tickets op
         }
+        public void DelTicket(Incident_Ticket t)// delete ticket
+        {
+            Delete(CollectionName(), "_id" , t.objectId);
+        }
+        public void UpdateTicket(Incident_Ticket t, string updateField, string updateValue)// delete ticket
+        {
 
+            UpdateOne(CollectionName(), "_id", t.objectId, updateField, updateValue);
+        }
+        public List<Incident_Ticket> GetAllTicketsWithDeadline()/// deze methode is dubbel
+        {
+            return ToInsident_Ticket(GetCollection(CollectionName()));//haalt alle tickets op
+        }
+        public List<Incident_Ticket> GetAllTicketsWithStatusOpen()
+        {
+            return ToInsident_Ticket(GetCollectionFiltered(CollectionName(),"Status", "Open"));//haalt alle tickets op een filter
+        }
+
+        //private List<Incident_Ticket> ToInsident_TicketFilter(List<BsonDocument> T)// zet List<BsonDocument> lijst om naar  List<Incident_Ticket>
+        //{
+        //    List<Incident_Ticket> list = new List<Incident_Ticket>();
+        //    foreach (BsonDocument item in T)
+        //    {
+        //        Incident_Ticket ticket = new Incident_Ticket()
+        //        {
+        //            objectId = (ObjectId)item["_id"],
+        //            id = (int)item["Incident_Id"],
+        //            Deadline = (DateTime)item["Deadline"],
+        //            Status = (string)item["Status"],
+        //        };
+        //        list.Add(ticket);
+        //    }
+        //    return list;
+        //}
         public void InsertTicket(Incident_Ticket t)// insert een ticket
         {
             BsonDocument document = new BsonDocument()

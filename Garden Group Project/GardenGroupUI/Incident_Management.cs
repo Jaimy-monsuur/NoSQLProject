@@ -144,7 +144,19 @@ namespace GardenGroupUI
 
         private void BTN_Update_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                ListViewItem li = (ListViewItem)LVTickets.SelectedItems[0];
+                Incident_Ticket t = (Incident_Ticket)li.Tag;
+                Update_Ticket update_Ticket = new Update_Ticket(t);
+                update_Ticket.ShowDialog();
+                SetListvieuw();// haalt nieuwe gegevens op
+                GetLVData();
+            }
+            catch (Exception)
+            {
+                NoTicketSelected();
+            }
         }
 
         private void BTN_TransferTicket_Click(object sender, EventArgs e)
@@ -155,11 +167,51 @@ namespace GardenGroupUI
                 Incident_Ticket t = (Incident_Ticket)li.Tag;
                 Transfer_Ticket transfer = new Transfer_Ticket(t);
                 transfer.ShowDialog();
+                SetListvieuw();// haalt nieuwe gegevens op
+                GetLVData();
             }
             catch (Exception)
             {
-                MessageBox.Show("No ticket selected, select a ticket", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het is mislukt
+                NoTicketSelected();
             }
+        }
+        public void NoTicketSelected()
+        {
+            MessageBox.Show("No ticket selected, select a ticket", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);// laat de gebruiker weten dat het is mislukt
+        }
+
+        private void BTN_RemoveTicket_Click(object sender, EventArgs e)
+        {
+            if (LVTickets.SelectedItems.Count != 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are u sure that u want to delete this user", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);// laat de gebruiker weten dat het is mislukt
+                if (dialogResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        ListViewItem li = (ListViewItem)LVTickets.SelectedItems[0];
+                        Incident_Ticket t = (Incident_Ticket)li.Tag;
+                        logic_Layer.DeleteTicket(t);
+                        SetListvieuw();// haalt nieuwe gegevens op
+                        GetLVData();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Was not able to delete ticket. Try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het niet is gelukt
+                    }
+                }
+            }
+            else
+            {
+                NoTicketSelected();
+            }
+        }
+
+        private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+            this.Close();
         }
     }
 }

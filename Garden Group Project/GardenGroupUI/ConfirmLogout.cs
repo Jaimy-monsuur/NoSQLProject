@@ -16,6 +16,7 @@ namespace GardenGroupUI
         public ConfirmLogout()
         {
             InitializeComponent();
+            ControlBox = false;
         }
 
         private void BTN_loguit_Click(object sender, EventArgs e)

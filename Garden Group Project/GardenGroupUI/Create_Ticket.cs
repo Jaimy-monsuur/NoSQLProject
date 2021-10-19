@@ -7,13 +7,15 @@ using System.Text;
 using System.Windows.Forms;
 using Model;
 using Logic_Layer;
+using System.IO;
 
 namespace GardenGroupUI
 {
     public partial class Create_Ticket : Form
     {
         Incident_Ticket latest_Ticket;
-        Incident_TickedLogic logic = new Incident_TickedLogic();
+        Incident_TickedLogic incident_TickedLogic = new Incident_TickedLogic();
+        User_Logic user_Logic = new User_Logic();
 
         public Create_Ticket()
         {
@@ -23,31 +25,43 @@ namespace GardenGroupUI
 
         private void Create_Ticket_Load(object sender, EventArgs e)
         {
-            latest_Ticket = logic.GetMaxId()[0];
+            GetLatestTicket();
             DTP_Deadline.MinDate = DateTime.Now;// deadline can not be in the past when creating a new ticket
             DTP_ReportDate.MinDate = DateTime.Now.AddDays(-7); // The report date can be a bit in the past but not in the future
             DTP_ReportDate.MaxDate = DateTime.Now;
             ComboBoxSetting();
         }
-
+        public void GetLatestTicket()
+        {
+            try
+            { 
+                latest_Ticket = incident_TickedLogic.GetMaxId()[0];
+            }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                latest_Ticket = new Incident_Ticket();
+                latest_Ticket.id = 0;
+            }
+        }
         private void BTN_add_Click(object sender, EventArgs e)
         {
             if (DTP_ReportDate.Text != "" && TXB_Subject.Text != "" && CB_incidentType.Text != "" && CB_ReportedBy.Text != "" && CB_Priority.Text != "" && DTP_Deadline.Text != "" && RTB_Description.Text != "")
             {
-                Incident_Ticket t = new Incident_Ticket();
-                //tijdelijkt
-                t.id = latest_Ticket.id + 1;
-                t.reportDate = DateTime.Parse(DTP_ReportDate.Text);
-                t.subjectOfIncident = TXB_Subject.Text;
-                t.Incident_Type = (Incident_Type)Enum.Parse(typeof(Incident_Type), CB_incidentType.Text, true);
-                t.ReportedBy = CB_ReportedBy.Text;
-                t.Incident_Priority = (Incident_Priority)Enum.Parse(typeof(Incident_Priority), CB_Priority.Text, true);
-                t.Deadline = DateTime.Parse(DTP_Deadline.Text);
-                t.Description = RTB_Description.Text;
-                t.Status = Incident_Status.Open;
                 try
                 {
-                    logic.AddTicket(t);
+                    Incident_Ticket t = new Incident_Ticket();
+                    //tijdelijkt
+                    t.id = latest_Ticket.id + 1;
+                    t.reportDate = DateTime.Parse(DTP_ReportDate.Text);
+                    t.subjectOfIncident = TXB_Subject.Text;
+                    t.Incident_Type = (Incident_Type)Enum.Parse(typeof(Incident_Type), CB_incidentType.Text, true);
+                    t.ReportedBy = CB_ReportedBy.Text;
+                    t.Incident_Priority = (Incident_Priority)Enum.Parse(typeof(Incident_Priority), CB_Priority.Text, true);
+                    t.Deadline = DateTime.Parse(DTP_Deadline.Text);
+                    t.Description = RTB_Description.Text;
+                    t.Status = Incident_Status.Open;
+                    incident_TickedLogic.AddTicket(t);
+
                     MessageBox.Show("Ticket has been added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);// laat de gebruiker weten dat het is gelukt
                     this.Close();
                 }
@@ -81,8 +95,11 @@ namespace GardenGroupUI
                 CB_Priority.Items.Add(item);
             }
 
-            //tijdelijk
-            CB_ReportedBy.Items.Add("Admin");
+            List<User> users = user_Logic.GetAllUsers();
+            foreach (User user in users)
+            {
+                CB_ReportedBy.Items.Add(user.emailAddress);
+            }
         }
 
         private void BTN_cancel_Click(object sender, EventArgs e)

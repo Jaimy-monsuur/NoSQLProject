@@ -51,7 +51,7 @@ namespace GardenGroupUI
             this.LBL_ticket = new System.Windows.Forms.Label();
             this.BTN_Update = new System.Windows.Forms.Button();
             this.BTN_TransferTicket = new System.Windows.Forms.Button();
-            this.BTN_CloseTicket = new System.Windows.Forms.Button();
+            this.BTN_RemoveTicket = new System.Windows.Forms.Button();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
             this.Menu.SuspendLayout();
@@ -145,6 +145,7 @@ namespace GardenGroupUI
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
             this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
             this.dashboardToolStripMenuItem.Text = "Dashboard";
+            this.dashboardToolStripMenuItem.Click += new System.EventHandler(this.dashboardToolStripMenuItem_Click);
             // 
             // incidentManagementToolStripMenuItem
             // 
@@ -291,16 +292,17 @@ namespace GardenGroupUI
             this.BTN_TransferTicket.UseVisualStyleBackColor = false;
             this.BTN_TransferTicket.Click += new System.EventHandler(this.BTN_TransferTicket_Click);
             // 
-            // BTN_CloseTicket
+            // BTN_RemoveTicket
             // 
-            this.BTN_CloseTicket.BackColor = System.Drawing.Color.LightCoral;
-            this.BTN_CloseTicket.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BTN_CloseTicket.Location = new System.Drawing.Point(886, 164);
-            this.BTN_CloseTicket.Name = "BTN_CloseTicket";
-            this.BTN_CloseTicket.Size = new System.Drawing.Size(150, 27);
-            this.BTN_CloseTicket.TabIndex = 10;
-            this.BTN_CloseTicket.Text = "Close Ticket";
-            this.BTN_CloseTicket.UseVisualStyleBackColor = false;
+            this.BTN_RemoveTicket.BackColor = System.Drawing.Color.LightCoral;
+            this.BTN_RemoveTicket.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BTN_RemoveTicket.Location = new System.Drawing.Point(886, 164);
+            this.BTN_RemoveTicket.Name = "BTN_RemoveTicket";
+            this.BTN_RemoveTicket.Size = new System.Drawing.Size(150, 27);
+            this.BTN_RemoveTicket.TabIndex = 10;
+            this.BTN_RemoveTicket.Text = "Delete Ticket";
+            this.BTN_RemoveTicket.UseVisualStyleBackColor = false;
+            this.BTN_RemoveTicket.Click += new System.EventHandler(this.BTN_RemoveTicket_Click);
             // 
             // Incident_Management
             // 
@@ -308,7 +310,7 @@ namespace GardenGroupUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.BTN_CloseTicket);
+            this.Controls.Add(this.BTN_RemoveTicket);
             this.Controls.Add(this.BTN_TransferTicket);
             this.Controls.Add(this.BTN_Update);
             this.Controls.Add(this.LBL_ticket);
@@ -357,6 +359,6 @@ namespace GardenGroupUI
         private System.Windows.Forms.Button BTN_Update;
         private System.Windows.Forms.Button Btn_logOut;
         private System.Windows.Forms.Button BTN_TransferTicket;
-        private System.Windows.Forms.Button BTN_CloseTicket;
+        private System.Windows.Forms.Button BTN_RemoveTicket;
     }
 }
