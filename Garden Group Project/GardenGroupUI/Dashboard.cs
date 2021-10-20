@@ -13,43 +13,92 @@ namespace GardenGroupUI
 {
     public partial class Dashboard : Form
     {
+        public int incidentOpenCount;
+        public int incidentClosedCount;
+        public int incidentcountpastdeadline;
+        public int incidentcountOnTime;
+        public int incidentcount;
+        public List<Incident_Ticket> tickets;
+        public List<Incident_Ticket> ticketsPastdeadline;
         public Dashboard()
         {
             InitializeComponent();
+            Alltickets();
             OpenTickets();
             Pastdeadline();
-            Progressbar();
+            PiechartUnresolved();
+            PiechartPastDeadline();
         }
-        public void Progressbar()
+        public void PiechartUnresolved()
         {
-            double[] xs = { 1, 2, 3, 4, 5 };
-            double[] ys = { 1, 4, 9, 16, 25 };
-            var plt = new ScottPlot.Plot(400, 300);
-            plt.AddScatter(xs, ys);
-            plt.SaveFig("quickstart.png");
+            double[] values = { incidentClosedCount, incidentOpenCount };
+            Color color1 = Color.FromArgb(255, 0, 150, 200);
+            Color color2 = Color.FromArgb(100, 0, 150, 200);
+            var pie = FormsPlot_Unresolved.Plot.AddPie(values);
+            pie.DonutSize = .6;
+            pie.DonutLabel = $"{incidentOpenCount}/{incidentcount}";
+            pie.CenterFont.Color = color1;
+            pie.OutlineSize = 2;
+            pie.SliceFillColors = new Color[] { color1, color2 };
+            FormsPlot_Unresolved.Refresh();
+            FormsPlot_Unresolved.Plot.SaveFig("pie_donutText.png");
+        }
+        public void PiechartPastDeadline()
+        {
+            double[] values = { incidentcountpastdeadline, incidentcountOnTime };
+            Color color1 = Color.FromArgb(120, 255, 0, 0);
+            Color color2 = Color.FromArgb(100, 0, 150, 200);
+            var pie = FormsPlot_PastDealdine.Plot.AddPie(values);
+            pie.DonutSize = .6;
+            pie.DonutLabel = $"{incidentcountpastdeadline}/{incidentcount}";
+            pie.CenterFont.Color = color1;
+            pie.OutlineSize = 2;
+            pie.SliceFillColors = new Color[] { color1, color2 };
+            FormsPlot_PastDealdine.Refresh();
+            FormsPlot_PastDealdine.Plot.SaveFig("pie_donutText.png");
         }
         public void OpenTickets()
         {
-            int incidentcount = 0;
+            incidentOpenCount = 0;
             Incident_TicketDAL insident_TicketDAL = new Incident_TicketDAL();
-            foreach (Incident_Ticket item in insident_TicketDAL.GetAllTicketsWithStatusOpen())
+            tickets = insident_TicketDAL.GetAllTicketsWithStatusOpen();
+            foreach (Incident_Ticket item in tickets)
+            {
+                if (item.Status == Incident_Status.Open)
+                {
+                    incidentOpenCount++;
+                }
+                else
+                {
+                    incidentClosedCount++;
+                }
+            }
+        }
+        public void Alltickets()
+        {
+            Incident_TicketDAL insident_TicketDAL = new Incident_TicketDAL();
+            tickets = insident_TicketDAL.GetAllTickets();
+            foreach (Incident_Ticket item in tickets)
             {
                 incidentcount++;
             }
-            Lbl_OutputUnresolved.Text = incidentcount.ToString();
         }
         public void Pastdeadline()
         {
-            int incidentcountpastdeadline = 0;
+            incidentcountpastdeadline = 0;
             Incident_TicketDAL insident_TicketDAL = new Incident_TicketDAL();
-            foreach (Incident_Ticket item in insident_TicketDAL.GetAllTicketsWithDeadline())
+            ticketsPastdeadline = insident_TicketDAL.GetAllTicketsWithDeadline();
+            foreach (Incident_Ticket item in ticketsPastdeadline)
             {
                 if (item.Deadline < DateTime.Now)
                 {
                     incidentcountpastdeadline++;
                 }
+                else
+                {
+                    incidentcountOnTime++;
+                }
             }
-            Lbl_PastdeadlineOutput.Text = incidentcountpastdeadline.ToString();
         }
 
         private void Btn_logOut_Click(object sender, EventArgs e)
@@ -60,7 +109,9 @@ namespace GardenGroupUI
 
         private void Btn_Incidents_Click(object sender, EventArgs e)
         {
-
+            Incident_Management ticketform = new Incident_Management();
+            ticketform.Show();
+            this.Visible = false;
         }
     }
 }

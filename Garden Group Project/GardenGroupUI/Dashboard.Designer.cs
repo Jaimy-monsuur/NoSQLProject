@@ -30,14 +30,15 @@ namespace GardenGroupUI
         private void InitializeComponent()
         {
             this.Pnl_Openstaandeincidenten = new System.Windows.Forms.Panel();
-            this.Lbl_OutputUnresolved = new System.Windows.Forms.Label();
+            this.FormsPlot_Unresolved = new ScottPlot.FormsPlot();
             this.Lbl_Unresolved = new System.Windows.Forms.Label();
             this.Pnl_IncidentenOverDatum = new System.Windows.Forms.Panel();
-            this.Lbl_PastdeadlineOutput = new System.Windows.Forms.Label();
             this.Lbl_PastDeadLine = new System.Windows.Forms.Label();
             this.Lbl_Currentincidents = new System.Windows.Forms.Label();
             this.Btn_Incidents = new System.Windows.Forms.Button();
             this.PNLmain = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.Btn_logOut = new System.Windows.Forms.Button();
             this.LBLnodesk = new System.Windows.Forms.Label();
             this.LBLLicense = new System.Windows.Forms.Label();
@@ -46,8 +47,7 @@ namespace GardenGroupUI
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incidentManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.FormsPlot_PastDealdine = new ScottPlot.FormsPlot();
             this.Pnl_Openstaandeincidenten.SuspendLayout();
             this.Pnl_IncidentenOverDatum.SuspendLayout();
             this.PNLmain.SuspendLayout();
@@ -58,7 +58,7 @@ namespace GardenGroupUI
             // Pnl_Openstaandeincidenten
             // 
             this.Pnl_Openstaandeincidenten.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Pnl_Openstaandeincidenten.Controls.Add(this.Lbl_OutputUnresolved);
+            this.Pnl_Openstaandeincidenten.Controls.Add(this.FormsPlot_Unresolved);
             this.Pnl_Openstaandeincidenten.Controls.Add(this.Lbl_Unresolved);
             this.Pnl_Openstaandeincidenten.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Pnl_Openstaandeincidenten.Location = new System.Drawing.Point(161, 224);
@@ -66,21 +66,20 @@ namespace GardenGroupUI
             this.Pnl_Openstaandeincidenten.Size = new System.Drawing.Size(355, 351);
             this.Pnl_Openstaandeincidenten.TabIndex = 0;
             // 
-            // Lbl_OutputUnresolved
+            // FormsPlot_Unresolved
             // 
-            this.Lbl_OutputUnresolved.AutoSize = true;
-            this.Lbl_OutputUnresolved.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Lbl_OutputUnresolved.Location = new System.Drawing.Point(243, 31);
-            this.Lbl_OutputUnresolved.Name = "Lbl_OutputUnresolved";
-            this.Lbl_OutputUnresolved.Size = new System.Drawing.Size(84, 30);
-            this.Lbl_OutputUnresolved.TabIndex = 2;
-            this.Lbl_OutputUnresolved.Text = " *0/75*";
+            this.FormsPlot_Unresolved.BackColor = System.Drawing.Color.Transparent;
+            this.FormsPlot_Unresolved.Location = new System.Drawing.Point(-1, 64);
+            this.FormsPlot_Unresolved.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.FormsPlot_Unresolved.Name = "FormsPlot_Unresolved";
+            this.FormsPlot_Unresolved.Size = new System.Drawing.Size(355, 286);
+            this.FormsPlot_Unresolved.TabIndex = 3;
             // 
             // Lbl_Unresolved
             // 
             this.Lbl_Unresolved.AutoSize = true;
             this.Lbl_Unresolved.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Lbl_Unresolved.Location = new System.Drawing.Point(37, 31);
+            this.Lbl_Unresolved.Location = new System.Drawing.Point(67, 26);
             this.Lbl_Unresolved.Name = "Lbl_Unresolved";
             this.Lbl_Unresolved.Size = new System.Drawing.Size(218, 30);
             this.Lbl_Unresolved.TabIndex = 1;
@@ -89,7 +88,7 @@ namespace GardenGroupUI
             // Pnl_IncidentenOverDatum
             // 
             this.Pnl_IncidentenOverDatum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Pnl_IncidentenOverDatum.Controls.Add(this.Lbl_PastdeadlineOutput);
+            this.Pnl_IncidentenOverDatum.Controls.Add(this.FormsPlot_PastDealdine);
             this.Pnl_IncidentenOverDatum.Controls.Add(this.Lbl_PastDeadLine);
             this.Pnl_IncidentenOverDatum.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Pnl_IncidentenOverDatum.Location = new System.Drawing.Point(732, 224);
@@ -97,21 +96,11 @@ namespace GardenGroupUI
             this.Pnl_IncidentenOverDatum.Size = new System.Drawing.Size(355, 351);
             this.Pnl_IncidentenOverDatum.TabIndex = 1;
             // 
-            // Lbl_PastdeadlineOutput
-            // 
-            this.Lbl_PastdeadlineOutput.AutoSize = true;
-            this.Lbl_PastdeadlineOutput.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Lbl_PastdeadlineOutput.Location = new System.Drawing.Point(249, 26);
-            this.Lbl_PastdeadlineOutput.Name = "Lbl_PastdeadlineOutput";
-            this.Lbl_PastdeadlineOutput.Size = new System.Drawing.Size(84, 30);
-            this.Lbl_PastdeadlineOutput.TabIndex = 3;
-            this.Lbl_PastdeadlineOutput.Text = " *0/75*";
-            // 
             // Lbl_PastDeadLine
             // 
             this.Lbl_PastDeadLine.AutoSize = true;
             this.Lbl_PastDeadLine.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Lbl_PastDeadLine.Location = new System.Drawing.Point(13, 31);
+            this.Lbl_PastDeadLine.Location = new System.Drawing.Point(54, 26);
             this.Lbl_PastDeadLine.Name = "Lbl_PastDeadLine";
             this.Lbl_PastDeadLine.Size = new System.Drawing.Size(240, 30);
             this.Lbl_PastDeadLine.TabIndex = 2;
@@ -159,6 +148,28 @@ namespace GardenGroupUI
             this.PNLmain.Name = "PNLmain";
             this.PNLmain.Size = new System.Drawing.Size(1266, 111);
             this.PNLmain.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(1010, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(242, 21);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Licensed to: The Garden Group";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(1124, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 41);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "NoDesk";
             // 
             // Btn_logOut
             // 
@@ -245,27 +256,14 @@ namespace GardenGroupUI
             this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.userManagementToolStripMenuItem.Text = "User management";
             // 
-            // label1
+            // FormsPlot_PastDealdine
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(1124, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 41);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "NoDesk";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1010, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(242, 21);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Licensed to: The Garden Group";
+            this.FormsPlot_PastDealdine.BackColor = System.Drawing.Color.Transparent;
+            this.FormsPlot_PastDealdine.Location = new System.Drawing.Point(-1, 64);
+            this.FormsPlot_PastDealdine.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.FormsPlot_PastDealdine.Name = "FormsPlot_PastDealdine";
+            this.FormsPlot_PastDealdine.Size = new System.Drawing.Size(355, 286);
+            this.FormsPlot_PastDealdine.TabIndex = 4;
             // 
             // Dashboard
             // 
@@ -301,8 +299,6 @@ namespace GardenGroupUI
         private System.Windows.Forms.Label Lbl_PastDeadLine;
         private System.Windows.Forms.Label Lbl_Currentincidents;
         private System.Windows.Forms.Button Btn_Incidents;
-        private System.Windows.Forms.Label Lbl_OutputUnresolved;
-        private System.Windows.Forms.Label Lbl_PastdeadlineOutput;
         private System.Windows.Forms.Panel PNLmain;
         private System.Windows.Forms.Button Btn_logOut;
         private System.Windows.Forms.Label LBLnodesk;
@@ -314,5 +310,7 @@ namespace GardenGroupUI
         private System.Windows.Forms.ToolStripMenuItem userManagementToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private ScottPlot.FormsPlot FormsPlot_Unresolved;
+        private ScottPlot.FormsPlot FormsPlot_PastDealdine;
     }
 }
