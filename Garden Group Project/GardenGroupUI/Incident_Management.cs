@@ -25,7 +25,6 @@ namespace GardenGroupUI
         private void Incident_Management_Load(object sender, EventArgs e)
         {
             UserSettings();
-            TBXfilter_SetText();
             SetListvieuw();
             GetLVData();
             DataGridViewSetings();
