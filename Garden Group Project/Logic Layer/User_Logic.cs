@@ -20,6 +20,11 @@ namespace Logic_Layer
             return userDAL.GetUser(email);
         }
 
+        public bool VerifyEmail(string email)
+        {
+            return userDAL.VerifyEmail(email);
+        }
+
         public void UpdatePassword(string email, string newPassword)
         {
             userDAL.UpdatePassword(email, newPassword);
