@@ -30,6 +30,8 @@ namespace GardenGroupUI
         private void InitializeComponent()
         {
             this.GB_AddUser = new System.Windows.Forms.GroupBox();
+            this.CBX_DisplayPassword = new System.Windows.Forms.CheckBox();
+            this.LBL_ErrorEmail = new System.Windows.Forms.Label();
             this.LBL_ErrorPhoneNumber = new System.Windows.Forms.Label();
             this.LBL_Error = new System.Windows.Forms.Label();
             this.BTN_Cancel = new System.Windows.Forms.Button();
@@ -63,6 +65,8 @@ namespace GardenGroupUI
             // GB_AddUser
             // 
             this.GB_AddUser.AutoSize = true;
+            this.GB_AddUser.Controls.Add(this.CBX_DisplayPassword);
+            this.GB_AddUser.Controls.Add(this.LBL_ErrorEmail);
             this.GB_AddUser.Controls.Add(this.LBL_ErrorPhoneNumber);
             this.GB_AddUser.Controls.Add(this.LBL_Error);
             this.GB_AddUser.Controls.Add(this.BTN_Cancel);
@@ -86,10 +90,31 @@ namespace GardenGroupUI
             this.GB_AddUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GB_AddUser.Name = "GB_AddUser";
             this.GB_AddUser.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.GB_AddUser.Size = new System.Drawing.Size(780, 496);
+            this.GB_AddUser.Size = new System.Drawing.Size(780, 519);
             this.GB_AddUser.TabIndex = 11;
             this.GB_AddUser.TabStop = false;
             this.GB_AddUser.Text = "Create User";
+            // 
+            // CBX_DisplayPassword
+            // 
+            this.CBX_DisplayPassword.AutoSize = true;
+            this.CBX_DisplayPassword.Location = new System.Drawing.Point(610, 317);
+            this.CBX_DisplayPassword.Name = "CBX_DisplayPassword";
+            this.CBX_DisplayPassword.Size = new System.Drawing.Size(145, 23);
+            this.CBX_DisplayPassword.TabIndex = 34;
+            this.CBX_DisplayPassword.Text = "Display password";
+            this.CBX_DisplayPassword.UseVisualStyleBackColor = true;
+            this.CBX_DisplayPassword.CheckedChanged += new System.EventHandler(this.CBX_DisplayPassword_CheckedChanged);
+            // 
+            // LBL_ErrorEmail
+            // 
+            this.LBL_ErrorEmail.AutoSize = true;
+            this.LBL_ErrorEmail.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBL_ErrorEmail.ForeColor = System.Drawing.Color.Red;
+            this.LBL_ErrorEmail.Location = new System.Drawing.Point(32, 479);
+            this.LBL_ErrorEmail.Name = "LBL_ErrorEmail";
+            this.LBL_ErrorEmail.Size = new System.Drawing.Size(0, 19);
+            this.LBL_ErrorEmail.TabIndex = 33;
             // 
             // LBL_ErrorPhoneNumber
             // 
@@ -410,5 +435,7 @@ namespace GardenGroupUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LBL_ErrorPhoneNumber;
+        private System.Windows.Forms.Label LBL_ErrorEmail;
+        private System.Windows.Forms.CheckBox CBX_DisplayPassword;
     }
 }

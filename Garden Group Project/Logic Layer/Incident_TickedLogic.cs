@@ -13,6 +13,10 @@ namespace Logic_Layer
         {
             return dal.GetAllTickets();
         }
+        public List<Incident_Ticket> GetAllTicketsFiltered(string fieldname, string value)
+        {
+            return dal.GetAllTicketsFiltered(fieldname, value);
+        }
 
         public List<Incident_Ticket> GetMaxId()
         {

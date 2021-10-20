@@ -50,6 +50,7 @@ namespace GardenGroupUI
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.BTN_Update = new System.Windows.Forms.Button();
             this.Menu.SuspendLayout();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
@@ -205,6 +206,7 @@ namespace GardenGroupUI
             this.Btn_logOut.TabIndex = 28;
             this.Btn_logOut.Text = "Log Out";
             this.Btn_logOut.UseVisualStyleBackColor = false;
+            this.Btn_logOut.Click += new System.EventHandler(this.Btn_logOut_Click);
             // 
             // LBLnodesk
             // 
@@ -261,6 +263,7 @@ namespace GardenGroupUI
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(99, 24);
             this.toolStripMenuItem1.Text = "Dashboard";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -268,6 +271,7 @@ namespace GardenGroupUI
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 24);
             this.toolStripMenuItem2.Text = "Incident management";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -276,12 +280,26 @@ namespace GardenGroupUI
             this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 24);
             this.toolStripMenuItem3.Text = "User management";
             // 
+            // BTN_Update
+            // 
+            this.BTN_Update.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.BTN_Update.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BTN_Update.Location = new System.Drawing.Point(41, 164);
+            this.BTN_Update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BTN_Update.Name = "BTN_Update";
+            this.BTN_Update.Size = new System.Drawing.Size(150, 27);
+            this.BTN_Update.TabIndex = 12;
+            this.BTN_Update.Text = "Update";
+            this.BTN_Update.UseVisualStyleBackColor = false;
+            this.BTN_Update.Click += new System.EventHandler(this.BTN_Update_Click);
+            // 
             // User_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.BTN_Update);
             this.Controls.Add(this.PNLmain);
             this.Controls.Add(this.LVTickets);
             this.Controls.Add(this.BTNAddUser);
@@ -326,5 +344,6 @@ namespace GardenGroupUI
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button BTN_Update;
     }
 }

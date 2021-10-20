@@ -37,7 +37,7 @@ namespace DAL
         {
             IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(colName);
             var f = Builders<BsonDocument>.Filter.Eq(field, value);// mischien nog aan passen???
-            return collection.Find(f).ToList();//WERKT NOG NIET!!!!!
+            return collection.Find(f).ToList();
         }
 
         protected void Insert(string colName, BsonDocument doc)

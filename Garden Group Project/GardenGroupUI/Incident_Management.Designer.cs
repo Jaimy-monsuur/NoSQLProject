@@ -52,6 +52,8 @@ namespace GardenGroupUI
             this.BTN_Update = new System.Windows.Forms.Button();
             this.BTN_TransferTicket = new System.Windows.Forms.Button();
             this.BTN_RemoveTicket = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.LBL_status = new System.Windows.Forms.Label();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
             this.Menu.SuspendLayout();
@@ -304,12 +306,37 @@ namespace GardenGroupUI
             this.BTN_RemoveTicket.UseVisualStyleBackColor = false;
             this.BTN_RemoveTicket.Click += new System.EventHandler(this.BTN_RemoveTicket_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.checkBox1.Location = new System.Drawing.Point(41, 631);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(162, 24);
+            this.checkBox1.TabIndex = 11;
+            this.checkBox1.Text = "Show Status closed";
+            this.checkBox1.UseVisualStyleBackColor = false;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // LBL_status
+            // 
+            this.LBL_status.AutoSize = true;
+            this.LBL_status.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBL_status.Location = new System.Drawing.Point(41, 200);
+            this.LBL_status.Name = "LBL_status";
+            this.LBL_status.Size = new System.Drawing.Size(122, 25);
+            this.LBL_status.TabIndex = 12;
+            this.LBL_status.Text = "Open tickets";
+            // 
             // Incident_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.LBL_status);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.BTN_RemoveTicket);
             this.Controls.Add(this.BTN_TransferTicket);
             this.Controls.Add(this.BTN_Update);
@@ -360,5 +387,7 @@ namespace GardenGroupUI
         private System.Windows.Forms.Button Btn_logOut;
         private System.Windows.Forms.Button BTN_TransferTicket;
         private System.Windows.Forms.Button BTN_RemoveTicket;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label LBL_status;
     }
 }
