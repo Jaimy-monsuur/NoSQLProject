@@ -289,7 +289,7 @@ namespace GardenGroupUI
             this.PNLmain.Location = new System.Drawing.Point(0, 0);
             this.PNLmain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PNLmain.Name = "PNLmain";
-            this.PNLmain.Size = new System.Drawing.Size(894, 107);
+            this.PNLmain.Size = new System.Drawing.Size(894, 113);
             this.PNLmain.TabIndex = 14;
             // 
             // Btn_logOut
@@ -332,11 +332,13 @@ namespace GardenGroupUI
             // PBOX
             // 
             this.PBOX.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PBOX.Image = global::GardenGroupUI.Properties.Resources.GardenGourp;
             this.PBOX.InitialImage = null;
-            this.PBOX.Location = new System.Drawing.Point(10, 11);
+            this.PBOX.Location = new System.Drawing.Point(12, 11);
             this.PBOX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PBOX.Name = "PBOX";
-            this.PBOX.Size = new System.Drawing.Size(200, 79);
+            this.PBOX.Size = new System.Drawing.Size(168, 82);
+            this.PBOX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PBOX.TabIndex = 0;
             this.PBOX.TabStop = false;
             // 

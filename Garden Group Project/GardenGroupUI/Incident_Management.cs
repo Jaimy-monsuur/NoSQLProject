@@ -25,9 +25,6 @@ namespace GardenGroupUI
         private void Incident_Management_Load(object sender, EventArgs e)
         {
             UserSettings();
-            //for the default text in textbox
-            this.TBXfilter.Enter += new EventHandler(TBXfilter_Enter);
-            this.TBXfilter.Leave += new EventHandler(TBXfilter_Leave);
             TBXfilter_SetText();
             SetListvieuw();
             GetLVData();
@@ -126,26 +123,6 @@ namespace GardenGroupUI
                 li.Tag = item;// zodat je het object terug kan vinden
                 LVTickets.Items.Add(li);
             }
-        }
-
-        //for the defoult text in a text box
-        protected void TBXfilter_SetText()
-        {
-            this.TBXfilter.Text = "Filter by subject";
-            TBXfilter.ForeColor = Color.Gray;
-        }
-
-        private void TBXfilter_Enter(object sender, EventArgs e)// haalt de default text weg als je gaat typen
-        {
-            if (TBXfilter.ForeColor == Color.Black)
-                return;
-            TBXfilter.Text = "";
-            TBXfilter.ForeColor = Color.Black;
-        }
-        private void TBXfilter_Leave(object sender, EventArgs e)// plaatst de default text terug als je het leeg laat
-        {
-            if (TBXfilter.Text.Trim() == "")
-                TBXfilter_SetText();
         }
 
         private void BTNaddTicket_Click(object sender, EventArgs e)
