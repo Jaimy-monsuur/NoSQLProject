@@ -105,5 +105,11 @@ namespace GardenGroupUI
         {
             GetLVData();
         }
+
+        private void Btn_logOut_Click(object sender, EventArgs e)
+        {
+            ConfirmLogout confirmLogout = new ConfirmLogout();
+            confirmLogout.ShowDialog();
+        }
     }
 }

@@ -206,6 +206,7 @@ namespace GardenGroupUI
             this.Btn_logOut.TabIndex = 28;
             this.Btn_logOut.Text = "Log Out";
             this.Btn_logOut.UseVisualStyleBackColor = false;
+            this.Btn_logOut.Click += new System.EventHandler(this.Btn_logOut_Click);
             // 
             // LBLnodesk
             // 

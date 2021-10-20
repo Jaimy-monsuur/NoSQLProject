@@ -90,7 +90,7 @@ namespace GardenGroupUI
             this.GB_AddUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GB_AddUser.Name = "GB_AddUser";
             this.GB_AddUser.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.GB_AddUser.Size = new System.Drawing.Size(780, 515);
+            this.GB_AddUser.Size = new System.Drawing.Size(780, 519);
             this.GB_AddUser.TabIndex = 11;
             this.GB_AddUser.TabStop = false;
             this.GB_AddUser.Text = "Create User";
@@ -109,10 +109,11 @@ namespace GardenGroupUI
             // LBL_ErrorEmail
             // 
             this.LBL_ErrorEmail.AutoSize = true;
-            this.LBL_ErrorEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBL_ErrorEmail.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBL_ErrorEmail.ForeColor = System.Drawing.Color.Red;
             this.LBL_ErrorEmail.Location = new System.Drawing.Point(32, 479);
             this.LBL_ErrorEmail.Name = "LBL_ErrorEmail";
-            this.LBL_ErrorEmail.Size = new System.Drawing.Size(0, 15);
+            this.LBL_ErrorEmail.Size = new System.Drawing.Size(0, 19);
             this.LBL_ErrorEmail.TabIndex = 33;
             // 
             // LBL_ErrorPhoneNumber
