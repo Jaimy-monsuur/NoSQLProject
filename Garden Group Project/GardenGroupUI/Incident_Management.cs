@@ -212,6 +212,10 @@ namespace GardenGroupUI
                     TryUpdate();
                 }
             }
+            else
+            {
+                NoTicketSelected();
+            }
         }
         public void TryUpdate()
         {
@@ -226,7 +230,7 @@ namespace GardenGroupUI
             }
             catch (Exception)
             {
-                NoTicketSelected();
+                MessageBox.Show("Something went wrong. Try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het niet is gelukt
             }
         }
 
@@ -245,8 +249,12 @@ namespace GardenGroupUI
                 }
                 catch (Exception)
                 {
-                    NoTicketSelected();
+                    MessageBox.Show("Something went wrong. Try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het niet is gelukt
                 }
+            }
+            else
+            {
+                NoTicketSelected();
             }
         }
 
