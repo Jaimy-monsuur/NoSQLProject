@@ -59,7 +59,7 @@ namespace GardenGroupUI
             this.txtEmail.Location = new System.Drawing.Point(12, 47);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(484, 29);
-            this.txtEmail.TabIndex = 19;
+            this.txtEmail.TabIndex = 1;
             // 
             // lblCode
             // 
@@ -114,12 +114,11 @@ namespace GardenGroupUI
             // txtCode
             // 
             this.txtCode.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCode.Enabled = false;
             this.txtCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCode.Location = new System.Drawing.Point(12, 53);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(314, 29);
-            this.txtCode.TabIndex = 24;
+            this.txtCode.TabIndex = 4;
             // 
             // grbxEmail
             // 
@@ -152,7 +151,7 @@ namespace GardenGroupUI
             this.btnBackToLogin.Location = new System.Drawing.Point(258, 82);
             this.btnBackToLogin.Name = "btnBackToLogin";
             this.btnBackToLogin.Size = new System.Drawing.Size(68, 29);
-            this.btnBackToLogin.TabIndex = 27;
+            this.btnBackToLogin.TabIndex = 2;
             this.btnBackToLogin.Text = "Terug";
             this.btnBackToLogin.UseVisualStyleBackColor = true;
             this.btnBackToLogin.Click += new System.EventHandler(this.btnBackToLogin_Click);
@@ -162,7 +161,7 @@ namespace GardenGroupUI
             this.btnSendEmail.Location = new System.Drawing.Point(332, 82);
             this.btnSendEmail.Name = "btnSendEmail";
             this.btnSendEmail.Size = new System.Drawing.Size(164, 29);
-            this.btnSendEmail.TabIndex = 20;
+            this.btnSendEmail.TabIndex = 3;
             this.btnSendEmail.Text = "Verstuur email";
             this.btnSendEmail.UseVisualStyleBackColor = true;
             this.btnSendEmail.Click += new System.EventHandler(this.btnSendEmail_Click);
@@ -196,11 +195,10 @@ namespace GardenGroupUI
             // 
             // btnTryCode
             // 
-            this.btnTryCode.Enabled = false;
             this.btnTryCode.Location = new System.Drawing.Point(332, 53);
             this.btnTryCode.Name = "btnTryCode";
             this.btnTryCode.Size = new System.Drawing.Size(164, 29);
-            this.btnTryCode.TabIndex = 0;
+            this.btnTryCode.TabIndex = 5;
             this.btnTryCode.Text = "Probeer code";
             this.btnTryCode.Click += new System.EventHandler(this.btnTryCode_Click);
             // 
