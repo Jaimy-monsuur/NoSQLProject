@@ -24,6 +24,7 @@ namespace GardenGroupUI
 
         private void Create_Ticket_Load(object sender, EventArgs e)
         {
+            UserSettings();
             DataGridViewSetings();
             ComboBoxSetting();
             if (selectedTicket.Status == Incident_Status.Closed)
@@ -35,7 +36,14 @@ namespace GardenGroupUI
             TXB_Subject.Text = selectedTicket.subjectOfIncident;
             RTB_Description.Text = selectedTicket.Description;
         }
-
+        public void UserSettings()
+        {
+            if (Program.loggedInUser.userType == User_Type.Employee)
+            {
+                GB_Close.Hide();
+                GB_Escalate.Hide();
+            }
+        }
         public void DataGridViewSetings()
         {
             DGV_Selected.ColumnCount = 2;

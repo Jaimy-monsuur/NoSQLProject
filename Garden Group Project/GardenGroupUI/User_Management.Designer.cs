@@ -30,7 +30,6 @@ namespace GardenGroupUI
         private void InitializeComponent()
         {
             this.BTNAddUser = new System.Windows.Forms.Button();
-            this.TBXfilter = new System.Windows.Forms.TextBox();
             this.LblTicket = new System.Windows.Forms.Label();
             this.miniToolStrip = new System.Windows.Forms.MenuStrip();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +40,8 @@ namespace GardenGroupUI
             this.Subject = new System.Windows.Forms.ColumnHeader();
             this.LVTickets = new System.Windows.Forms.ListView();
             this.PNLmain = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.Btn_logOut = new System.Windows.Forms.Button();
             this.LBLnodesk = new System.Windows.Forms.Label();
             this.LBLLicense = new System.Windows.Forms.Label();
@@ -49,8 +50,7 @@ namespace GardenGroupUI
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.BTN_Update = new System.Windows.Forms.Button();
             this.Menu.SuspendLayout();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
@@ -69,15 +69,6 @@ namespace GardenGroupUI
             this.BTNAddUser.Text = "Create user";
             this.BTNAddUser.UseVisualStyleBackColor = false;
             this.BTNAddUser.Click += new System.EventHandler(this.BTNAddUser_Click_1);
-            // 
-            // TBXfilter
-            // 
-            this.TBXfilter.Location = new System.Drawing.Point(41, 164);
-            this.TBXfilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TBXfilter.Name = "TBXfilter";
-            this.TBXfilter.Size = new System.Drawing.Size(286, 23);
-            this.TBXfilter.TabIndex = 8;
-            this.TBXfilter.TabStop = false;
             // 
             // LblTicket
             // 
@@ -180,6 +171,28 @@ namespace GardenGroupUI
             this.PNLmain.Size = new System.Drawing.Size(1266, 111);
             this.PNLmain.TabIndex = 11;
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(1010, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(242, 21);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Licensed to: The Garden Group";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(1124, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 41);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "NoDesk";
+            // 
             // Btn_logOut
             // 
             this.Btn_logOut.AutoSize = true;
@@ -193,6 +206,7 @@ namespace GardenGroupUI
             this.Btn_logOut.TabIndex = 28;
             this.Btn_logOut.Text = "Log Out";
             this.Btn_logOut.UseVisualStyleBackColor = false;
+            this.Btn_logOut.Click += new System.EventHandler(this.Btn_logOut_Click);
             // 
             // LBLnodesk
             // 
@@ -249,6 +263,7 @@ namespace GardenGroupUI
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(99, 24);
             this.toolStripMenuItem1.Text = "Dashboard";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -256,6 +271,7 @@ namespace GardenGroupUI
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 24);
             this.toolStripMenuItem2.Text = "Incident management";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -264,27 +280,18 @@ namespace GardenGroupUI
             this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 24);
             this.toolStripMenuItem3.Text = "User management";
             // 
-            // label1
+            // BTN_Update
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(1124, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 41);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "NoDesk";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1010, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(242, 21);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Licensed to: The Garden Group";
+            this.BTN_Update.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.BTN_Update.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BTN_Update.Location = new System.Drawing.Point(41, 164);
+            this.BTN_Update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BTN_Update.Name = "BTN_Update";
+            this.BTN_Update.Size = new System.Drawing.Size(150, 27);
+            this.BTN_Update.TabIndex = 12;
+            this.BTN_Update.Text = "Update";
+            this.BTN_Update.UseVisualStyleBackColor = false;
+            this.BTN_Update.Click += new System.EventHandler(this.BTN_Update_Click);
             // 
             // User_Management
             // 
@@ -292,10 +299,10 @@ namespace GardenGroupUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.BTN_Update);
             this.Controls.Add(this.PNLmain);
             this.Controls.Add(this.LVTickets);
             this.Controls.Add(this.BTNAddUser);
-            this.Controls.Add(this.TBXfilter);
             this.Controls.Add(this.LblTicket);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.Menu;
@@ -317,7 +324,6 @@ namespace GardenGroupUI
 
         #endregion
         private System.Windows.Forms.Button BTNAddUser;
-        private System.Windows.Forms.TextBox TBXfilter;
         private System.Windows.Forms.Label LblTicket;
         private System.Windows.Forms.MenuStrip miniToolStrip;
         private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem;
@@ -338,5 +344,6 @@ namespace GardenGroupUI
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button BTN_Update;
     }
 }

@@ -24,6 +24,9 @@ namespace DAL
 
         public void InsertUser(User user)
         {
+
+            byte[] encodedPasswordArray = new byte[user.password.Length]; // encrypt het password
+            encodedPasswordArray = Encoding.UTF8.GetBytes(user.password);
             BsonDocument document = new BsonDocument()
             {
                 { "User_Id", user.userId }, // object id wordt in db aangemaakt
@@ -33,7 +36,7 @@ namespace DAL
                 { "Email_Address", user.emailAddress },
                 { "Phone_Number", user.phoneNumber },
                 { "Location", user.location },
-                { "Password", user.password } // moet nog encrypted worden
+                { "Password", Convert.ToBase64String(encodedPasswordArray) } // moet nog getest worden op werking
             };
             Insert(CollectionName(), document);
         }
@@ -50,10 +53,10 @@ namespace DAL
                     userId = (int)bson["User_Id"],
                     firstName = (string)bson["First_Name"],
                     lastName = (string)bson["Last_Name"],
-                    userType = (User_Type)Enum.Parse(typeof(User_Type), (string)bson["User_Type"], true), // testen of werkt
+                    userType = (User_Type)Enum.Parse(typeof(User_Type), (string)bson["User_Type"], true),
                     emailAddress = (string)bson["Email_Address"],
                     phoneNumber = (string)bson["Phone_Number"],
-                    location = (string)bson["Location"], 
+                    location = (string)bson["Location"],
                     password = (string)bson["Password"]
                 };
                 users.Add(user);
@@ -65,6 +68,28 @@ namespace DAL
         public List<User> GetMaxId()
         {
             return BsonToUser(GetMax(CollectionName(), "User_Id")); // haalt alle users op om te kijken wat de hoogste user id is
+        }
+
+        public List<User> GetUser(string email)
+        {
+            return BsonToUser(GetCollectionFiltered(CollectionName(), "Email_Address", email)); //haalt users op een filter
+        }
+
+        public bool VerifyEmail(string email)
+        {
+            List <User> users = BsonToUser(GetCollectionFiltered(CollectionName(), "Email_Address", email)); //haalt users op een filter
+            if (users.Count == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void UpdatePassword(string email, string newPassword)
+        {
+            byte[] encodedPasswordArray = new byte[newPassword.Length]; // encrypt het password
+            encodedPasswordArray = Encoding.UTF8.GetBytes(newPassword);
+            UpdateOne(CollectionName(), "Email_Address", email, "Password", Convert.ToBase64String(encodedPasswordArray)); //Update het wachtwoord
         }
     }
 }

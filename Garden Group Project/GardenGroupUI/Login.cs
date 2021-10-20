@@ -14,66 +14,96 @@ namespace GardenGroupUI
 {
     public partial class frmLogin : Form
     {
-        public User user;
-        public User_Logic user_logic = new User_Logic();
+        //User_logic declaren en een tempuser aanmaken die in het login form gebruikt kan worden
+        private static User tempUser;
+        private static User_Logic user_logic = new User_Logic();
         public frmLogin()
         {
             InitializeComponent();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+        //Ctor voor een form met een al ingevulde email (handig voor terugkomen van wachtwoord vergeten)
+        public frmLogin(string email)
         {
+            InitializeComponent();
+            txtEmail.Text = email;
+        }
 
+        //Elke keer dat het form laad de user uitloggen
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            Program.loggedInUser = null;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //Haal username op
-            string username = txtGebruikersnaam.Text;
+            //Haal email op
+            string email = txtEmail.Text;
+
             //Haal Password op en encrypt deze
             byte[] encodedPasswordArray = new byte[txtWachtwoord.Text.Length];
             encodedPasswordArray = System.Text.Encoding.UTF8.GetBytes(txtWachtwoord.Text);
             string password = Convert.ToBase64String(encodedPasswordArray);
 
-            //Zoek de database naar een gebruiker met deze gebruikersnaam
-            User user = user_logic.GetUser(username);
-
-            //kijk of het wachtwoord klopt
-            if (user.password == password)
+            //Kijk of dit emailadres in de database staat
+            if (user_logic.VerifyEmail(email) == true)
             {
-                //Indien het klopt, de gebruiker het juiste form laten zien
-                switch (user.userType)
-                {
-                    case User_Type.Admin:
-                        this.Hide();
-                        Incident_Management incident_Management = new Incident_Management();
-                        incident_Management.Show();// tijdelijk
-                        break;
-                    case User_Type.Employee:
-                        this.Hide();
-                        Dashboard ashboardForm = new Dashboard();
-                        ashboardForm.Show();
-                        break;
-                    case User_Type.EndUser:
-                        this.Hide();
-                        Dashboard shboardForm = new Dashboard();
-                        shboardForm.Show();
-                        break;
-                }
+                //Haal de gebruiker op en controleer het wwachtwoord
+                List<User> userList = user_logic.GetUser(email);
+                tempUser = userList[0];
+                checkPassword(password);
+            }
+            else
+            {
+                //Laat zien dat de combinatie van email en/of wachtwoord niet bekend is
+                tempUser = null;
+                lblWrongPW.Show();
+                txtWachtwoord.Text = "";
+            }        
+        }            
+
+        private void checkPassword(string password)
+        {
+            //kijk of het wachtwoord klopt
+            if (tempUser.password == password)
+            {                
+                //Indien het klopt, de gebruiker inloggen
+                logUserIn();
             }
             else
             {
                 //Indien het niet klopt, text laten zien, de user op null zetten en password-veld clearen
-                user = null;
+                tempUser = null;
                 lblWrongPW.Show();
                 txtWachtwoord.Text = "";
             }
         }
+        private void logUserIn()
+        {
+            //De tempuser overzetten naar een user die in het hele programma bereikbaar is
+            Program.loggedInUser = tempUser;
+            tempUser = null;
 
+            //De gebruiker het juiste form laten zien aan de hand van user type
+            switch (Program.loggedInUser.userType)
+            {                
+                case User_Type.ServiceDeskEmployee:
+                    this.Hide();
+                    Dashboard ashboardForm = new Dashboard();
+                    ashboardForm.Show();
+                    break;
+                case User_Type.Employee:
+                    this.Hide();
+                    Dashboard shboardForm = new Dashboard();
+                    shboardForm.Show();
+                    break;
+            }
+        }
+
+        //De link label "wachtwoord vergeten" het juiste form laten weergeven
         private void lnklblForgotPassWord_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
-            frmForgotPassword forgotPassword = new frmForgotPassword();
+            frmForgotPassword forgotPassword = new frmForgotPassword(txtEmail.Text);
             forgotPassword.Show();
         }
     }

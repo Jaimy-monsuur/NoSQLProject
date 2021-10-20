@@ -33,6 +33,7 @@ namespace GardenGroupUI
             this.FormsPlot_Unresolved = new ScottPlot.FormsPlot();
             this.Lbl_Unresolved = new System.Windows.Forms.Label();
             this.Pnl_IncidentenOverDatum = new System.Windows.Forms.Panel();
+            this.FormsPlot_PastDealdine = new ScottPlot.FormsPlot();
             this.Lbl_PastDeadLine = new System.Windows.Forms.Label();
             this.Lbl_Currentincidents = new System.Windows.Forms.Label();
             this.Btn_Incidents = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@ namespace GardenGroupUI
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incidentManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.FormsPlot_PastDealdine = new ScottPlot.FormsPlot();
             this.Pnl_Openstaandeincidenten.SuspendLayout();
             this.Pnl_IncidentenOverDatum.SuspendLayout();
             this.PNLmain.SuspendLayout();
@@ -96,6 +96,15 @@ namespace GardenGroupUI
             this.Pnl_IncidentenOverDatum.Size = new System.Drawing.Size(355, 351);
             this.Pnl_IncidentenOverDatum.TabIndex = 1;
             // 
+            // FormsPlot_PastDealdine
+            // 
+            this.FormsPlot_PastDealdine.BackColor = System.Drawing.Color.Transparent;
+            this.FormsPlot_PastDealdine.Location = new System.Drawing.Point(-1, 64);
+            this.FormsPlot_PastDealdine.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.FormsPlot_PastDealdine.Name = "FormsPlot_PastDealdine";
+            this.FormsPlot_PastDealdine.Size = new System.Drawing.Size(355, 286);
+            this.FormsPlot_PastDealdine.TabIndex = 4;
+            // 
             // Lbl_PastDeadLine
             // 
             this.Lbl_PastDeadLine.AutoSize = true;
@@ -128,7 +137,7 @@ namespace GardenGroupUI
             this.Btn_Incidents.TabIndex = 3;
             this.Btn_Incidents.Text = "ShowList";
             this.Btn_Incidents.UseVisualStyleBackColor = false;
-            this.Btn_Incidents.Click += new System.EventHandler(this.Btn_Incidents_Click);
+            this.Btn_Incidents.Click += new System.EventHandler(this.Btn_Incidents_Click_1);
             // 
             // PNLmain
             // 
@@ -255,15 +264,6 @@ namespace GardenGroupUI
             this.userManagementToolStripMenuItem.Name = "userManagementToolStripMenuItem";
             this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.userManagementToolStripMenuItem.Text = "User management";
-            // 
-            // FormsPlot_PastDealdine
-            // 
-            this.FormsPlot_PastDealdine.BackColor = System.Drawing.Color.Transparent;
-            this.FormsPlot_PastDealdine.Location = new System.Drawing.Point(-1, 64);
-            this.FormsPlot_PastDealdine.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.FormsPlot_PastDealdine.Name = "FormsPlot_PastDealdine";
-            this.FormsPlot_PastDealdine.Size = new System.Drawing.Size(355, 286);
-            this.FormsPlot_PastDealdine.TabIndex = 4;
             // 
             // Dashboard
             // 
