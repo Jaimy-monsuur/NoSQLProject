@@ -99,6 +99,34 @@ namespace GardenGroupUI
                 LVTickets.Items.Add(li);
             }
         }
+        protected void SortOnPriority()
+        {
+            List<Incident_Ticket> list;
+            if (checkBox1.Checked)
+            {
+                list = logic_Layer.GetAllTicketsFiltered("Status", "Closed");
+
+            }
+            else
+            {
+                list = logic_Layer.GetAllTicketsFiltered("Status", "Open");
+            }
+
+            foreach (Incident_Ticket item in list)
+            {
+                string[] collumnItems = new string[7];
+                collumnItems[0] = item.id.ToString();
+                collumnItems[1] = item.ReportedBy;
+                collumnItems[2] = item.subjectOfIncident;
+                collumnItems[3] = item.reportDate.ToShortDateString();
+                collumnItems[4] = item.Deadline.ToShortDateString();
+                collumnItems[5] = item.Incident_Priority.ToString();
+                collumnItems[6] = item.Status.ToString();
+                ListViewItem li = new ListViewItem(collumnItems);
+                li.Tag = item;// zodat je het object terug kan vinden
+                LVTickets.Items.Add(li);
+            }
+        }
 
         //for the defoult text in a text box
         protected void TBXfilter_SetText()
@@ -277,6 +305,12 @@ namespace GardenGroupUI
                 GetLVData();
                 LBL_status.Text = "Open tickets";
             }
+        }
+
+        private void BTNupdate_Click(object sender, EventArgs e)
+        {
+            SetListvieuw();// haalt nieuwe gegevens op
+            GetLVData();
         }
     }
 }

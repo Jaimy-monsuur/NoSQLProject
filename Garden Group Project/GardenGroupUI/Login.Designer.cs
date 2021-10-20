@@ -48,7 +48,7 @@ namespace GardenGroupUI
             this.LBLLicense.Location = new System.Drawing.Point(1005, 654);
             this.LBLLicense.Name = "LBLLicense";
             this.LBLLicense.Size = new System.Drawing.Size(242, 21);
-            this.LBLLicense.TabIndex = 5;
+            this.LBLLicense.TabIndex = 9;
             this.LBLLicense.Text = "Licensed to: The Garden Group";
             // 
             // LBLnodesk
@@ -58,7 +58,7 @@ namespace GardenGroupUI
             this.LBLnodesk.Location = new System.Drawing.Point(1124, 616);
             this.LBLnodesk.Name = "LBLnodesk";
             this.LBLnodesk.Size = new System.Drawing.Size(128, 41);
-            this.LBLnodesk.TabIndex = 4;
+            this.LBLnodesk.TabIndex = 8;
             this.LBLnodesk.Text = "NoDesk";
             // 
             // txtLogin
@@ -68,7 +68,7 @@ namespace GardenGroupUI
             this.txtLogin.Location = new System.Drawing.Point(425, 175);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(415, 65);
-            this.txtLogin.TabIndex = 6;
+            this.txtLogin.TabIndex = 0;
             this.txtLogin.Text = "Login bij NoDesk";
             // 
             // lblemail
@@ -78,7 +78,7 @@ namespace GardenGroupUI
             this.lblemail.Location = new System.Drawing.Point(382, 280);
             this.lblemail.Name = "lblemail";
             this.lblemail.Size = new System.Drawing.Size(58, 25);
-            this.lblemail.TabIndex = 8;
+            this.lblemail.TabIndex = 1;
             this.lblemail.Text = "Email";
             // 
             // lblLoginWachtwoord
@@ -88,7 +88,7 @@ namespace GardenGroupUI
             this.lblLoginWachtwoord.Location = new System.Drawing.Point(382, 359);
             this.lblLoginWachtwoord.Name = "lblLoginWachtwoord";
             this.lblLoginWachtwoord.Size = new System.Drawing.Size(119, 25);
-            this.lblLoginWachtwoord.TabIndex = 9;
+            this.lblLoginWachtwoord.TabIndex = 3;
             this.lblLoginWachtwoord.Text = "Wachtwoord";
             // 
             // txtEmail
@@ -98,8 +98,7 @@ namespace GardenGroupUI
             this.txtEmail.Location = new System.Drawing.Point(382, 308);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(500, 29);
-            this.txtEmail.TabIndex = 11;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtGebruikersnaam_TextChanged);
+            this.txtEmail.TabIndex = 2;
             // 
             // txtWachtwoord
             // 
@@ -108,7 +107,7 @@ namespace GardenGroupUI
             this.txtWachtwoord.Name = "txtWachtwoord";
             this.txtWachtwoord.PasswordChar = '*';
             this.txtWachtwoord.Size = new System.Drawing.Size(500, 29);
-            this.txtWachtwoord.TabIndex = 12;
+            this.txtWachtwoord.TabIndex = 4;
             // 
             // btnLogin
             // 
@@ -116,7 +115,7 @@ namespace GardenGroupUI
             this.btnLogin.Location = new System.Drawing.Point(545, 463);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(174, 34);
-            this.btnLogin.TabIndex = 13;
+            this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -128,7 +127,7 @@ namespace GardenGroupUI
             this.lnklblForgotPassWord.Location = new System.Drawing.Point(568, 511);
             this.lnklblForgotPassWord.Name = "lnklblForgotPassWord";
             this.lnklblForgotPassWord.Size = new System.Drawing.Size(129, 15);
-            this.lnklblForgotPassWord.TabIndex = 14;
+            this.lnklblForgotPassWord.TabIndex = 7;
             this.lnklblForgotPassWord.TabStop = true;
             this.lnklblForgotPassWord.Text = "Wachtwoord vergeten?";
             this.lnklblForgotPassWord.VisitedLinkColor = System.Drawing.Color.Blue;
@@ -142,12 +141,13 @@ namespace GardenGroupUI
             this.lblWrongPW.Location = new System.Drawing.Point(407, 432);
             this.lblWrongPW.Name = "lblWrongPW";
             this.lblWrongPW.Size = new System.Drawing.Size(450, 15);
-            this.lblWrongPW.TabIndex = 15;
+            this.lblWrongPW.TabIndex = 5;
             this.lblWrongPW.Text = "De door u opgegeven combinatie van gebruikersnaam en/of wachtwoord is ongeldig";
             this.lblWrongPW.Visible = false;
             // 
             // frmLogin
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
@@ -164,7 +164,7 @@ namespace GardenGroupUI
             this.Controls.Add(this.LBLnodesk);
             this.Name = "frmLogin";
             this.Text = "Garden Group Login";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

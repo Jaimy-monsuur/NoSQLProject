@@ -75,6 +75,16 @@ namespace DAL
             return BsonToUser(GetCollectionFiltered(CollectionName(), "Email_Address", email)); //haalt users op een filter
         }
 
+        public bool VerifyEmail(string email)
+        {
+            List <User> users = BsonToUser(GetCollectionFiltered(CollectionName(), "Email_Address", email)); //haalt users op een filter
+            if (users.Count == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public void UpdatePassword(string email, string newPassword)
         {
             byte[] encodedPasswordArray = new byte[newPassword.Length]; // encrypt het password
