@@ -54,6 +54,7 @@ namespace GardenGroupUI
             this.BTN_RemoveTicket = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.LBL_status = new System.Windows.Forms.Label();
+            this.BTNupdate = new System.Windows.Forms.Button();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
             this.Menu.SuspendLayout();
@@ -329,12 +330,25 @@ namespace GardenGroupUI
             this.LBL_status.TabIndex = 12;
             this.LBL_status.Text = "Open tickets";
             // 
+            // BTNupdate
+            // 
+            this.BTNupdate.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.BTNupdate.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BTNupdate.Location = new System.Drawing.Point(708, 628);
+            this.BTNupdate.Name = "BTNupdate";
+            this.BTNupdate.Size = new System.Drawing.Size(150, 27);
+            this.BTNupdate.TabIndex = 13;
+            this.BTNupdate.Text = "Update";
+            this.BTNupdate.UseVisualStyleBackColor = false;
+            this.BTNupdate.Click += new System.EventHandler(this.BTNupdate_Click);
+            // 
             // Incident_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.BTNupdate);
             this.Controls.Add(this.LBL_status);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.BTN_RemoveTicket);
@@ -389,5 +403,6 @@ namespace GardenGroupUI
         private System.Windows.Forms.Button BTN_RemoveTicket;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label LBL_status;
+        private System.Windows.Forms.Button BTNupdate;
     }
 }
