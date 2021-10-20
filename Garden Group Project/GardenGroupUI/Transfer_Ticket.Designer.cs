@@ -29,9 +29,8 @@ namespace GardenGroupUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GB_AddTicket = new System.Windows.Forms.GroupBox();
+            this.LV_SelectedTicket = new System.Windows.Forms.ListView();
             this.LBL_Selected = new System.Windows.Forms.Label();
             this.CB_TransferTo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,17 +44,15 @@ namespace GardenGroupUI
             this.LBLnodesk = new System.Windows.Forms.Label();
             this.LBLLicense = new System.Windows.Forms.Label();
             this.PBOX = new System.Windows.Forms.PictureBox();
-            this.DGV_SelectedTicket = new System.Windows.Forms.DataGridView();
             this.GB_AddTicket.SuspendLayout();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_SelectedTicket)).BeginInit();
             this.SuspendLayout();
             // 
             // GB_AddTicket
             // 
             this.GB_AddTicket.AutoSize = true;
-            this.GB_AddTicket.Controls.Add(this.DGV_SelectedTicket);
+            this.GB_AddTicket.Controls.Add(this.LV_SelectedTicket);
             this.GB_AddTicket.Controls.Add(this.LBL_Selected);
             this.GB_AddTicket.Controls.Add(this.CB_TransferTo);
             this.GB_AddTicket.Controls.Add(this.label1);
@@ -73,10 +70,19 @@ namespace GardenGroupUI
             this.GB_AddTicket.TabStop = false;
             this.GB_AddTicket.Text = "Transfer Ticket";
             // 
+            // LV_SelectedTicket
+            // 
+            this.LV_SelectedTicket.HideSelection = false;
+            this.LV_SelectedTicket.Location = new System.Drawing.Point(228, 50);
+            this.LV_SelectedTicket.Name = "LV_SelectedTicket";
+            this.LV_SelectedTicket.Size = new System.Drawing.Size(504, 81);
+            this.LV_SelectedTicket.TabIndex = 31;
+            this.LV_SelectedTicket.UseCompatibleStateImageBehavior = false;
+            // 
             // LBL_Selected
             // 
             this.LBL_Selected.AutoSize = true;
-            this.LBL_Selected.Location = new System.Drawing.Point(372, 300);
+            this.LBL_Selected.Location = new System.Drawing.Point(372, 198);
             this.LBL_Selected.Name = "LBL_Selected";
             this.LBL_Selected.Size = new System.Drawing.Size(21, 19);
             this.LBL_Selected.TabIndex = 30;
@@ -133,7 +139,7 @@ namespace GardenGroupUI
             // 
             this.LBL_Subject.AutoSize = true;
             this.LBL_Subject.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBL_Subject.Location = new System.Drawing.Point(32, 300);
+            this.LBL_Subject.Location = new System.Drawing.Point(32, 202);
             this.LBL_Subject.Name = "LBL_Subject";
             this.LBL_Subject.Size = new System.Drawing.Size(127, 15);
             this.LBL_Subject.TabIndex = 19;
@@ -222,35 +228,6 @@ namespace GardenGroupUI
             this.PBOX.TabIndex = 0;
             this.PBOX.TabStop = false;
             // 
-            // DGV_SelectedTicket
-            // 
-            this.DGV_SelectedTicket.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DGV_SelectedTicket.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DGV_SelectedTicket.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.DGV_SelectedTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_SelectedTicket.Location = new System.Drawing.Point(372, 50);
-            this.DGV_SelectedTicket.Name = "DGV_SelectedTicket";
-            this.DGV_SelectedTicket.ReadOnly = true;
-            this.DGV_SelectedTicket.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_SelectedTicket.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.DGV_SelectedTicket.RowHeadersVisible = false;
-            this.DGV_SelectedTicket.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.DGV_SelectedTicket.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.DGV_SelectedTicket.RowTemplate.Height = 25;
-            this.DGV_SelectedTicket.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.DGV_SelectedTicket.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGV_SelectedTicket.ShowCellToolTips = false;
-            this.DGV_SelectedTicket.Size = new System.Drawing.Size(286, 247);
-            this.DGV_SelectedTicket.TabIndex = 31;
-            // 
             // Transfer_Ticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -271,7 +248,6 @@ namespace GardenGroupUI
             this.PNLmain.ResumeLayout(false);
             this.PNLmain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_SelectedTicket)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,6 +268,6 @@ namespace GardenGroupUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CB_TransferTo;
         private System.Windows.Forms.Label LBL_Selected;
-        private System.Windows.Forms.DataGridView DGV_SelectedTicket;
+        private System.Windows.Forms.ListView LV_SelectedTicket;
     }
 }
