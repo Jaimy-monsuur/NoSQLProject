@@ -47,6 +47,7 @@ namespace GardenGroupUI
             LVTickets.Columns.Add("Phone number:", 100);
             LVTickets.Columns.Add("Location:", 100);
         }
+
         protected void GetLVData()
         {
             List<User> list = userLogic.GetAllUsers();
@@ -98,6 +99,11 @@ namespace GardenGroupUI
             Incident_Management incident_Management = new Incident_Management();
             incident_Management.Show(); // show of show dialog?????
             this.Close();
+        }
+
+        private void BTN_Update_Click(object sender, EventArgs e)
+        {
+            GetLVData();
         }
     }
 }
