@@ -88,11 +88,15 @@ namespace GardenGroupUI
             {                
                 case User_Type.ServiceDeskEmployee:
                     this.Hide();
+                    txtEmail.Clear();
+                    txtWachtwoord.Clear();
                     Dashboard ashboardForm = new Dashboard();
                     ashboardForm.Show();
                     break;
                 case User_Type.Employee:
                     this.Hide();
+                    txtEmail.Clear();
+                    txtWachtwoord.Clear();
                     Dashboard shboardForm = new Dashboard();
                     shboardForm.Show();
                     break;
@@ -102,9 +106,11 @@ namespace GardenGroupUI
         //De link label "wachtwoord vergeten" het juiste form laten weergeven
         private void lnklblForgotPassWord_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
             frmForgotPassword forgotPassword = new frmForgotPassword(txtEmail.Text);
+            txtEmail.Clear();
+            txtWachtwoord.Clear();
             forgotPassword.Show();
+            this.Hide();
         }
     }
 }

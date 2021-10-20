@@ -11,6 +11,7 @@ using System.Configuration;
 using System.Web;
 using Model;
 using Logic_Layer;
+using System.ComponentModel.DataAnnotations;
 
 namespace GardenGroupUI
 {
@@ -36,16 +37,15 @@ namespace GardenGroupUI
 
         //Sluit het form en laat het login form zien
         private void btnBackToLogin_Click(object sender, EventArgs e)
-        {
-            this.Hide();
+        {            
             frmLogin frmLogin = new frmLogin(txtEmail.Text);
             frmLogin.Show();
-        }
-
+            this.Close();
+        }        
         private void btnSendEmail_Click(object sender, EventArgs e)
-        {
+        {            
             //Kijk of het emailadres in de database staat
-            if (user_logic.VerifyEmail(txtEmail.Text) == true)
+            if (user_logic.VerifyEmail(txtEmail.Text) == true && IsValidEmail(txtEmail.Text) == true)
             {
                 //Maak een code en stuur een email met deze code
                 GenerateCode();
@@ -61,6 +61,11 @@ namespace GardenGroupUI
                 lblNonExistingEmail.Show();                    
             }
         }
+        public bool IsValidEmail(string email)
+        {
+            return new EmailAddressAttribute().IsValid(email);
+        }
+
         private void btnTryCode_Click(object sender, EventArgs e)
         {            
             //Kijk of de ingevulde code hetzelfde is als de code die het programma heeft gegenereerd
@@ -142,9 +147,9 @@ namespace GardenGroupUI
         {
             //Kopieer het wachtwoord en ga terug naar de login pagina
             Clipboard.SetText(lblNewPassword.Text);
-            this.Hide();
             frmLogin frmLogin = new frmLogin(txtEmail.Text);
             frmLogin.Show();
+            this.Close();
         }
     }
 }
