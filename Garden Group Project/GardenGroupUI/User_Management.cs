@@ -84,6 +84,8 @@ namespace GardenGroupUI
             Create_User createUser = new Create_User();
             this.Hide();
             createUser.ShowDialog();
+            SetListview();
+            GetLVData();
             this.Show();
         }
 
@@ -103,7 +105,7 @@ namespace GardenGroupUI
 
         private void BTN_Update_Click(object sender, EventArgs e)
         {
-            LVUsers.Clear();
+            SetListview();
             GetLVData();
         }
 
