@@ -107,14 +107,8 @@ namespace GardenGroupUI
             confirmLogout.ShowDialog();
         }
 
-        private void Btn_Incidents_Click(object sender, EventArgs e)
-        {
-            Incident_Management ticketform = new Incident_Management();
-            ticketform.Show();
-            this.Visible = false;
-        }
 
-        private void Btn_Incidents_Click(object sender, EventArgs e)
+        private void Btn_Incidents_Click_1(object sender, EventArgs e)
         {
             Incident_Management incident_Management = new Incident_Management();
             incident_Management.Show();
