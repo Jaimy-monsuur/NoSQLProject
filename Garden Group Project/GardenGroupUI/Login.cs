@@ -21,12 +21,6 @@ namespace GardenGroupUI
         {
             InitializeComponent();
         }
-        //Ctor voor een form met een al ingevulde email (handig voor terugkomen van wachtwoord vergeten)
-        public frmLogin(string email)
-        {
-            InitializeComponent();
-            txtEmail.Text = email;
-        }
 
         //Elke keer dat het form laad de user uitloggen
         private void frmLogin_Load(object sender, EventArgs e)
@@ -105,7 +99,7 @@ namespace GardenGroupUI
 
         //De link label "wachtwoord vergeten" het juiste form laten weergeven
         private void lnklblForgotPassWord_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        { 
             frmForgotPassword forgotPassword = new frmForgotPassword(txtEmail.Text);
             txtEmail.Clear();
             txtWachtwoord.Clear();
