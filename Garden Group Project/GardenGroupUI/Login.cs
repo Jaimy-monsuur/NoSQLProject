@@ -76,25 +76,12 @@ namespace GardenGroupUI
             //De tempuser overzetten naar een user die in het hele programma bereikbaar is
             Program.loggedInUser = tempUser;
             tempUser = null;
-
-            //De gebruiker het juiste form laten zien aan de hand van user type
-            switch (Program.loggedInUser.userType)
-            {                
-                case User_Type.ServiceDeskEmployee:
-                    this.Hide();
-                    txtEmail.Clear();
-                    txtWachtwoord.Clear();
-                    Dashboard ashboardForm = new Dashboard();
-                    ashboardForm.Show();
-                    break;
-                case User_Type.Employee:
-                    this.Hide();
-                    txtEmail.Clear();
-                    txtWachtwoord.Clear();
-                    Dashboard shboardForm = new Dashboard();
-                    shboardForm.Show();
-                    break;
-            }
+            //Laat het dashboard zien
+            this.Hide();
+            txtEmail.Clear();
+            txtWachtwoord.Clear();
+            Dashboard ashboardForm = new Dashboard();
+            ashboardForm.Show();
         }
 
         //De link label "wachtwoord vergeten" het juiste form laten weergeven
