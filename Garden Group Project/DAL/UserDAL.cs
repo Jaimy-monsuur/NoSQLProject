@@ -24,7 +24,6 @@ namespace DAL
 
         public void InsertUser(User user)
         {
-
             byte[] encodedPasswordArray = new byte[user.password.Length]; // encrypt het password
             encodedPasswordArray = Encoding.UTF8.GetBytes(user.password);
             BsonDocument document = new BsonDocument()
@@ -41,7 +40,7 @@ namespace DAL
             Insert(CollectionName(), document);
         }
 
-        private List<User> BsonToUser(List<BsonDocument> bsonDocuments)
+        private List<User> BsonToUser(List<BsonDocument> bsonDocuments) // zet alle bson bestanden om naar user objecten
         {
             List<User> users = new List<User>();
 
@@ -72,7 +71,7 @@ namespace DAL
 
         public List<User> GetUser(string email)
         {
-            return BsonToUser(GetCollectionFiltered(CollectionName(), "Email_Address", email)); //haalt users op een filter
+            return BsonToUser(GetCollectionFiltered(CollectionName(), "Email_Address", email)); //haalt users op met een filter
         }
 
         public bool VerifyEmail(string email)
