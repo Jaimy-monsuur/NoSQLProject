@@ -12,25 +12,25 @@ namespace GardenGroupUI
 {
     public partial class Incident_Management : Form
     {
-        public Incident_TickedLogic logic_Layer = new Incident_TickedLogic();
+        public Incident_TickedLogic logic_Layer = new Incident_TickedLogic();// maakt de logic layer aan
 
         public Incident_Management()
         {
             InitializeComponent();
-            this.MaximizeBox = false;
-            checkBox1.Appearance = Appearance.Button;
+            this.MaximizeBox = false;// de size staat vast
+            checkBox1.Appearance = Appearance.Button;// verandert apperance
         }
 
 
         private void Incident_Management_Load(object sender, EventArgs e)
         {
-            UserSettings();
-            SetListvieuw();
-            GetLVData();
-            DataGridViewSetings();
+            UserSettings();// set de user permissions
+            SetListvieuw();// maakt de listview
+            GetLVData();// vult de listview
+            DataGridViewSetings();// maakt de gridview
         }
 
-        public void UserSettings()
+        public void UserSettings()// set de user permissions
         {
             if (Program.loggedInUser.userType == User_Type.Employee)
             {
@@ -39,7 +39,7 @@ namespace GardenGroupUI
                 userManagementToolStripMenuItem.Enabled = false;
             }
         }
-        public void DataGridViewSetings()
+        public void DataGridViewSetings()// maakt de gridview
         {
             DGV_Selected.ColumnCount = 2;
             DGV_Selected.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -51,7 +51,7 @@ namespace GardenGroupUI
             DGV_Selected.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
-        protected void SetListvieuw()
+        protected void SetListvieuw()// maakt de listview
         {
             // Maak grid
             LVTickets.Clear();
@@ -68,7 +68,7 @@ namespace GardenGroupUI
             LVTickets.Columns.Add("Priority:", 70);
             LVTickets.Columns.Add("Status:", 70);
         }
-        protected void GetLVData()
+        protected void GetLVData()// vult de litview
         {
             List<Incident_Ticket> list;
             if (checkBox1.Checked)
@@ -80,7 +80,7 @@ namespace GardenGroupUI
                  list = logic_Layer.GetAllTicketsFiltered("Status", "Open");
             }
 
-            foreach (Incident_Ticket item in list)
+            foreach (Incident_Ticket item in list)// add elk ticket
             {
                 string[] collumnItems = new string[7];
                 collumnItems[0] = item.id.ToString();
@@ -163,35 +163,17 @@ namespace GardenGroupUI
         //End Extra funcionality Jelle
         //*
         //for the defoult text in a text box
-        protected void TBXfilter_SetText()
-        {
-            this.TBXfilter.Text = "Filter by subject";
-            TBXfilter.ForeColor = Color.Gray;
-        }
 
-        private void TBXfilter_Enter(object sender, EventArgs e)// haalt de default text weg als je gaat typen
+        private void BTNaddTicket_Click(object sender, EventArgs e)// ticket toevoegen
         {
-            if (TBXfilter.ForeColor == Color.Black)
-                return;
-            TBXfilter.Text = "";
-            TBXfilter.ForeColor = Color.Black;
-        }
-        private void TBXfilter_Leave(object sender, EventArgs e)// plaatst de default text terug als je het leeg laat
-        {
-            if (TBXfilter.Text.Trim() == "")
-                TBXfilter_SetText();
-        }
-
-        private void BTNaddTicket_Click(object sender, EventArgs e)
-        {
-            Create_Ticket create_Ticket = new Create_Ticket();
+            Create_Ticket create_Ticket = new Create_Ticket();// opent form
             create_Ticket.ShowDialog();
             SetListvieuw();// haalt nieuwe gegevens op
             GetLVData();
         }
 
 
-        private void LVTickets_SelectedIndexChanged(object sender, EventArgs e)
+        private void LVTickets_SelectedIndexChanged(object sender, EventArgs e)// kijkt naat het geselecteerd ticket
         {
             if (LVTickets.SelectedItems.Count != 0)
             {
@@ -211,24 +193,24 @@ namespace GardenGroupUI
             }
         }
 
-        private void Btn_logOut_Click(object sender, EventArgs e)
+        private void Btn_logOut_Click(object sender, EventArgs e)// logt uit
         {
-            ConfirmLogout confirmLogout = new ConfirmLogout();
+            ConfirmLogout confirmLogout = new ConfirmLogout();// maakt form
             confirmLogout.ShowDialog();
         }
 
-        private void userManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        private void userManagementToolStripMenuItem_Click(object sender, EventArgs e)// opent usermanagement
         {
             User_Management man = new User_Management();
             man.ShowDialog();
             this.Close();
         }
 
-        private void BTN_Update_Click(object sender, EventArgs e)
+        private void BTN_Update_Click(object sender, EventArgs e)// update Ticket form
         {
             if (LVTickets.SelectedItems.Count != 0)
             {
-                if (Program.loggedInUser.userType == User_Type.Employee)
+                if (Program.loggedInUser.userType == User_Type.Employee)// als user geen admin is. kijk of het wel mag
                 {
                     ListViewItem li = (ListViewItem)LVTickets.SelectedItems[0];
                     Incident_Ticket t = (Incident_Ticket)li.Tag;
@@ -236,22 +218,22 @@ namespace GardenGroupUI
                     {
                         TryUpdate();
                     }
-                    else
+                    else// ticket is niet van jou
                     {
                         MessageBox.Show("U can not update this ticket because it is not yours", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);// laat de gebruiker weten dat het is mislukt
                     }
                 }
                 else
                 {
-                    TryUpdate();
+                    TryUpdate();// open update form
                 }
             }
             else
             {
-                NoTicketSelected();
+                NoTicketSelected();// selecteer een ticket
             }
         }
-        public void TryUpdate()
+        public void TryUpdate()// opent update form
         {
             try
             {
@@ -268,7 +250,7 @@ namespace GardenGroupUI
             }
         }
 
-        private void BTN_TransferTicket_Click(object sender, EventArgs e)
+        private void BTN_TransferTicket_Click(object sender, EventArgs e)// opent transver ticker form
         {
             if (LVTickets.SelectedItems.Count != 0)
             {
@@ -292,7 +274,7 @@ namespace GardenGroupUI
             }
         }
 
-        public void NoTicketSelected()
+        public void NoTicketSelected()// pop up selecteer
         {
             MessageBox.Show("No ticket selected, select a ticket", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);// laat de gebruiker weten dat het is mislukt
         }
@@ -301,7 +283,7 @@ namespace GardenGroupUI
         {
             if (LVTickets.SelectedItems.Count != 0)
             {
-                DialogResult dialogResult = MessageBox.Show("Are u sure that u want to delete this user", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);// laat de gebruiker weten dat het is mislukt
+                DialogResult dialogResult = MessageBox.Show("Are u sure that u want to delete this Ticket", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);// laat de gebruiker weten dat het is mislukt
                 if (dialogResult == DialogResult.Yes)
                 {
                     try
@@ -355,11 +337,7 @@ namespace GardenGroupUI
             GetLVData();
         }
 
-        private void Btn_Sort_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //jelle
         private void Rbtn_HightToLow_CheckedChanged(object sender, EventArgs e)
         {
             SetListvieuw();
@@ -371,5 +349,6 @@ namespace GardenGroupUI
             SetListvieuw();
             SortOnPriority();
         }
+        //jelle
     }
 }
