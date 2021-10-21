@@ -19,8 +19,35 @@ namespace DAL
 
         public List<Incident_Ticket> GetAllTickets()
         {
-            return ToInsident_Ticket(GetCollecction(CollectionName()));//haalt alle tickets op
+            return ToInsident_Ticket(GetCollection(CollectionName()));//haalt alle tickets op
         }
+        public List<Incident_Ticket> GetAllTicketsFiltered(string fieldname, string value)
+        {
+            return ToInsident_Ticket(GetCollectionFiltered(CollectionName(), fieldname, value));//haalt alle tickets op een filter
+        }
+
+        public List<Incident_Ticket> GetMaxId()
+        {
+            return ToInsident_Ticket(GetMax(CollectionName(), "Incident_Id"));//haalt alle tickets op
+        }
+        public void DelTicket(Incident_Ticket t)// delete ticket
+        {
+            Delete(CollectionName(), "_id" , t.objectId);
+        }
+        public void UpdateTicket(Incident_Ticket t, string updateField, string updateValue)// Update ticket
+        {
+            UpdateOne(CollectionName(), "_id", t.objectId, updateField, updateValue);
+        }
+
+        public List<Incident_Ticket> GetAllTicketsWithDeadline()/// deze methode is dubbel
+        {
+            return ToInsident_Ticket(GetCollection(CollectionName()));//haalt alle tickets op
+        }
+        public List<Incident_Ticket> GetAllTicketsWithStatusOpen()
+        {
+            return ToInsident_Ticket(GetCollectionFiltered(CollectionName(),"Status", "Open"));//haalt alle tickets op een filter
+        }
+
 
         public void InsertTicket(Incident_Ticket t)// insert een ticket
         {
@@ -29,12 +56,12 @@ namespace DAL
                 { "Incident_Id", t.id },
                 { "Date", t.reportDate },
                 { "Subject", t.subjectOfIncident },
-                { "Type", t.Incident_Type },
+                { "Type", t.Incident_Type.ToString() },
                 { "Reported_By", t.ReportedBy },
-                { "Priority", t.Incident_Priority },
+                { "Priority", t.Incident_Priority.ToString() },
                 { "Deadline", t.Deadline },
                 { "Description", t.Description },
-
+                { "Status", t.Status.ToString() },
             };
             Insert(CollectionName(), document);
         }
@@ -50,12 +77,12 @@ namespace DAL
                     id = (int)item["Incident_Id"],
                     reportDate = (DateTime)item["Date"],
                     subjectOfIncident = (string)item["Subject"],
-                    Incident_Type = (string)item["Type"],
+                    Incident_Type = (Incident_Type)Enum.Parse(typeof(Incident_Type), (string)item["Type"]),
                     ReportedBy = (string)item["Reported_By"],//later aan passen naar class user
-                    Incident_Priority = (string)item["Priority"],
+                    Incident_Priority = (Incident_Priority)Enum.Parse(typeof(Incident_Priority), (string)item["Priority"]),
                     Deadline = (DateTime)item["Deadline"],
-                    Description = (string)item["Description"]
-
+                    Description = (string)item["Description"],
+                    Status = (Incident_Status)Enum.Parse(typeof(Incident_Status), (string)item["Status"])
                 };
                 list.Add(ticket);
             }
