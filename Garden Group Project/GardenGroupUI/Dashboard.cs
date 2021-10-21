@@ -14,6 +14,7 @@ namespace GardenGroupUI
 {
     public partial class Dashboard : Form
     {
+        //Variables that im using in this form
         public int incidentOpenCount;
         public int incidentClosedCount;
         public int incidentcountpastdeadline;
@@ -22,6 +23,7 @@ namespace GardenGroupUI
         public List<Incident_Ticket> tickets;
         public List<Incident_Ticket> ticketsPastdeadline;
         public Incident_TickedLogic logic_Layer = new Incident_TickedLogic();
+        //constructor from the form
         public Dashboard()
         {
             InitializeComponent();
@@ -31,10 +33,11 @@ namespace GardenGroupUI
             PiechartUnresolved();
             PiechartPastDeadline();
         }
+        //Method for making the pie charts for the unresolved incidents
         public void PiechartUnresolved()
         {
             double[] values = { incidentClosedCount, incidentOpenCount };
-            Color color1 = Color.FromArgb(255, 0, 150, 200);
+            Color color1 = Color.FromArgb(120, 255, 0, 0);
             Color color2 = Color.FromArgb(100, 0, 150, 200);
             var pie = FormsPlot_Unresolved.Plot.AddPie(values);
             pie.DonutSize = .6;
@@ -45,6 +48,7 @@ namespace GardenGroupUI
             FormsPlot_Unresolved.Refresh();
             FormsPlot_Unresolved.Plot.SaveFig("pie_donutText.png");
         }
+        //method for making the pie chart for the incidents that are past the given deadline
         public void PiechartPastDeadline()
         {
             double[] values = { incidentcountpastdeadline, incidentcountOnTime };
@@ -59,6 +63,7 @@ namespace GardenGroupUI
             FormsPlot_PastDealdine.Refresh();
             FormsPlot_PastDealdine.Plot.SaveFig("pie_donutText.png");
         }
+        //Method for retrieving all the tickets with the status open
         public void OpenTickets()
         {
             incidentOpenCount = 0;
@@ -75,6 +80,7 @@ namespace GardenGroupUI
                 }
             }
         }
+        //method for counting all the tickets
         public void Alltickets()
         {
             tickets = logic_Layer.GetAllTickets();
@@ -83,6 +89,7 @@ namespace GardenGroupUI
                 incidentcount++;
             }
         }
+        //method for checking the deadline and counting the incidents that are past the given deadline
         public void Pastdeadline()
         {
             incidentcountpastdeadline = 0;
@@ -105,12 +112,22 @@ namespace GardenGroupUI
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
         }
-
-
         private void Btn_Incidents_Click_1(object sender, EventArgs e)
         {
             Incident_Management incident_Management = new Incident_Management();
             incident_Management.Show();
+            this.Close();
+        }
+        private void incidentManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Incident_Management incident_Management = new Incident_Management();
+            incident_Management.Show();
+            this.Close();
+        }
+        private void userManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            User_Management man = new User_Management();
+            man.ShowDialog();
             this.Close();
         }
     }

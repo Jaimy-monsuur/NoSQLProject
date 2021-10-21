@@ -99,13 +99,33 @@ namespace GardenGroupUI
                 LVTickets.Items.Add(li);
             }
         }
+        //**
+        //Extra funcionality Jelle
+        //**
+        protected void SortedinListview(List<Incident_Ticket> PrioLow)
+        {
+            foreach (Incident_Ticket item in PrioLow)
+            {
+                string[] collumnItems = new string[7];
+                collumnItems[0] = item.id.ToString();
+                collumnItems[1] = item.ReportedBy;
+                collumnItems[2] = item.subjectOfIncident;
+                collumnItems[3] = item.reportDate.ToShortDateString();
+                collumnItems[4] = item.Deadline.ToShortDateString();
+                collumnItems[5] = item.Incident_Priority.ToString();
+                collumnItems[6] = item.Status.ToString();
+                ListViewItem li = new ListViewItem(collumnItems);
+                li.Tag = item;// zodat je het object terug kan vinden
+                LVTickets.Items.Add(li);
+            }
+
+        }
         protected void SortOnPriority()
         {
             List<Incident_Ticket> list;
             List<Incident_Ticket> PrioLow = new List<Incident_Ticket>();
             List<Incident_Ticket> PrioMed = new List<Incident_Ticket>();
             List<Incident_Ticket> PrioHig = new List<Incident_Ticket>();
-            List<Incident_Ticket> SorrtedList = new List<Incident_Ticket>();
             if (checkBox1.Checked)
             {
                 list = logic_Layer.GetAllTicketsFiltered("Status", "Closed");
@@ -120,35 +140,32 @@ namespace GardenGroupUI
                 switch (item.Incident_Priority)
                 {
                     case Incident_Priority.Low:
-                        SorrtedList.Add(item);
+                        PrioLow.Add(item);
                         break;
                     case Incident_Priority.Medium:
-                        SorrtedList.Add(item);
+                        PrioMed.Add(item);
                         break;
                     case Incident_Priority.High:
-                        SorrtedList.Add(item);
+                        PrioHig.Add(item);
                         break;
                 }
             }
-           
-
-
-            foreach (Incident_Ticket item in list)
+            if (Rbtn_HightToLow.Checked == true)
             {
-                string[] collumnItems = new string[7];
-                collumnItems[0] = item.id.ToString();
-                collumnItems[1] = item.ReportedBy;
-                collumnItems[2] = item.subjectOfIncident;
-                collumnItems[3] = item.reportDate.ToShortDateString();
-                collumnItems[4] = item.Deadline.ToShortDateString();
-                collumnItems[5] = item.Incident_Priority.ToString();
-                collumnItems[6] = item.Status.ToString();
-                ListViewItem li = new ListViewItem(collumnItems);
-                li.Tag = item;// zodat je het object terug kan vinden
-                LVTickets.Items.Add(li);
+                SortedinListview(PrioHig);
+                SortedinListview(PrioMed);
+                SortedinListview(PrioLow);
+            }
+            else if (Rbtn_LowToHigh.Checked == true)
+            {
+                SortedinListview(PrioLow);
+                SortedinListview(PrioMed);
+                SortedinListview(PrioHig);
             }
         }
-
+        //**
+        //End Extra funcionality Jelle
+        //*
         //for the defoult text in a text box
         protected void TBXfilter_SetText()
         {
@@ -337,6 +354,18 @@ namespace GardenGroupUI
         private void Btn_Sort_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Rbtn_HightToLow_CheckedChanged(object sender, EventArgs e)
+        {
+            SetListvieuw();
+            SortOnPriority();
+        }
+
+        private void Rbtn_LowToHigh_CheckedChanged(object sender, EventArgs e)
+        {
+            SetListvieuw();
+            SortOnPriority();
         }
     }
 }

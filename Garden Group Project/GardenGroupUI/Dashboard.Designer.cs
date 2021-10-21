@@ -257,6 +257,7 @@ namespace GardenGroupUI
             this.incidentManagementToolStripMenuItem.Name = "incidentManagementToolStripMenuItem";
             this.incidentManagementToolStripMenuItem.Size = new System.Drawing.Size(177, 24);
             this.incidentManagementToolStripMenuItem.Text = "Incident management";
+            this.incidentManagementToolStripMenuItem.Click += new System.EventHandler(this.incidentManagementToolStripMenuItem_Click);
             // 
             // userManagementToolStripMenuItem
             // 
@@ -264,6 +265,7 @@ namespace GardenGroupUI
             this.userManagementToolStripMenuItem.Name = "userManagementToolStripMenuItem";
             this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.userManagementToolStripMenuItem.Text = "User management";
+            this.userManagementToolStripMenuItem.Click += new System.EventHandler(this.userManagementToolStripMenuItem_Click);
             // 
             // Dashboard
             // 
