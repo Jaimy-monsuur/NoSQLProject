@@ -11,6 +11,7 @@ using System.Configuration;
 using System.Web;
 using Model;
 using Logic_Layer;
+using System.ComponentModel.DataAnnotations;
 
 namespace GardenGroupUI
 {
@@ -36,20 +37,34 @@ namespace GardenGroupUI
 
         //Sluit het form en laat het login form zien
         private void btnBackToLogin_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmLogin frmLogin = new frmLogin(txtEmail.Text);
-            frmLogin.Show();
-        }
+        {                        
+            //alle forms behalve de log in form sluiten.
+            List<Form> activeForms = new List<Form>();
+            foreach (Form item in Application.OpenForms)
+            {
+                activeForms.Add(item);
+            }
 
+            foreach (Form f in activeForms)
+            {
+                if (f.Name != "frmLogin")
+                {
+                    f.Close();
+                }
+                else
+                {
+                    f.Show();
+                }
+            }
+        }        
         private void btnSendEmail_Click(object sender, EventArgs e)
-        {
+        {            
             //Kijk of het emailadres in de database staat
-            if (user_logic.VerifyEmail(txtEmail.Text) == true)
+            if (user_logic.VerifyEmail(txtEmail.Text) == true && IsValidEmail(txtEmail.Text) == true)
             {
                 //Maak een code en stuur een email met deze code
                 GenerateCode();
-                SendEmail(txtEmail.Text, "Uw code om uw verzoek tot een nieuw wachtwoord te voltooien", $"Beste NoDesk gebruiker,\n\nHierbij de code voor het wijzigen van uw wachtwoord: {code}\n\nHet NoDesk team");
+                SendEmail(txtEmail.Text, "Complete your request for a new password", $"Dear NoDesk user,\n\nThe following code can be used in the NoDesk application to generate a new password for your account: {code}\n\nThe NoDesk team");
 
                 //Laat de volgdende stap zien
                 grbxVerification.Show();
@@ -61,6 +76,11 @@ namespace GardenGroupUI
                 lblNonExistingEmail.Show();                    
             }
         }
+        public bool IsValidEmail(string email)
+        {
+            return new EmailAddressAttribute().IsValid(email);
+        }
+
         private void btnTryCode_Click(object sender, EventArgs e)
         {            
             //Kijk of de ingevulde code hetzelfde is als de code die het programma heeft gegenereerd
@@ -75,23 +95,23 @@ namespace GardenGroupUI
                 user_logic.UpdatePassword(txtEmail.Text, newPassword);
                 lblNewPassword.Text = newPassword;
                 grbxNewPW.Show();
-                new ToolTip().SetToolTip(lblNewPassword, "Klik op het wachtwoord om het te kopiëren");               
+                new ToolTip().SetToolTip(lblNewPassword, "Click on the password to copy it to your clipboard");               
             }
             else
             {
                 //Maak de textbox voor de code leeg en voeg een verkeerde poging toe
                 txtCode.Text = "";
                 wrongTries++;
-
+                txtCode.PlaceholderText = "Wrong code";
                 //Kijk of het aantal verkeerde pogingen 3 is
                 if (wrongTries == 3)
                 {
                     //Maak een nieuwe code en stuur een nieuwe mail (om oneindig de code gokken te voorkomen)
                     GenerateCode();
                     lblWrongCode.Show();
-                    SendEmail(txtEmail.Text, "Een nieuwe code, speciaal voor u!", $"Beste NoDesk gebruiker,\n\nHierbij de nieuwe code voor het wijzigen van uw wachtwoord: {code}\n" +
-                        $"U krijgt deze nieuwe code omdat u 3x de verkeerde code heeft ingevoerd tijdens uw verzoek voor een nieuw wachtwoord." +
-                        $"\nDe oude code komt hierbij dus te vervallen.\n\nHet NoDesk team");
+                    SendEmail(txtEmail.Text, "A new code, specially for you!", $"Dear NoDesk user,\n\nThe following code can be used in the NoDesk application to generate a new password for your account: {code}\n" +
+                        $"You recieved this email because the wrong code had been entered three times while requesting a new password." +
+                        $"\nThe old code is now unusable.\n\nThe NoDesk team");
 
                     //Zet wrongtries weer op 0
                     wrongTries = 0;
@@ -141,10 +161,25 @@ namespace GardenGroupUI
         private void lblNewPassword_Click(object sender, EventArgs e)
         {
             //Kopieer het wachtwoord en ga terug naar de login pagina
-            Clipboard.SetText(lblNewPassword.Text);
-            this.Hide();
-            frmLogin frmLogin = new frmLogin(txtEmail.Text);
-            frmLogin.Show();
+            Clipboard.SetText(lblNewPassword.Text);            
+            //alle forms behalve de log in form sluiten.
+            List<Form> activeForms = new List<Form>();
+            foreach (Form item in Application.OpenForms)
+            {
+                activeForms.Add(item);
+            }
+
+            foreach (Form f in activeForms)
+            {
+                if (f.Name != "frmLogin")
+                {
+                    f.Close();
+                }
+                else
+                {
+                    f.Show();
+                }
+            }
         }
     }
 }
