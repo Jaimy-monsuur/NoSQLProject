@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Model;
+using Logic_Layer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ namespace GardenGroupUI
         public int incidentcount;
         public List<Incident_Ticket> tickets;
         public List<Incident_Ticket> ticketsPastdeadline;
+        public Incident_TickedLogic logic_Layer = new Incident_TickedLogic();
         public Dashboard()
         {
             InitializeComponent();
