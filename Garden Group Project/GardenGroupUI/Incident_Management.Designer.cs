@@ -29,9 +29,9 @@ namespace GardenGroupUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PNLmain = new System.Windows.Forms.Panel();
             this.Btn_logOut = new System.Windows.Forms.Button();
             this.LBLnodesk = new System.Windows.Forms.Label();
@@ -42,7 +42,6 @@ namespace GardenGroupUI
             this.incidentManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LblTicket = new System.Windows.Forms.Label();
-            this.TBXfilter = new System.Windows.Forms.TextBox();
             this.BTNaddTicket = new System.Windows.Forms.Button();
             this.LVTickets = new System.Windows.Forms.ListView();
             this.Id = new System.Windows.Forms.ColumnHeader();
@@ -54,6 +53,10 @@ namespace GardenGroupUI
             this.BTN_RemoveTicket = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.LBL_status = new System.Windows.Forms.Label();
+            this.BTNupdate = new System.Windows.Forms.Button();
+            this.Btn_Sort = new System.Windows.Forms.Button();
+            this.Rbtn_LowToHigh = new System.Windows.Forms.RadioButton();
+            this.Rbtn_HightToLow = new System.Windows.Forms.RadioButton();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
             this.Menu.SuspendLayout();
@@ -117,10 +120,12 @@ namespace GardenGroupUI
             // PBOX
             // 
             this.PBOX.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PBOX.Image = global::GardenGroupUI.Properties.Resources.GardenGourp;
             this.PBOX.Location = new System.Drawing.Point(10, 9);
             this.PBOX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PBOX.Name = "PBOX";
             this.PBOX.Size = new System.Drawing.Size(162, 72);
+            this.PBOX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PBOX.TabIndex = 0;
             this.PBOX.TabStop = false;
             // 
@@ -176,17 +181,6 @@ namespace GardenGroupUI
             this.LblTicket.TabIndex = 2;
             this.LblTicket.Text = "Overview tickets";
             // 
-            // TBXfilter
-            // 
-            this.TBXfilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBXfilter.Location = new System.Drawing.Point(41, 164);
-            this.TBXfilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TBXfilter.Name = "TBXfilter";
-            this.TBXfilter.Size = new System.Drawing.Size(286, 23);
-            this.TBXfilter.TabIndex = 3;
-            this.TBXfilter.TabStop = false;
-            // 
             // BTNaddTicket
             // 
             this.BTNaddTicket.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -228,31 +222,31 @@ namespace GardenGroupUI
             this.DGV_Selected.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGV_Selected.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGV_Selected.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Selected.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Selected.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DGV_Selected.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Selected.Location = new System.Drawing.Point(934, 228);
             this.DGV_Selected.Name = "DGV_Selected";
             this.DGV_Selected.ReadOnly = true;
             this.DGV_Selected.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Selected.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Selected.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DGV_Selected.RowHeadersVisible = false;
             this.DGV_Selected.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.DGV_Selected.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.DGV_Selected.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.DGV_Selected.RowTemplate.Height = 25;
             this.DGV_Selected.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DGV_Selected.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -329,12 +323,67 @@ namespace GardenGroupUI
             this.LBL_status.TabIndex = 12;
             this.LBL_status.Text = "Open tickets";
             // 
+            // BTNupdate
+            // 
+            this.BTNupdate.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.BTNupdate.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BTNupdate.Location = new System.Drawing.Point(708, 628);
+            this.BTNupdate.Name = "BTNupdate";
+            this.BTNupdate.Size = new System.Drawing.Size(150, 27);
+            this.BTNupdate.TabIndex = 13;
+            this.BTNupdate.Text = "Update";
+            this.BTNupdate.UseVisualStyleBackColor = false;
+            this.BTNupdate.Click += new System.EventHandler(this.BTNupdate_Click);
+            // 
+            // Btn_Sort
+            // 
+            this.Btn_Sort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Sort.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.Btn_Sort.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_Sort.Location = new System.Drawing.Point(708, 164);
+            this.Btn_Sort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Sort.Name = "Btn_Sort";
+            this.Btn_Sort.Size = new System.Drawing.Size(150, 27);
+            this.Btn_Sort.TabIndex = 14;
+            this.Btn_Sort.Text = "Sort on Priority";
+            this.Btn_Sort.UseVisualStyleBackColor = false;
+            this.Btn_Sort.Click += new System.EventHandler(this.Btn_Sort_Click);
+            // 
+            // Rbtn_LowToHigh
+            // 
+            this.Rbtn_LowToHigh.AutoSize = true;
+            this.Rbtn_LowToHigh.Location = new System.Drawing.Point(576, 171);
+            this.Rbtn_LowToHigh.Name = "Rbtn_LowToHigh";
+            this.Rbtn_LowToHigh.Size = new System.Drawing.Size(91, 19);
+            this.Rbtn_LowToHigh.TabIndex = 15;
+            this.Rbtn_LowToHigh.TabStop = true;
+            this.Rbtn_LowToHigh.Text = "Low To High";
+            this.Rbtn_LowToHigh.UseVisualStyleBackColor = true;
+            this.Rbtn_LowToHigh.CheckedChanged += new System.EventHandler(this.Rbtn_LowToHigh_CheckedChanged);
+            // 
+            // Rbtn_HightToLow
+            // 
+            this.Rbtn_HightToLow.AutoSize = true;
+            this.Rbtn_HightToLow.Location = new System.Drawing.Point(476, 172);
+            this.Rbtn_HightToLow.Name = "Rbtn_HightToLow";
+            this.Rbtn_HightToLow.Size = new System.Drawing.Size(91, 19);
+            this.Rbtn_HightToLow.TabIndex = 16;
+            this.Rbtn_HightToLow.TabStop = true;
+            this.Rbtn_HightToLow.Text = "High To Low";
+            this.Rbtn_HightToLow.UseVisualStyleBackColor = true;
+            this.Rbtn_HightToLow.CheckedChanged += new System.EventHandler(this.Rbtn_HightToLow_CheckedChanged);
+            // 
             // Incident_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.Rbtn_HightToLow);
+            this.Controls.Add(this.Rbtn_LowToHigh);
+            this.Controls.Add(this.Btn_Sort);
+            this.Controls.Add(this.BTNupdate);
             this.Controls.Add(this.LBL_status);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.BTN_RemoveTicket);
@@ -344,7 +393,6 @@ namespace GardenGroupUI
             this.Controls.Add(this.DGV_Selected);
             this.Controls.Add(this.LVTickets);
             this.Controls.Add(this.BTNaddTicket);
-            this.Controls.Add(this.TBXfilter);
             this.Controls.Add(this.LblTicket);
             this.Controls.Add(this.PNLmain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -376,7 +424,6 @@ namespace GardenGroupUI
         private System.Windows.Forms.Label LBLLicense;
         private System.Windows.Forms.Label LBLnodesk;
         private System.Windows.Forms.Label LblTicket;
-        private System.Windows.Forms.TextBox TBXfilter;
         private System.Windows.Forms.Button BTNaddTicket;
         private System.Windows.Forms.ListView LVTickets;
         private System.Windows.Forms.ColumnHeader Id;
@@ -389,5 +436,9 @@ namespace GardenGroupUI
         private System.Windows.Forms.Button BTN_RemoveTicket;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label LBL_status;
+        private System.Windows.Forms.Button BTNupdate;
+        private System.Windows.Forms.Button Btn_Sort;
+        private System.Windows.Forms.RadioButton Rbtn_LowToHigh;
+        private System.Windows.Forms.RadioButton Rbtn_HightToLow;
     }
 }

@@ -12,7 +12,7 @@ namespace DAL
 {
     public class UserDAL : Base
     {
-        private string CollectionName()
+        private string CollectionName() // geeft de collection name door voor verbinding met de database
         {
             return "Users";
         }
@@ -24,7 +24,6 @@ namespace DAL
 
         public void InsertUser(User user)
         {
-
             byte[] encodedPasswordArray = new byte[user.password.Length]; // encrypt het password
             encodedPasswordArray = Encoding.UTF8.GetBytes(user.password);
             BsonDocument document = new BsonDocument()
@@ -41,7 +40,7 @@ namespace DAL
             Insert(CollectionName(), document);
         }
 
-        private List<User> BsonToUser(List<BsonDocument> bsonDocuments)
+        private List<User> BsonToUser(List<BsonDocument> bsonDocuments) // zet alle bson bestanden om naar user objecten
         {
             List<User> users = new List<User>();
 
@@ -53,7 +52,7 @@ namespace DAL
                     userId = (int)bson["User_Id"],
                     firstName = (string)bson["First_Name"],
                     lastName = (string)bson["Last_Name"],
-                    userType = (User_Type)Enum.Parse(typeof(User_Type), (string)bson["User_Type"], true),
+                    userType = (User_Type)Enum.Parse(typeof(User_Type), (string)bson["User_Type"], true), // zet de string in de database om naar de User_Type enum
                     emailAddress = (string)bson["Email_Address"],
                     phoneNumber = (string)bson["Phone_Number"],
                     location = (string)bson["Location"],
@@ -72,7 +71,7 @@ namespace DAL
 
         public List<User> GetUser(string email)
         {
-            return BsonToUser(GetCollectionFiltered(CollectionName(), "Email_Address", email)); //haalt users op een filter
+            return BsonToUser(GetCollectionFiltered(CollectionName(), "Email_Address", email)); //haalt users op met een filter
         }
 
         public bool VerifyEmail(string email)

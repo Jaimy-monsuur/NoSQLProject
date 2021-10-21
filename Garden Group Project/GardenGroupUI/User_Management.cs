@@ -29,29 +29,29 @@ namespace GardenGroupUI
             ControlPaint.DrawBorder(e.Graphics, Menu.ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
         }
 
-        protected void SetListview()
+        protected void SetListview() // maakt lijnen aan in de listview, dus maakt de listview klaar om data toe te voegen
         {
             // Maak grid
-            LVTickets.Clear();
-            LVTickets.View = View.Details;
-            LVTickets.GridLines = true;
-            LVTickets.FullRowSelect = true;
+            LVUsers.Clear();
+            LVUsers.View = View.Details;
+            LVUsers.GridLines = true;
+            LVUsers.FullRowSelect = true;
 
             // Voeg column header toe
-            LVTickets.Columns.Add("Id:", 100);
-            LVTickets.Columns.Add("User id:", 50);
-            LVTickets.Columns.Add("First name:", 100);
-            LVTickets.Columns.Add("Last name:", 100);
-            LVTickets.Columns.Add("User type:", 100);
-            LVTickets.Columns.Add("Email-address:", 100);
-            LVTickets.Columns.Add("Phone number:", 100);
-            LVTickets.Columns.Add("Location:", 100);
+            LVUsers.Columns.Add("Id:", 100);
+            LVUsers.Columns.Add("User id:", 50);
+            LVUsers.Columns.Add("First name:", 100);
+            LVUsers.Columns.Add("Last name:", 100);
+            LVUsers.Columns.Add("User type:", 100);
+            LVUsers.Columns.Add("Email-address:", 100);
+            LVUsers.Columns.Add("Phone number:", 100);
+            LVUsers.Columns.Add("Location:", 100);
         }
 
         protected void GetLVData()
         {
-            List<User> list = userLogic.GetAllUsers();
-            foreach (User user in list)
+            List<User> list = userLogic.GetAllUsers(); // haalt de lijst met alle users op uit de db
+            foreach (User user in list) 
             {
                 string[] collumnItems = new string[8];
                 collumnItems[0] = user.objectId.ToString();
@@ -64,7 +64,7 @@ namespace GardenGroupUI
                 collumnItems[7] = user.location;
                 ListViewItem li = new ListViewItem(collumnItems);
                 li.Tag = user; // je kan het object terug kan vinden
-                LVTickets.Items.Add(li);
+                LVUsers.Items.Add(li);
             }
         }
 
@@ -81,28 +81,31 @@ namespace GardenGroupUI
 
         private void BTNAddUser_Click_1(object sender, EventArgs e)
         {
-            Create_User createUser = new Create_User();
+            Create_User createUser = new Create_User(); // opent add user scherm
             this.Hide();
             createUser.ShowDialog();
+            SetListview();
+            GetLVData();
             this.Show();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Dashboard dashboard = new Dashboard();
-            dashboard.Show(); // show of show dialog?????
+            dashboard.Show();
             this.Close();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             Incident_Management incident_Management = new Incident_Management();
-            incident_Management.Show(); // show of show dialog?????
+            incident_Management.Show();
             this.Close();
         }
 
-        private void BTN_Update_Click(object sender, EventArgs e)
+        private void BTN_Update_Click(object sender, EventArgs e)  // update de listview
         {
+            SetListview(); 
             GetLVData();
         }
 

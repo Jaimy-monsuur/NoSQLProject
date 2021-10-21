@@ -21,19 +21,35 @@ namespace GardenGroupUI
             InitializeComponent();
             this.MaximizeBox = false;
             selectedTicket = ticket;
-            SetListview();
             LBL_Selected.Text = selectedTicket.ReportedBy;
+            SetListview();
         }
 
         private void SetListview()
         {
-            DGV_SelectedTicket.Rows.Clear();
-            DGV_SelectedTicket.Rows.Add("ID: ", selectedTicket.id);
-            DGV_SelectedTicket.Rows.Add("Subject: ", selectedTicket.subjectOfIncident);
-            DGV_SelectedTicket.Rows.Add("Priority: ", selectedTicket.Incident_Priority);
-            DGV_SelectedTicket.Rows.Add("Status: ", selectedTicket.Status);
-            DGV_SelectedTicket.Rows.Add("Report date: ", selectedTicket.reportDate.ToShortDateString());
-            DGV_SelectedTicket.Rows.Add("Deadline: ", selectedTicket.Deadline.ToShortDateString());
+            // Maak grid
+            LV_SelectedTicket.Clear();
+            LV_SelectedTicket.View = View.Details;
+            LV_SelectedTicket.GridLines = true;
+            LV_SelectedTicket.FullRowSelect = true;
+
+            // Voeg column header toe
+            LV_SelectedTicket.Columns.Add("Id:", 50);
+            LV_SelectedTicket.Columns.Add("Subject:", 200);
+            LV_SelectedTicket.Columns.Add("Report date:", 110);
+            LV_SelectedTicket.Columns.Add("Deadline:", 100);
+            LV_SelectedTicket.Columns.Add("Priority:", 70);
+            LV_SelectedTicket.Columns.Add("Status:", 70);
+
+            string[] collumnItems = new string[6]; // zet de geselecteerde ticket in de listview
+            collumnItems[0] = selectedTicket.id.ToString();
+            collumnItems[1] = selectedTicket.subjectOfIncident;
+            collumnItems[2] = selectedTicket.reportDate.ToShortDateString();
+            collumnItems[3] = selectedTicket.Deadline.ToShortDateString();
+            collumnItems[4] = selectedTicket.Incident_Priority.ToString();
+            collumnItems[5] = selectedTicket.Status.ToString();
+            ListViewItem li = new ListViewItem(collumnItems);
+            LV_SelectedTicket.Items.Add(li);
         }
 
         private void Create_Ticket_Load(object sender, EventArgs e)
@@ -43,7 +59,7 @@ namespace GardenGroupUI
 
         public void ComboBoxSetting()
         {
-            List<User> users = userLogic.GetAllUsers();
+            List<User> users = userLogic.GetAllUsers(); // zet alle users behalve de user waarvan de ticket is in de combobox
             foreach (User user in users)
             {
                 if (user.emailAddress != selectedTicket.ReportedBy)
@@ -69,7 +85,7 @@ namespace GardenGroupUI
             if (CB_TransferTo.Text != "")
             {
                 selectedTicket.ReportedBy = CB_TransferTo.Text;
-                MessageBox.Show("Ticket succesfully transfered", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ticket succesfully transfered", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information); // geeft confirmation als het getransfered is
                 string updateField = "Reported_By";
                 string updateValue = $"{selectedTicket.ReportedBy}";
                 incidentLogic.Update(selectedTicket, updateField, updateValue);
@@ -77,7 +93,7 @@ namespace GardenGroupUI
             }
             else
             {
-                MessageBox.Show("No user selected, select a user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No user selected, select a user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); // geeft error popup als het mislukt is
             }          
         }
     }
