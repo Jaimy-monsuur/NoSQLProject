@@ -20,7 +20,7 @@ namespace GardenGroupUI
         public Create_Ticket()
         {
             InitializeComponent();
-            this.MaximizeBox = false;
+            this.MaximizeBox = false;// Size staat vast
         }
 
         private void Create_Ticket_Load(object sender, EventArgs e)
@@ -31,19 +31,19 @@ namespace GardenGroupUI
             DTP_ReportDate.MaxDate = DateTime.Now;
             ComboBoxSetting();
         }
-        public void GetLatestTicket()
+        public void GetLatestTicket()// haalt ticket met hoogste id
         {
             try
             { 
                 latest_Ticket = incident_TickedLogic.GetMaxId()[0];
             }
-            catch (System.ArgumentOutOfRangeException)
+            catch (System.ArgumentOutOfRangeException)// als er geen tickets zijn gebruikt hij 0
             {
                 latest_Ticket = new Incident_Ticket();
                 latest_Ticket.id = 0;
             }
         }
-        private void BTN_add_Click(object sender, EventArgs e)
+        private void BTN_add_Click(object sender, EventArgs e)// voegt ticket toe
         {
             if (DTP_ReportDate.Text != "" && TXB_Subject.Text != "" && CB_incidentType.Text != "" && CB_ReportedBy.Text != "" && CB_Priority.Text != "" && DTP_Deadline.Text != "" && RTB_Description.Text != "")
             {
@@ -79,11 +79,12 @@ namespace GardenGroupUI
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)// dit is het zwarte randje langs de rich textbox want die heeft geen border
         {
             ControlPaint.DrawBorder(e.Graphics, panel1.ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
         }
-        public void ComboBoxSetting()
+
+        public void ComboBoxSetting()// vult de comboboxes
         {
             foreach (var item in Incident_Type.GetValues(typeof(Incident_Type)))
             {
@@ -102,12 +103,12 @@ namespace GardenGroupUI
             }
         }
 
-        private void BTN_cancel_Click(object sender, EventArgs e)
+        private void BTN_cancel_Click(object sender, EventArgs e)// sluit het form
         {
             this.Close();
         }
 
-        private void Btn_logOut_Click(object sender, EventArgs e)
+        private void Btn_logOut_Click(object sender, EventArgs e)// logt uit
         {
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();

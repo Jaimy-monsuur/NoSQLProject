@@ -12,8 +12,8 @@ namespace GardenGroupUI
 {
     public partial class Update_Ticket : Form
     {
-        Incident_Ticket selectedTicket;
-        Incident_TickedLogic incident_TickedLogic = new Incident_TickedLogic();
+        Incident_Ticket selectedTicket;// het geselecteerde ticket die hij mee krijgt via constructor
+        Incident_TickedLogic incident_TickedLogic = new Incident_TickedLogic();// de logic layer
 
         public Update_Ticket(Incident_Ticket ticket)
         {
@@ -36,7 +36,7 @@ namespace GardenGroupUI
             TXB_Subject.Text = selectedTicket.subjectOfIncident;
             RTB_Description.Text = selectedTicket.Description;
         }
-        public void UserSettings()
+        public void UserSettings()// set de user permissions
         {
             if (Program.loggedInUser.userType == User_Type.Employee)
             {
@@ -44,7 +44,7 @@ namespace GardenGroupUI
                 GB_Escalate.Hide();
             }
         }
-        public void DataGridViewSetings()
+        public void DataGridViewSetings()//maakt de data grid
         {
             DGV_Selected.ColumnCount = 2;
             DGV_Selected.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -67,12 +67,12 @@ namespace GardenGroupUI
             DGV_Selected.Rows.Add("Deadline: ", selectedTicket.Deadline.ToShortDateString());
         }
 
-        private void BTN_cancel_Click(object sender, EventArgs e)
+        private void BTN_cancel_Click(object sender, EventArgs e)// sluit form
         {
             this.Close();
         }
 
-        private void Btn_logOut_Click(object sender, EventArgs e)
+        private void Btn_logOut_Click(object sender, EventArgs e)//logt uit
         {
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
@@ -92,7 +92,7 @@ namespace GardenGroupUI
             }
         }
 
-        private void BTN_Escalate_Click(object sender, EventArgs e)
+        private void BTN_Escalate_Click(object sender, EventArgs e)// escalate ticket
         {
             if (CB_Priority.Text != "")
             {
@@ -117,7 +117,7 @@ namespace GardenGroupUI
             }
         }
 
-        private void BTN_Close_Click(object sender, EventArgs e)
+        private void BTN_Close_Click(object sender, EventArgs e)// veranders status van ticket naar Closed
         {
             string Message;
             if (selectedTicket.Status == Incident_Status.Closed)
@@ -128,7 +128,7 @@ namespace GardenGroupUI
             {
                 Message = "Are u sure that u want to Close this Ticket";
             }
-            DialogResult dialogResult = MessageBox.Show(Message, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);// laat de gebruiker weten dat het is mislukt
+            DialogResult dialogResult = MessageBox.Show(Message, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);// vraag om bevestiging
             if (dialogResult == DialogResult.Yes)
             {
                 try
@@ -155,12 +155,12 @@ namespace GardenGroupUI
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)//de border van de rich textbox want die heeft er geen
         {
             ControlPaint.DrawBorder(e.Graphics, panel1.ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
         }
 
-        private void BTN_Update_Click(object sender, EventArgs e)
+        private void BTN_Update_Click(object sender, EventArgs e)// update de beschrijving van de ticket
         {
             if (TXB_Subject.Text != "" && RTB_Description.Text != "" && CB_incidentType.Text != "")
             {
