@@ -220,6 +220,8 @@ namespace GardenGroupUI
             // PBOX
             // 
             this.PBOX.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PBOX.BackgroundImage = global::GardenGroupUI.Properties.Resources.GardenGourp;
+            this.PBOX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PBOX.Location = new System.Drawing.Point(10, 9);
             this.PBOX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PBOX.Name = "PBOX";

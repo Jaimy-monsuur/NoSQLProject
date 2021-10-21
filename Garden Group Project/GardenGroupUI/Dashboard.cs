@@ -27,11 +27,20 @@ namespace GardenGroupUI
         public Dashboard()
         {
             InitializeComponent();
+            Uservisability();
             Alltickets();
             OpenTickets();
             Pastdeadline();
             PiechartUnresolved();
             PiechartPastDeadline();
+        }
+        //method for making sure the employee cant access the user management form
+        public void Uservisability()
+        {
+            if (Program.loggedInUser.userType == User_Type.Employee)
+            {
+                userManagementToolStripMenuItem.Visible = false;
+            }
         }
         //Method for making the pie charts for the unresolved incidents
         public void PiechartUnresolved()

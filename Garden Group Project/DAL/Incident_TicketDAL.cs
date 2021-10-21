@@ -39,7 +39,7 @@ namespace DAL
             UpdateOne(CollectionName(), "_id", t.objectId, updateField, updateValue);
         }
 
-        public List<Incident_Ticket> GetAllTicketsWithDeadline()/// deze methode is dubbel
+        public List<Incident_Ticket> GetAllTicketsWithDeadline()
         {
             return ToInsident_Ticket(GetCollection(CollectionName()));//haalt alle tickets op
         }

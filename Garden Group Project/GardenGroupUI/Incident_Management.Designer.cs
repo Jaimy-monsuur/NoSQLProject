@@ -337,7 +337,7 @@ namespace GardenGroupUI
             // Rbtn_LowToHigh
             // 
             this.Rbtn_LowToHigh.AutoSize = true;
-            this.Rbtn_LowToHigh.Location = new System.Drawing.Point(576, 171);
+            this.Rbtn_LowToHigh.Location = new System.Drawing.Point(767, 169);
             this.Rbtn_LowToHigh.Name = "Rbtn_LowToHigh";
             this.Rbtn_LowToHigh.Size = new System.Drawing.Size(91, 19);
             this.Rbtn_LowToHigh.TabIndex = 15;
@@ -349,7 +349,7 @@ namespace GardenGroupUI
             // Rbtn_HightToLow
             // 
             this.Rbtn_HightToLow.AutoSize = true;
-            this.Rbtn_HightToLow.Location = new System.Drawing.Point(476, 172);
+            this.Rbtn_HightToLow.Location = new System.Drawing.Point(670, 169);
             this.Rbtn_HightToLow.Name = "Rbtn_HightToLow";
             this.Rbtn_HightToLow.Size = new System.Drawing.Size(91, 19);
             this.Rbtn_HightToLow.TabIndex = 16;
