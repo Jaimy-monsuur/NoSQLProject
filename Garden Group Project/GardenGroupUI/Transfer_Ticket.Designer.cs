@@ -220,11 +220,13 @@ namespace GardenGroupUI
             // PBOX
             // 
             this.PBOX.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PBOX.Image = global::GardenGroupUI.Properties.Resources.GardenGourp;
             this.PBOX.InitialImage = null;
             this.PBOX.Location = new System.Drawing.Point(10, 11);
             this.PBOX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PBOX.Name = "PBOX";
             this.PBOX.Size = new System.Drawing.Size(200, 79);
+            this.PBOX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PBOX.TabIndex = 0;
             this.PBOX.TabStop = false;
             // 

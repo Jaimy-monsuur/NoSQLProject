@@ -163,6 +163,7 @@ namespace GardenGroupUI
             this.Controls.Add(this.LBLLicense);
             this.Controls.Add(this.LBLnodesk);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NoDesk Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);

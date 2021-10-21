@@ -280,6 +280,7 @@ namespace GardenGroupUI
             this.Controls.Add(this.Pnl_IncidentenOverDatum);
             this.Controls.Add(this.Pnl_Openstaandeincidenten);
             this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Pnl_Openstaandeincidenten.ResumeLayout(false);
             this.Pnl_Openstaandeincidenten.PerformLayout();

@@ -202,7 +202,7 @@ namespace GardenGroupUI
         private void userManagementToolStripMenuItem_Click(object sender, EventArgs e)// opent usermanagement
         {
             User_Management man = new User_Management();
-            man.ShowDialog();
+            man.Show();
             this.Close();
         }
 
