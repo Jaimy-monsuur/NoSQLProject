@@ -105,6 +105,7 @@ namespace GardenGroupUI
             List<Incident_Ticket> PrioLow = new List<Incident_Ticket>();
             List<Incident_Ticket> PrioMed = new List<Incident_Ticket>();
             List<Incident_Ticket> PrioHig = new List<Incident_Ticket>();
+            List<Incident_Ticket> SorrtedList = new List<Incident_Ticket>();
             if (checkBox1.Checked)
             {
                 list = logic_Layer.GetAllTicketsFiltered("Status", "Closed");
@@ -119,16 +120,17 @@ namespace GardenGroupUI
                 switch (item.Incident_Priority)
                 {
                     case Incident_Priority.Low:
-                        PrioLow.Add(item);
+                        SorrtedList.Add(item);
                         break;
                     case Incident_Priority.Medium:
-                        PrioMed.Add(item);
+                        SorrtedList.Add(item);
                         break;
                     case Incident_Priority.High:
-                        PrioHig.Add(item);
+                        SorrtedList.Add(item);
                         break;
                 }
             }
+           
 
 
             foreach (Incident_Ticket item in list)
