@@ -55,6 +55,7 @@ namespace GardenGroupUI
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.LBL_status = new System.Windows.Forms.Label();
             this.BTNupdate = new System.Windows.Forms.Button();
+            this.Btn_Sort = new System.Windows.Forms.Button();
             this.PNLmain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBOX)).BeginInit();
             this.Menu.SuspendLayout();
@@ -342,12 +343,28 @@ namespace GardenGroupUI
             this.BTNupdate.UseVisualStyleBackColor = false;
             this.BTNupdate.Click += new System.EventHandler(this.BTNupdate_Click);
             // 
+            // Btn_Sort
+            // 
+            this.Btn_Sort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Sort.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.Btn_Sort.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_Sort.Location = new System.Drawing.Point(708, 164);
+            this.Btn_Sort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Sort.Name = "Btn_Sort";
+            this.Btn_Sort.Size = new System.Drawing.Size(150, 27);
+            this.Btn_Sort.TabIndex = 14;
+            this.Btn_Sort.Text = "Sort on Priority";
+            this.Btn_Sort.UseVisualStyleBackColor = false;
+            this.Btn_Sort.Click += new System.EventHandler(this.Btn_Sort_Click);
+            // 
             // Incident_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.Btn_Sort);
             this.Controls.Add(this.BTNupdate);
             this.Controls.Add(this.LBL_status);
             this.Controls.Add(this.checkBox1);
@@ -404,5 +421,6 @@ namespace GardenGroupUI
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label LBL_status;
         private System.Windows.Forms.Button BTNupdate;
+        private System.Windows.Forms.Button Btn_Sort;
     }
 }

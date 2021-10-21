@@ -62,8 +62,7 @@ namespace GardenGroupUI
         public void OpenTickets()
         {
             incidentOpenCount = 0;
-            Incident_TicketDAL insident_TicketDAL = new Incident_TicketDAL();
-            tickets = insident_TicketDAL.GetAllTicketsWithStatusOpen();
+            tickets = logic_Layer.GetOpenTickets();
             foreach (Incident_Ticket item in tickets)
             {
                 if (item.Status == Incident_Status.Open)
@@ -78,8 +77,7 @@ namespace GardenGroupUI
         }
         public void Alltickets()
         {
-            Incident_TicketDAL insident_TicketDAL = new Incident_TicketDAL();
-            tickets = insident_TicketDAL.GetAllTickets();
+            tickets = logic_Layer.GetAllTickets();
             foreach (Incident_Ticket item in tickets)
             {
                 incidentcount++;
@@ -88,8 +86,7 @@ namespace GardenGroupUI
         public void Pastdeadline()
         {
             incidentcountpastdeadline = 0;
-            Incident_TicketDAL insident_TicketDAL = new Incident_TicketDAL();
-            ticketsPastdeadline = insident_TicketDAL.GetAllTicketsWithDeadline();
+            ticketsPastdeadline = logic_Layer.GetDeadlineTickets();
             foreach (Incident_Ticket item in ticketsPastdeadline)
             {
                 if (item.Deadline < DateTime.Now)

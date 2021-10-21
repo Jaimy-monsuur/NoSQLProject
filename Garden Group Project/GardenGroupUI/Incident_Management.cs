@@ -102,15 +102,34 @@ namespace GardenGroupUI
         protected void SortOnPriority()
         {
             List<Incident_Ticket> list;
+            List<Incident_Ticket> PrioLow = new List<Incident_Ticket>();
+            List<Incident_Ticket> PrioMed = new List<Incident_Ticket>();
+            List<Incident_Ticket> PrioHig = new List<Incident_Ticket>();
             if (checkBox1.Checked)
             {
                 list = logic_Layer.GetAllTicketsFiltered("Status", "Closed");
-
             }
             else
             {
                 list = logic_Layer.GetAllTicketsFiltered("Status", "Open");
             }
+
+            foreach (Incident_Ticket item in list)
+            {
+                switch (item.Incident_Priority)
+                {
+                    case Incident_Priority.Low:
+                        PrioLow.Add(item);
+                        break;
+                    case Incident_Priority.Medium:
+                        PrioMed.Add(item);
+                        break;
+                    case Incident_Priority.High:
+                        PrioHig.Add(item);
+                        break;
+                }
+            }
+
 
             foreach (Incident_Ticket item in list)
             {
@@ -311,6 +330,11 @@ namespace GardenGroupUI
         {
             SetListvieuw();// haalt nieuwe gegevens op
             GetLVData();
+        }
+
+        private void Btn_Sort_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
