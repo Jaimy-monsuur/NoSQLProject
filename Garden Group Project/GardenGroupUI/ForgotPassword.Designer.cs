@@ -65,31 +65,31 @@ namespace GardenGroupUI
             // 
             this.lblCode.AutoSize = true;
             this.lblCode.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCode.Location = new System.Drawing.Point(12, 25);
+            this.lblCode.Location = new System.Drawing.Point(6, 19);
             this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(227, 25);
+            this.lblCode.Size = new System.Drawing.Size(328, 25);
             this.lblCode.TabIndex = 18;
-            this.lblCode.Text = "De naar u gemailde code:";
+            this.lblCode.Text = "The code that has been mailed to you";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEmail.Location = new System.Drawing.Point(12, 19);
+            this.lblEmail.Location = new System.Drawing.Point(6, 19);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(310, 25);
+            this.lblEmail.Size = new System.Drawing.Size(305, 25);
             this.lblEmail.TabIndex = 17;
-            this.lblEmail.Text = "Emailadres gelinkt aan het account:";
+            this.lblEmail.Text = "Emailaddress linked to the account";
             // 
             // lblWachtwoordVergeten
             // 
             this.lblWachtwoordVergeten.AutoSize = true;
             this.lblWachtwoordVergeten.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWachtwoordVergeten.Location = new System.Drawing.Point(367, 147);
+            this.lblWachtwoordVergeten.Location = new System.Drawing.Point(421, 147);
             this.lblWachtwoordVergeten.Name = "lblWachtwoordVergeten";
-            this.lblWachtwoordVergeten.Size = new System.Drawing.Size(530, 65);
+            this.lblWachtwoordVergeten.Size = new System.Drawing.Size(406, 65);
             this.lblWachtwoordVergeten.TabIndex = 16;
-            this.lblWachtwoordVergeten.Text = "Wachtwoord vergeten";
+            this.lblWachtwoordVergeten.Text = "Forgot password";
             // 
             // LBLLicense
             // 
@@ -115,7 +115,7 @@ namespace GardenGroupUI
             // 
             this.txtCode.BackColor = System.Drawing.SystemColors.Window;
             this.txtCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtCode.Location = new System.Drawing.Point(12, 53);
+            this.txtCode.Location = new System.Drawing.Point(12, 47);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(314, 29);
             this.txtCode.TabIndex = 4;
@@ -127,7 +127,7 @@ namespace GardenGroupUI
             this.grbxEmail.Controls.Add(this.btnSendEmail);
             this.grbxEmail.Controls.Add(this.lblEmail);
             this.grbxEmail.Controls.Add(this.txtEmail);
-            this.grbxEmail.Location = new System.Drawing.Point(384, 233);
+            this.grbxEmail.Location = new System.Drawing.Point(376, 233);
             this.grbxEmail.Name = "grbxEmail";
             this.grbxEmail.Size = new System.Drawing.Size(513, 122);
             this.grbxEmail.TabIndex = 25;
@@ -141,28 +141,28 @@ namespace GardenGroupUI
             this.lblNonExistingEmail.ForeColor = System.Drawing.Color.Red;
             this.lblNonExistingEmail.Location = new System.Drawing.Point(12, 89);
             this.lblNonExistingEmail.Name = "lblNonExistingEmail";
-            this.lblNonExistingEmail.Size = new System.Drawing.Size(230, 15);
+            this.lblNonExistingEmail.Size = new System.Drawing.Size(265, 15);
             this.lblNonExistingEmail.TabIndex = 28;
-            this.lblNonExistingEmail.Text = "Dit emailadres staat niet in onze database";
+            this.lblNonExistingEmail.Text = "This emailaddress does not exsist in our database";
             this.lblNonExistingEmail.Visible = false;
             // 
             // btnBackToLogin
             // 
-            this.btnBackToLogin.Location = new System.Drawing.Point(258, 82);
+            this.btnBackToLogin.Location = new System.Drawing.Point(304, 82);
             this.btnBackToLogin.Name = "btnBackToLogin";
-            this.btnBackToLogin.Size = new System.Drawing.Size(68, 29);
+            this.btnBackToLogin.Size = new System.Drawing.Size(85, 29);
             this.btnBackToLogin.TabIndex = 2;
-            this.btnBackToLogin.Text = "Terug";
+            this.btnBackToLogin.Text = "Back to login";
             this.btnBackToLogin.UseVisualStyleBackColor = true;
             this.btnBackToLogin.Click += new System.EventHandler(this.btnBackToLogin_Click);
             // 
             // btnSendEmail
             // 
-            this.btnSendEmail.Location = new System.Drawing.Point(332, 82);
+            this.btnSendEmail.Location = new System.Drawing.Point(395, 82);
             this.btnSendEmail.Name = "btnSendEmail";
-            this.btnSendEmail.Size = new System.Drawing.Size(164, 29);
+            this.btnSendEmail.Size = new System.Drawing.Size(101, 29);
             this.btnSendEmail.TabIndex = 3;
-            this.btnSendEmail.Text = "Verstuur email";
+            this.btnSendEmail.Text = "Send email";
             this.btnSendEmail.UseVisualStyleBackColor = true;
             this.btnSendEmail.Click += new System.EventHandler(this.btnSendEmail_Click);
             // 
@@ -172,12 +172,12 @@ namespace GardenGroupUI
             this.grbxVerification.Controls.Add(this.btnTryCode);
             this.grbxVerification.Controls.Add(this.lblCode);
             this.grbxVerification.Controls.Add(this.txtCode);
-            this.grbxVerification.Location = new System.Drawing.Point(384, 361);
+            this.grbxVerification.Location = new System.Drawing.Point(376, 361);
             this.grbxVerification.Name = "grbxVerification";
             this.grbxVerification.Size = new System.Drawing.Size(513, 112);
             this.grbxVerification.TabIndex = 26;
             this.grbxVerification.TabStop = false;
-            this.grbxVerification.Text = "Verificatie";
+            this.grbxVerification.Text = "Verification";
             this.grbxVerification.Visible = false;
             // 
             // lblWrongCode
@@ -185,21 +185,20 @@ namespace GardenGroupUI
             this.lblWrongCode.AutoSize = true;
             this.lblWrongCode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.lblWrongCode.ForeColor = System.Drawing.Color.Red;
-            this.lblWrongCode.Location = new System.Drawing.Point(32, 86);
+            this.lblWrongCode.Location = new System.Drawing.Point(12, 80);
             this.lblWrongCode.Name = "lblWrongCode";
-            this.lblWrongCode.Size = new System.Drawing.Size(448, 15);
+            this.lblWrongCode.Size = new System.Drawing.Size(364, 15);
             this.lblWrongCode.TabIndex = 29;
-            this.lblWrongCode.Text = "U heeft 3 keer een verkeerde code ingevoerd, een nieuwe code is naar u toe gestuu" +
-    "rd";
+            this.lblWrongCode.Text = "The wrong code has been entered 3 times, a new code has been sent";
             this.lblWrongCode.Visible = false;
             // 
             // btnTryCode
             // 
-            this.btnTryCode.Location = new System.Drawing.Point(332, 53);
+            this.btnTryCode.Location = new System.Drawing.Point(332, 48);
             this.btnTryCode.Name = "btnTryCode";
             this.btnTryCode.Size = new System.Drawing.Size(164, 29);
             this.btnTryCode.TabIndex = 5;
-            this.btnTryCode.Text = "Probeer code";
+            this.btnTryCode.Text = "Try code";
             this.btnTryCode.Click += new System.EventHandler(this.btnTryCode_Click);
             // 
             // lblYourNewPassword
@@ -208,9 +207,9 @@ namespace GardenGroupUI
             this.lblYourNewPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblYourNewPassword.Location = new System.Drawing.Point(27, 19);
             this.lblYourNewPassword.Name = "lblYourNewPassword";
-            this.lblYourNewPassword.Size = new System.Drawing.Size(304, 25);
+            this.lblYourNewPassword.Size = new System.Drawing.Size(316, 25);
             this.lblYourNewPassword.TabIndex = 27;
-            this.lblYourNewPassword.Text = "Uw wachtwoord is veranderd naar:";
+            this.lblYourNewPassword.Text = "We have changed your password to:";
             // 
             // lblNewPassword
             // 
@@ -228,23 +227,22 @@ namespace GardenGroupUI
             this.grbxNewPW.Controls.Add(this.lblCopyPW);
             this.grbxNewPW.Controls.Add(this.lblNewPassword);
             this.grbxNewPW.Controls.Add(this.lblYourNewPassword);
-            this.grbxNewPW.Location = new System.Drawing.Point(384, 479);
+            this.grbxNewPW.Location = new System.Drawing.Point(376, 479);
             this.grbxNewPW.Name = "grbxNewPW";
-            this.grbxNewPW.Size = new System.Drawing.Size(513, 68);
+            this.grbxNewPW.Size = new System.Drawing.Size(513, 74);
             this.grbxNewPW.TabIndex = 29;
             this.grbxNewPW.TabStop = false;
-            this.grbxNewPW.Text = "Nieuw wachtwoord";
+            this.grbxNewPW.Text = "New password";
             this.grbxNewPW.Visible = false;
             // 
             // lblCopyPW
             // 
             this.lblCopyPW.AutoSize = true;
-            this.lblCopyPW.Location = new System.Drawing.Point(27, 44);
+            this.lblCopyPW.Location = new System.Drawing.Point(74, 44);
             this.lblCopyPW.Name = "lblCopyPW";
-            this.lblCopyPW.Size = new System.Drawing.Size(451, 15);
+            this.lblCopyPW.Size = new System.Drawing.Size(364, 15);
             this.lblCopyPW.TabIndex = 29;
-            this.lblCopyPW.Text = "Klik op uw wachtwoord om deze te kopieren en terug te keren naar het login scherm" +
-    "";
+            this.lblCopyPW.Text = "Click on your new password to copy it and return to the login menu";
             // 
             // frmForgotPassword
             // 
@@ -258,7 +256,7 @@ namespace GardenGroupUI
             this.Controls.Add(this.LBLnodesk);
             this.Controls.Add(this.lblWachtwoordVergeten);
             this.Name = "frmForgotPassword";
-            this.Text = "Wachtwoord Vergeten";
+            this.Text = "Forgot password";
             this.Load += new System.EventHandler(this.frmForgotPassword_Load);
             this.grbxEmail.ResumeLayout(false);
             this.grbxEmail.PerformLayout();

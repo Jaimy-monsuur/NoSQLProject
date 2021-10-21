@@ -25,10 +25,6 @@ namespace GardenGroupUI
         private void Incident_Management_Load(object sender, EventArgs e)
         {
             UserSettings();
-            //for the default text in textbox
-            this.TBXfilter.Enter += new EventHandler(TBXfilter_Enter);
-            this.TBXfilter.Leave += new EventHandler(TBXfilter_Leave);
-            TBXfilter_SetText();
             SetListvieuw();
             GetLVData();
             DataGridViewSetings();
@@ -99,20 +95,12 @@ namespace GardenGroupUI
                 LVTickets.Items.Add(li);
             }
         }
-        protected void SortOnPriority()
+        //**
+        //Extra funcionality Jelle
+        //**
+        protected void SortedinListview(List<Incident_Ticket> PrioLow)
         {
-            List<Incident_Ticket> list;
-            if (checkBox1.Checked)
-            {
-                list = logic_Layer.GetAllTicketsFiltered("Status", "Closed");
-
-            }
-            else
-            {
-                list = logic_Layer.GetAllTicketsFiltered("Status", "Open");
-            }
-
-            foreach (Incident_Ticket item in list)
+            foreach (Incident_Ticket item in PrioLow)
             {
                 string[] collumnItems = new string[7];
                 collumnItems[0] = item.id.ToString();
@@ -126,8 +114,54 @@ namespace GardenGroupUI
                 li.Tag = item;// zodat je het object terug kan vinden
                 LVTickets.Items.Add(li);
             }
-        }
 
+        }
+        protected void SortOnPriority()
+        {
+            List<Incident_Ticket> list;
+            List<Incident_Ticket> PrioLow = new List<Incident_Ticket>();
+            List<Incident_Ticket> PrioMed = new List<Incident_Ticket>();
+            List<Incident_Ticket> PrioHig = new List<Incident_Ticket>();
+            if (checkBox1.Checked)
+            {
+                list = logic_Layer.GetAllTicketsFiltered("Status", "Closed");
+            }
+            else
+            {
+                list = logic_Layer.GetAllTicketsFiltered("Status", "Open");
+            }
+
+            foreach (Incident_Ticket item in list)
+            {
+                switch (item.Incident_Priority)
+                {
+                    case Incident_Priority.Low:
+                        PrioLow.Add(item);
+                        break;
+                    case Incident_Priority.Medium:
+                        PrioMed.Add(item);
+                        break;
+                    case Incident_Priority.High:
+                        PrioHig.Add(item);
+                        break;
+                }
+            }
+            if (Rbtn_HightToLow.Checked == true)
+            {
+                SortedinListview(PrioHig);
+                SortedinListview(PrioMed);
+                SortedinListview(PrioLow);
+            }
+            else if (Rbtn_LowToHigh.Checked == true)
+            {
+                SortedinListview(PrioLow);
+                SortedinListview(PrioMed);
+                SortedinListview(PrioHig);
+            }
+        }
+        //**
+        //End Extra funcionality Jelle
+        //*
         //for the defoult text in a text box
         protected void TBXfilter_SetText()
         {
@@ -319,6 +353,23 @@ namespace GardenGroupUI
         {
             SetListvieuw();// haalt nieuwe gegevens op
             GetLVData();
+        }
+
+        private void Btn_Sort_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Rbtn_HightToLow_CheckedChanged(object sender, EventArgs e)
+        {
+            SetListvieuw();
+            SortOnPriority();
+        }
+
+        private void Rbtn_LowToHigh_CheckedChanged(object sender, EventArgs e)
+        {
+            SetListvieuw();
+            SortOnPriority();
         }
     }
 }

@@ -17,7 +17,14 @@ namespace Logic_Layer
         {
             return dal.GetAllTicketsFiltered(fieldname, value);
         }
-
+        public List<Incident_Ticket> GetOpenTickets()
+        {
+            return dal.GetAllTicketsWithStatusOpen();
+        }
+        public List<Incident_Ticket> GetDeadlineTickets()
+        {
+            return dal.GetAllTicketsWithDeadline();
+        }
         public List<Incident_Ticket> GetMaxId()
         {
             return dal.GetMaxId();
