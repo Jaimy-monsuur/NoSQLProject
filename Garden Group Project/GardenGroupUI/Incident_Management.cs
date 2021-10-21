@@ -25,10 +25,6 @@ namespace GardenGroupUI
         private void Incident_Management_Load(object sender, EventArgs e)
         {
             UserSettings();
-            //for the default text in textbox
-            this.TBXfilter.Enter += new EventHandler(TBXfilter_Enter);
-            this.TBXfilter.Leave += new EventHandler(TBXfilter_Leave);
-            TBXfilter_SetText();
             SetListvieuw();
             GetLVData();
             DataGridViewSetings();
@@ -250,6 +246,10 @@ namespace GardenGroupUI
                     TryUpdate();
                 }
             }
+            else
+            {
+                NoTicketSelected();
+            }
         }
         public void TryUpdate()
         {
@@ -264,7 +264,7 @@ namespace GardenGroupUI
             }
             catch (Exception)
             {
-                NoTicketSelected();
+                MessageBox.Show("Something went wrong. Try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het niet is gelukt
             }
         }
 
@@ -283,8 +283,12 @@ namespace GardenGroupUI
                 }
                 catch (Exception)
                 {
-                    NoTicketSelected();
+                    MessageBox.Show("Something went wrong. Try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);// laat de gebruiker weten dat het niet is gelukt
                 }
+            }
+            else
+            {
+                NoTicketSelected();
             }
         }
 

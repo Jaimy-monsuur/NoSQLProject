@@ -65,11 +65,11 @@ namespace GardenGroupUI
             // 
             this.txtLogin.AutoSize = true;
             this.txtLogin.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtLogin.Location = new System.Drawing.Point(425, 175);
+            this.txtLogin.Location = new System.Drawing.Point(430, 175);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(415, 65);
+            this.txtLogin.Size = new System.Drawing.Size(405, 65);
             this.txtLogin.TabIndex = 0;
-            this.txtLogin.Text = "Login bij NoDesk";
+            this.txtLogin.Text = "Login to NoDesk";
             // 
             // lblemail
             // 
@@ -87,9 +87,9 @@ namespace GardenGroupUI
             this.lblLoginWachtwoord.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLoginWachtwoord.Location = new System.Drawing.Point(382, 359);
             this.lblLoginWachtwoord.Name = "lblLoginWachtwoord";
-            this.lblLoginWachtwoord.Size = new System.Drawing.Size(119, 25);
+            this.lblLoginWachtwoord.Size = new System.Drawing.Size(91, 25);
             this.lblLoginWachtwoord.TabIndex = 3;
-            this.lblLoginWachtwoord.Text = "Wachtwoord";
+            this.lblLoginWachtwoord.Text = "Password";
             // 
             // txtEmail
             // 
@@ -124,12 +124,12 @@ namespace GardenGroupUI
             // 
             this.lnklblForgotPassWord.AutoSize = true;
             this.lnklblForgotPassWord.LinkColor = System.Drawing.Color.Blue;
-            this.lnklblForgotPassWord.Location = new System.Drawing.Point(568, 511);
+            this.lnklblForgotPassWord.Location = new System.Drawing.Point(582, 511);
             this.lnklblForgotPassWord.Name = "lnklblForgotPassWord";
-            this.lnklblForgotPassWord.Size = new System.Drawing.Size(129, 15);
+            this.lnklblForgotPassWord.Size = new System.Drawing.Size(100, 15);
             this.lnklblForgotPassWord.TabIndex = 7;
             this.lnklblForgotPassWord.TabStop = true;
-            this.lnklblForgotPassWord.Text = "Wachtwoord vergeten?";
+            this.lnklblForgotPassWord.Text = "Forgot password?";
             this.lnklblForgotPassWord.VisitedLinkColor = System.Drawing.Color.Blue;
             this.lnklblForgotPassWord.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblForgotPassWord_LinkClicked);
             // 
@@ -138,11 +138,11 @@ namespace GardenGroupUI
             this.lblWrongPW.AutoSize = true;
             this.lblWrongPW.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.lblWrongPW.ForeColor = System.Drawing.Color.Red;
-            this.lblWrongPW.Location = new System.Drawing.Point(407, 432);
+            this.lblWrongPW.Location = new System.Drawing.Point(471, 432);
             this.lblWrongPW.Name = "lblWrongPW";
-            this.lblWrongPW.Size = new System.Drawing.Size(450, 15);
+            this.lblWrongPW.Size = new System.Drawing.Size(322, 15);
             this.lblWrongPW.TabIndex = 5;
-            this.lblWrongPW.Text = "De door u opgegeven combinatie van gebruikersnaam en/of wachtwoord is ongeldig";
+            this.lblWrongPW.Text = "The combination of emailaddress and/or password is invalid";
             this.lblWrongPW.Visible = false;
             // 
             // frmLogin
@@ -163,7 +163,7 @@ namespace GardenGroupUI
             this.Controls.Add(this.LBLLicense);
             this.Controls.Add(this.LBLnodesk);
             this.Name = "frmLogin";
-            this.Text = "Garden Group Login";
+            this.Text = "NoDesk Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -42,7 +42,6 @@ namespace GardenGroupUI
             this.incidentManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LblTicket = new System.Windows.Forms.Label();
-            this.TBXfilter = new System.Windows.Forms.TextBox();
             this.BTNaddTicket = new System.Windows.Forms.Button();
             this.LVTickets = new System.Windows.Forms.ListView();
             this.Id = new System.Windows.Forms.ColumnHeader();
@@ -121,10 +120,12 @@ namespace GardenGroupUI
             // PBOX
             // 
             this.PBOX.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PBOX.Image = global::GardenGroupUI.Properties.Resources.GardenGourp;
             this.PBOX.Location = new System.Drawing.Point(10, 9);
             this.PBOX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PBOX.Name = "PBOX";
             this.PBOX.Size = new System.Drawing.Size(162, 72);
+            this.PBOX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PBOX.TabIndex = 0;
             this.PBOX.TabStop = false;
             // 
@@ -179,17 +180,6 @@ namespace GardenGroupUI
             this.LblTicket.Size = new System.Drawing.Size(202, 32);
             this.LblTicket.TabIndex = 2;
             this.LblTicket.Text = "Overview tickets";
-            // 
-            // TBXfilter
-            // 
-            this.TBXfilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBXfilter.Location = new System.Drawing.Point(41, 164);
-            this.TBXfilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TBXfilter.Name = "TBXfilter";
-            this.TBXfilter.Size = new System.Drawing.Size(286, 23);
-            this.TBXfilter.TabIndex = 3;
-            this.TBXfilter.TabStop = false;
             // 
             // BTNaddTicket
             // 
@@ -403,7 +393,6 @@ namespace GardenGroupUI
             this.Controls.Add(this.DGV_Selected);
             this.Controls.Add(this.LVTickets);
             this.Controls.Add(this.BTNaddTicket);
-            this.Controls.Add(this.TBXfilter);
             this.Controls.Add(this.LblTicket);
             this.Controls.Add(this.PNLmain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -435,7 +424,6 @@ namespace GardenGroupUI
         private System.Windows.Forms.Label LBLLicense;
         private System.Windows.Forms.Label LBLnodesk;
         private System.Windows.Forms.Label LblTicket;
-        private System.Windows.Forms.TextBox TBXfilter;
         private System.Windows.Forms.Button BTNaddTicket;
         private System.Windows.Forms.ListView LVTickets;
         private System.Windows.Forms.ColumnHeader Id;

@@ -38,7 +38,7 @@ namespace GardenGroupUI
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.Id = new System.Windows.Forms.ColumnHeader();
             this.Subject = new System.Windows.Forms.ColumnHeader();
-            this.LVTickets = new System.Windows.Forms.ListView();
+            this.LVUsers = new System.Windows.Forms.ListView();
             this.PNLmain = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -139,18 +139,18 @@ namespace GardenGroupUI
             // 
             this.Id.Width = 40;
             // 
-            // LVTickets
+            // LVUsers
             // 
-            this.LVTickets.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.LVUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Id,
             this.Subject});
-            this.LVTickets.HideSelection = false;
-            this.LVTickets.Location = new System.Drawing.Point(41, 228);
-            this.LVTickets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.LVTickets.Name = "LVTickets";
-            this.LVTickets.Size = new System.Drawing.Size(1179, 409);
-            this.LVTickets.TabIndex = 10;
-            this.LVTickets.UseCompatibleStateImageBehavior = false;
+            this.LVUsers.HideSelection = false;
+            this.LVUsers.Location = new System.Drawing.Point(41, 228);
+            this.LVUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LVUsers.Name = "LVUsers";
+            this.LVUsers.Size = new System.Drawing.Size(1179, 409);
+            this.LVUsers.TabIndex = 10;
+            this.LVUsers.UseCompatibleStateImageBehavior = false;
             // 
             // PNLmain
             // 
@@ -301,7 +301,7 @@ namespace GardenGroupUI
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.BTN_Update);
             this.Controls.Add(this.PNLmain);
-            this.Controls.Add(this.LVTickets);
+            this.Controls.Add(this.LVUsers);
             this.Controls.Add(this.BTNAddUser);
             this.Controls.Add(this.LblTicket);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -332,7 +332,7 @@ namespace GardenGroupUI
         private System.Windows.Forms.MenuStrip Menu;
         private System.Windows.Forms.ColumnHeader Id;
         private System.Windows.Forms.ColumnHeader Subject;
-        private System.Windows.Forms.ListView LVTickets;
+        private System.Windows.Forms.ListView LVUsers;
         private System.Windows.Forms.Panel PNLmain;
         private System.Windows.Forms.Button Btn_logOut;
         private System.Windows.Forms.Label LBLnodesk;
