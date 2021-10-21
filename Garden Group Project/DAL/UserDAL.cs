@@ -12,7 +12,7 @@ namespace DAL
 {
     public class UserDAL : Base
     {
-        private string CollectionName()
+        private string CollectionName() // geeft de collection name door voor verbinding met de database
         {
             return "Users";
         }
@@ -52,7 +52,7 @@ namespace DAL
                     userId = (int)bson["User_Id"],
                     firstName = (string)bson["First_Name"],
                     lastName = (string)bson["Last_Name"],
-                    userType = (User_Type)Enum.Parse(typeof(User_Type), (string)bson["User_Type"], true),
+                    userType = (User_Type)Enum.Parse(typeof(User_Type), (string)bson["User_Type"], true), // zet de string in de database om naar de User_Type enum
                     emailAddress = (string)bson["Email_Address"],
                     phoneNumber = (string)bson["Phone_Number"],
                     location = (string)bson["Location"],

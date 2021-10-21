@@ -29,7 +29,7 @@ namespace GardenGroupUI
             ControlPaint.DrawBorder(e.Graphics, Menu.ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
         }
 
-        protected void SetListview()
+        protected void SetListview() // maakt lijnen aan in de listview, dus maakt de listview klaar om data toe te voegen
         {
             // Maak grid
             LVUsers.Clear();
@@ -50,8 +50,8 @@ namespace GardenGroupUI
 
         protected void GetLVData()
         {
-            List<User> list = userLogic.GetAllUsers();
-            foreach (User user in list)
+            List<User> list = userLogic.GetAllUsers(); // haalt de lijst met alle users op uit de db
+            foreach (User user in list) 
             {
                 string[] collumnItems = new string[8];
                 collumnItems[0] = user.objectId.ToString();
@@ -81,7 +81,7 @@ namespace GardenGroupUI
 
         private void BTNAddUser_Click_1(object sender, EventArgs e)
         {
-            Create_User createUser = new Create_User();
+            Create_User createUser = new Create_User(); // opent add user scherm
             this.Hide();
             createUser.ShowDialog();
             SetListview();
@@ -92,20 +92,20 @@ namespace GardenGroupUI
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Dashboard dashboard = new Dashboard();
-            dashboard.Show(); // show of show dialog?????
+            dashboard.Show();
             this.Close();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             Incident_Management incident_Management = new Incident_Management();
-            incident_Management.Show(); // show of show dialog?????
+            incident_Management.Show();
             this.Close();
         }
 
-        private void BTN_Update_Click(object sender, EventArgs e)
+        private void BTN_Update_Click(object sender, EventArgs e)  // update de listview
         {
-            SetListview();
+            SetListview(); 
             GetLVData();
         }
 

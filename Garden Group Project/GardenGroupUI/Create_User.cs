@@ -33,17 +33,17 @@ namespace GardenGroupUI
         {
             try
             {
-                if (TXB_FirstName.Text != "" && TXB_LastName.Text != "" && CB_UserType.Text != "" && TXB_EmailAdress.Text != "" && TXB_PhoneNumber.Text!= "" && TXB_Location.Text != "" && TXB_Password.Text != "")
+                if (TXB_FirstName.Text != "" && TXB_LastName.Text != "" && CB_UserType.Text != "" && TXB_EmailAdress.Text != "" && TXB_PhoneNumber.Text!= "" && TXB_Location.Text != "" && TXB_Password.Text != "") // kijkt of 1 van de velden leeg is
                 {
                     if (!TXB_EmailAdress.Text.Contains("@"))
                     {
-                        LBL_ErrorEmail.Text = "Email has to contain '@'!";
+                        LBL_ErrorEmail.Text = "Email has to contain '@'!"; // geeft error als er geen @ in email veld staat
                     }
                     else
                     {
                         if (TXB_PhoneNumber.Text.Length > 10)
                         {
-                            LBL_ErrorPhoneNumber.Text = "Phone number too long (above 10 numbers)";
+                            LBL_ErrorPhoneNumber.Text = "Phone number too long (above 10 numbers)"; // geeft aan als telefoon nummer in veld te lang is
                         }
                         else
                         {
@@ -57,23 +57,23 @@ namespace GardenGroupUI
                             u.emailAddress = TXB_EmailAdress.Text;
                             u.phoneNumber = TXB_PhoneNumber.Text;
 
-                            logic.AddUser(u);
+                            logic.AddUser(u); // alle data is uit de vakjes gehaald en wordt toegevoegd aan de db
                             this.Close();
                         }
                     }
                 }
                 else
                 {
-                    LBL_Error.Text = "Fill in all fields";
+                    LBL_Error.Text = "Fill in all fields"; // geeft error als niet alles is toegevoegd
                 }
             }
             catch (Exception)
             {
-                LBL_Error.Text = "An unexpected error has occurred";
+                LBL_Error.Text = "An unexpected error has occurred"; // mocht er echt iets ergs fout gaan crasht het niet maar geeft het deze error
             }
         }
 
-        public void ComboBoxSetting()
+        public void ComboBoxSetting() // vult combobox met de user types
         {
             foreach (var item in User_Type.GetValues(typeof(User_Type)))
             {
@@ -92,16 +92,15 @@ namespace GardenGroupUI
             this.Close();
         }
 
-        private void TXB_PhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void TXB_PhoneNumber_KeyPress(object sender, KeyPressEventArgs e) // zorgt ervoor dat in het telefoon nummer veld alleen nummers ingevoerd kunnen worden
         {
-            // allows digits only
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
 
-        private void CBX_DisplayPassword_CheckedChanged(object sender, EventArgs e)
+        private void CBX_DisplayPassword_CheckedChanged(object sender, EventArgs e) // standaard is het wachtwoord niet te zien, dit is de optie om het wachtwoord te tonen
         {
             if (CBX_DisplayPassword.Checked)
             {

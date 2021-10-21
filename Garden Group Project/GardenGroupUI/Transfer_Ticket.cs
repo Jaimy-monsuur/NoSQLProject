@@ -41,7 +41,7 @@ namespace GardenGroupUI
             LV_SelectedTicket.Columns.Add("Priority:", 70);
             LV_SelectedTicket.Columns.Add("Status:", 70);
 
-            string[] collumnItems = new string[6];
+            string[] collumnItems = new string[6]; // zet de geselecteerde ticket in de listview
             collumnItems[0] = selectedTicket.id.ToString();
             collumnItems[1] = selectedTicket.subjectOfIncident;
             collumnItems[2] = selectedTicket.reportDate.ToShortDateString();
@@ -59,7 +59,7 @@ namespace GardenGroupUI
 
         public void ComboBoxSetting()
         {
-            List<User> users = userLogic.GetAllUsers();
+            List<User> users = userLogic.GetAllUsers(); // zet alle users behalve de user waarvan de ticket is in de combobox
             foreach (User user in users)
             {
                 if (user.emailAddress != selectedTicket.ReportedBy)
@@ -85,7 +85,7 @@ namespace GardenGroupUI
             if (CB_TransferTo.Text != "")
             {
                 selectedTicket.ReportedBy = CB_TransferTo.Text;
-                MessageBox.Show("Ticket succesfully transfered", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ticket succesfully transfered", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information); // geeft confirmation als het getransfered is
                 string updateField = "Reported_By";
                 string updateValue = $"{selectedTicket.ReportedBy}";
                 incidentLogic.Update(selectedTicket, updateField, updateValue);
@@ -93,7 +93,7 @@ namespace GardenGroupUI
             }
             else
             {
-                MessageBox.Show("No user selected, select a user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No user selected, select a user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); // geeft error popup als het mislukt is
             }          
         }
     }
